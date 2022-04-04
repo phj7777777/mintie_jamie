@@ -147,59 +147,60 @@ import { PostFourComponent } from './components/blog-post/post-four/post-four.co
 		LazyLoadImageModule,
 	],
 
-	exports: [
-		// header
-		HeaderComponent,
+  exports: [
+    // header
+    HeaderComponent,
 
-		// mobile-menus
-		MobileMenuComponent,
+    // mobile-menus
+    MobileMenuComponent,
 
-		// footer
-		FooterComponent,
+    // footer
+    FooterComponent,
 
-		// products
-		ProductOneComponent,
-		ProductTwoComponent,
-		ProductThreeComponent,
-		ProductFourComponent,
-		ProductFiveComponent,
-		ProductSixComponent,
-		ProductSevenComponent,
-		ProductEightComponent,
-		ProductNineComponent,
-		ProductTenComponent,
-		ProductElevenComponent,
-		ProductTwelveComponent,
+    // products
+    ProductOneComponent,
+    ProductTwoComponent,
+    ProductThreeComponent,
+    ProductFourComponent,
+    ProductFiveComponent,
+    ProductSixComponent,
+    ProductSevenComponent,
+    ProductEightComponent,
+    ProductNineComponent,
+    ProductTenComponent,
+    ProductElevenComponent,
+    ProductTwelveComponent,
 
-		// // single-use components
-		BreadcrumbComponent,
-		PageHeaderComponent,
-		CountDownComponent,
-		CountToComponent,
-		AccordionComponent,
-		CardComponent,
-		PaginationComponent,
-		QuantityInputComponent,
-		IsotopeGridComponent,
-		ImageComponent,
+    // // single-use components
+    BreadcrumbComponent,
+    PageHeaderComponent,
+    CountDownComponent,
+    CountToComponent,
+    AccordionComponent,
+    CardComponent,
+    PaginationComponent,
+    QuantityInputComponent,
+    IsotopeGridComponent,
+    ImageComponent,
 
-		// directives
-		BgParallaxDirective,
-		TabClickDirective,
-		ProductHoverDirective,
-		ContentAnimDirective,
+    // directives
+    BgParallaxDirective,
+    TabClickDirective,
+    ProductHoverDirective,
+    ContentAnimDirective,
 
-		// pipes
-		CatFilterPipe,
-		AttrFilterPipe,
-		SafeContentPipe,
+    // pipes
+    CatFilterPipe,
+    AttrFilterPipe,
+    SafeContentPipe,
 
-		// // blog-post
-		PostOneComponent,
-		PostTwoComponent,
-		PostThreeComponent,
-		PostFourComponent,
-	],
+    // // blog-post
+    PostOneComponent,
+    PostTwoComponent,
+    PostThreeComponent,
+    PostFourComponent,
+    LoginModalComponent,
+  ],
 
 	entryComponents: [
 		VideoModalComponent,
