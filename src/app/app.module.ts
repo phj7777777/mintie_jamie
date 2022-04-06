@@ -14,7 +14,6 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { initializeApp } from 'firebase/app';
-import { HomeComponent } from './home/home.component';
 import { FirebaseService } from './services/firebase.service';
 
 
@@ -42,7 +41,6 @@ import { LayoutComponent } from './shared/layout/layout.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent, //double check again
     LayoutComponent,
   ],
   imports: [
