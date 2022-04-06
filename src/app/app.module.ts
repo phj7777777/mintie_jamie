@@ -7,6 +7,17 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import { OwlModule } from 'angular-owl-carousel';
 
+// Auth
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from "@angular/fire/compat/auth";
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { initializeApp } from 'firebase/app';
+import { HomeComponent } from './home/home.component';
+import { FirebaseService } from './services/firebase.service';
+
+
 // NGRX
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -31,11 +42,21 @@ import { LayoutComponent } from './shared/layout/layout.component';
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent, //double check again
     LayoutComponent,
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
+    AngularFireModule.initializeApp( {
+      apiKey: "AIzaSyCDjvfxZwbOMjMv2dysbQEsm-Z2VYVfjH8",
+      authDomain: "mintiejamie-f0fe3.firebaseapp.com",
+      projectId: "mintiejamie-f0fe3",
+      storageBucket: "mintiejamie-f0fe3.appspot.com",
+      messagingSenderId: "108262154428",
+      appId: "1:108262154428:web:fa94295565045550d730b9",
+      measurementId: "G-RJBSR946WW"
+    }),
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
@@ -59,7 +80,7 @@ import { LayoutComponent } from './shared/layout/layout.component';
     StoreDevtoolsModule.instrument(),
   ],
 
-  providers: [],
+  providers: [FirebaseService],
   bootstrap: [AppComponent]
 })
 

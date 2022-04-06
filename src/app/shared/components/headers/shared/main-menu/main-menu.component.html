@@ -495,9 +495,7 @@
                         </li>
                     </ul>
                 </li>
-                <li [class.active]="current.includes('pages/login')">
-                    <a routerLink="/pages/login">Login</a>
-                </li>
+                
                 <li [class.active]="current.includes('pages/faq')">
                     <a routerLink="/pages/faq">FAQs</a>
                 </li>
@@ -624,6 +622,11 @@
                     <a routerLink="/elements/icon-boxes">Icon Boxes</a>
                 </li>
             </ul>
+        </li>
+
+        <li [class.active]="current.includes('login')">
+            <a routerLink="/pages/login">Login</a>
+            
         </li>
     </ul>
 </nav>

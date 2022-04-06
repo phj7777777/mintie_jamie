@@ -225,4 +225,14 @@ export class IndexComponent implements OnInit {
 		}
 		this.isotope.isReset = true;
 	}
+
+	@Output() isLogout = new EventEmitter<void>()
+  constructor(public firebaseSerive : FirebaseService) { }
+
+  ngOnInit(): void {
+  }
+  logout() {
+    this.firebaseSerive.logout()
+    this.isLogout.emit()
+  }
 }
