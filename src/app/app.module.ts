@@ -27,6 +27,8 @@ import { cartReducer } from './core/reducers/cart.reducer';
 
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './shared/layout/layout.component';
+import { NgxStripeModule } from 'ngx-stripe';
+import {environment} from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,7 @@ import { LayoutComponent } from './shared/layout/layout.component';
   ],
   imports: [
     BrowserModule,
+    NgxStripeModule.forRoot(environment.STRIPE_PUBLIC_KEY),
     ReactiveFormsModule,
     AppRoutingModule,
     NgbModule,

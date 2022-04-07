@@ -2,6 +2,9 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 
 import { CartService } from 'src/app/shared/services/cart.service';
+import {switchMap} from 'rxjs/operators';
+import {StripeService} from 'ngx-stripe';
+import {HttpClient} from '@angular/common/http';
 
 declare var $: any;
 
@@ -17,7 +20,9 @@ export class CheckoutComponent implements OnInit, OnDestroy {
 
 	private subscr: Subscription;
 
-	constructor(public cartService: CartService) {
+	constructor(public cartService: CartService,private http: HttpClient,
+              private stripeService: StripeService) {
+
 	}
 
 	ngOnInit(): void {
@@ -65,4 +70,22 @@ export class CheckoutComponent implements OnInit, OnDestroy {
 		event.preventDefault();
 		event.stopPropagation();
 	}
+
+	checkout(){
+    // Check the server.js tab to see an example implementation
+    this.http.post('/create-checkout-session', {})
+      .pipe(
+        switchMap(session => {
+          return this.stripeService.redirectToCheckout({ sessionId: session['id'] })
+        })
+      )
+      .subscribe(result => {
+        // If `redirectToCheckout` fails due to a browser or network
+        // error, you should display the localized error message to your
+        // customer using `error.message`.
+        if (result.error) {
+          alert(result.error.message);
+        }
+      });
+  }
 }
