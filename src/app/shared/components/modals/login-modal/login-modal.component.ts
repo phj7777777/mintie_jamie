@@ -2,6 +2,7 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 // import { FirebaseService } from './services/firebase.service';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Injectable } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Injectable({
 	providedIn: 'root'
@@ -52,18 +53,25 @@ export class LoginModalComponent implements OnInit {
       this.isSignedIn = true
     else
       this.isSignedIn = false
+    console.log(this.isSignedIn)
   }
 
   async onSignup(email:string, password:string) {
     await this.firebaseService.signup(email,password)
     if (this.firebaseService.isLoggedIn)
       this.isSignedIn = true
+      console.log("helloWorld")
   }
+  
 
   async onSignin(email:string, password:string) {
     await this.firebaseService.signin(email,password)
     if (this.firebaseService.isLoggedIn)
       this.isSignedIn = true
+      // navigate to homepage
+      // missing auth guard (another page)
+      // boolean not safe
+
   }
 
   handleLogout() {
@@ -85,3 +93,10 @@ export class LoginModalComponent implements OnInit {
   }
 }
 
+export class FormReactiveComponent {
+  title = "email-validation";
+  userEmails = new FormGroup({
+    emailRegistration: new FormControl('', Validators.required)
+
+  })
+}

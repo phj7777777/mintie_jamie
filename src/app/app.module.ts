@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OwlModule } from 'angular-owl-carousel';
 
 // Auth
@@ -45,6 +45,7 @@ import { LayoutComponent } from './shared/layout/layout.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp( {
       apiKey: "AIzaSyCDjvfxZwbOMjMv2dysbQEsm-Z2VYVfjH8",
