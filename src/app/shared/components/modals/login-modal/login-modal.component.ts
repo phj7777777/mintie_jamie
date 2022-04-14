@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { FirebaseService } from  'src/app/shared/services/firebase.service'
+import { FormGroup, FormControl, ReactiveFormsModule, Validators, FormsModule } from '@angular/forms';
+import { Injectable } from '@angular/core';
+
+@Injectable({
+    providedIn: 'root'
+})
 
 @Component({
 	selector: 'molla-login-modal',
@@ -8,9 +15,17 @@ import { Component, OnInit } from '@angular/core';
 
 export class LoginModalComponent implements OnInit {
 
-	constructor() { }
+	userForm = new FormGroup({
+		email: new FormControl(),
+		password: new FormControl()
+	});
 
-	ngOnInit(): void {
+	constructor(private FirebaseService: FirebaseService) { }
+
+	ngOnInit(): void {}
+
+	register () {
+		this.FirebaseService.handleRegister(this.userForm.get('email').value, this.userForm.get('password').value)
 	}
 
 	closeModal() {
@@ -18,4 +33,5 @@ export class LoginModalComponent implements OnInit {
 		if (modal)
 			modal.click();
 	}
+
 }

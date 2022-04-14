@@ -9,7 +9,7 @@
                 <li ngbNavItem>
                     <a ngbNavLink>Sign In</a>
                     <ng-template ngbNavContent>
-                        <form action="#">
+                        <form>
                             <div class="form-group">
                                 <label for="singin-email">Username or email address *</label>
                                 <input type="text" class="form-control" id="singin-email" name="singin-email" required>
@@ -35,7 +35,7 @@
                                 <a href="javascript:;" class="forgot-link">Forgot Your Password?</a>
                             </div>
                         </form>
-                        <div class="form-choice">
+                        <!-- <div class="form-choice">
                             <p class="text-center">or sign in with</p>
                             <div class="row">
                                 <div class="col-sm-6">
@@ -51,23 +51,23 @@
                                     </a>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </ng-template>
                 </li>
                 <li ngbNavItem>
                     <a ngbNavLink>Register</a>
                     <ng-template ngbNavContent>
-                        <form action="#">
+                        <form [formGroup]="userForm" (ngSubmit)="register()"> 
                             <div class="form-group">
-                                <label for="register-email">Your email address *</label>
-                                <input type="email" class="form-control" id="register-email" name="register-email"
+                                <label for="registerEmail">Your email address *</label>
+                                <input type="email" formControlName="email" ngModel class="form-control" id="registerEmail" name="registerEmail"
                                     required>
                             </div>
 
                             <div class="form-group">
-                                <label for="register-password">Password *</label>
-                                <input type="password" class="form-control" id="register-password"
-                                    name="register-password" required>
+                                <label for="registerPassword">Password *</label>
+                                <input type="password" formControlName="password" ngModel class="form-control" id="registerPassword"
+                                    name="registerPassword" required>
                             </div>
 
                             <div class="form-footer">
@@ -83,7 +83,7 @@
                                 </div>
                             </div>
                         </form>
-                        <div class="form-choice">
+                        <!-- <div class="form-choice">
                             <p class="text-center">or sign in with</p>
                             <div class="row">
                                 <div class="col-sm-6">
@@ -99,7 +99,7 @@
                                     </a>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </ng-template>
                 </li>
             </ul>
