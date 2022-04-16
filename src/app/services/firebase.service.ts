@@ -6,27 +6,26 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 })
 
 export class FirebaseService {
+  constructor( public firebaseAuth : AngularFireAuth) {	}
 
-  isLoggedIn = false
-  constructor(public firebaseAuth : AngularFireAuth) { }
-  async signin (email: string, password: string) {
-      await this.firebaseAuth.signInWithEmailAndPassword(email,password)
-      .then(res=>{
-        this.isLoggedIn = true
-        localStorage.setItem('user', JSON.stringify(res.user))
+  // Auth Logic starts here
+  handleRegister(email, password) {
+    this.firebaseAuth.createUserWithEmailAndPassword(email, password)
+      .then((response: any)=> {
+        console.log(response.user)
+      })
+      .catch((err) => {
+        alert(err.message);
       })
   }
 
-  async signup (email: string, password: string) {
-      await this.firebaseAuth.createUserWithEmailAndPassword(email,password)
-      .then(res=>{
-        this.isLoggedIn = true
-        localStorage.setItem('user', JSON.stringify(res.user))
+  handleLogin(value:any) {
+    this.firebaseAuth.signInWithEmailAndPassword(value.email, value.password)
+      .then((response: any)=> {
+        console.log(response.user)
       })
-  }
-
-  logout(){
-    this.firebaseAuth.signOut()
-    localStorage.removeItem('user')
+      .catch((err) => {
+        alert(err.message);
+      })
   }
 }
