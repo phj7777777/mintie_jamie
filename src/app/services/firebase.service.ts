@@ -1,5 +1,11 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import {
+  addDoc,
+  Firestore
+} from '@angular/fire/firestore';
+
+import { collection } from 'firebase/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -19,13 +25,29 @@ export class FirebaseService {
       })
   }
 
-  handleLogin(value:any) {
-    this.firebaseAuth.signInWithEmailAndPassword(value.email, value.password)
+  handleLogin(email, password) {
+    this.firebaseAuth.signInWithEmailAndPassword(email, password)
       .then((response: any)=> {
         console.log(response.user)
       })
       .catch((err) => {
         alert(err.message);
+      })
+  }
+
+}
+
+export class FirestoreData {
+  constructor ( public firestore: Firestore ) { }
+
+  addData(value: any) {
+    const dbInstance = collection(this.firestore, 'users');
+    addDoc(dbInstance, value)
+      .then( () => {
+        alert('Data sent')
+      })
+      .catch( (err) => {
+        alert(err.message)
       })
   }
 }
