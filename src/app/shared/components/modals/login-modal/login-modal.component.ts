@@ -2,7 +2,6 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { Injectable } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { FirebaseService } from '../../../../services/firebase.service';
-import { FirestoreData } from '../../../../services/firebase.service';
 
 @Injectable({
 	providedIn: 'root'
@@ -33,7 +32,7 @@ export class LoginModalComponent implements OnInit {
 
   register () {
     this.firebaseService.handleRegister(this.form.get('email').value, this.form.get('password').value)
-    // this.firestoreData.addData(this.form.get('email').value, this.form.get('password').value)
+    this.firebaseService.addData({ email: 'email', password: 'password'})
   }
 
   login () {

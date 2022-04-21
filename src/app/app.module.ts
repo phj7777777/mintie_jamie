@@ -77,6 +77,7 @@ import { LayoutComponent } from './shared/layout/layout.component';
     EffectsModule.forRoot([]),
     StoreRouterConnectingModule.forRoot({ stateKey: 'router' }),
     StoreDevtoolsModule.instrument(),
+    AngularFirestoreModule,
   ],
 
   providers: [FirebaseService],

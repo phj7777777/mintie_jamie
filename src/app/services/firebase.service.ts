@@ -2,17 +2,22 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import {
   addDoc,
-  Firestore
+  Firestore,
+  collection,
+  getDocs,
+  doc
 } from '@angular/fire/firestore';
+import { setDoc } from 'firebase/firestore';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
-import { collection } from 'firebase/firestore';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class FirebaseService {
-  constructor( public firebaseAuth : AngularFireAuth) {	}
+  constructor( public firebaseAuth: AngularFireAuth, private firestore: AngularFirestore) {	}
 
   // Auth Logic starts here
   handleRegister(email, password) {
@@ -35,19 +40,30 @@ export class FirebaseService {
       })
   }
 
-}
+  // addData() {
+  //   const docRef = await addDoc(collection(db, "users")), {
+  //     email: "email",
+  //     password: "password"
+  //   }
+  // }
 
-export class FirestoreData {
-  constructor ( public firestore: Firestore ) { }
-
-  addData(value: any) {
-    const dbInstance = collection(this.firestore, 'users');
-    addDoc(dbInstance, value)
-      .then( () => {
-        alert('Data sent')
-      })
-      .catch( (err) => {
-        alert(err.message)
-      })
+  addData(value:any) {
+    this.firestore.collection('users').add(value)
+     .then(() => {
+          alert('Data Sent')
+        })
+        .catch((err) => {
+          alert(err.message)
+        })
+      console.log("hi")
+    // addDoc(dbInstance,value)
+    //   .then(() => {
+    //     alert('Data Sent')
+    //   })
+    //   .catch((err) => {
+    //     alert(err.message)
+    //   })
   }
+
+
 }
