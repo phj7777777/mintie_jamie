@@ -32,14 +32,20 @@ export class LoginModalComponent implements OnInit {
 
   register () {
     this.firebaseService.handleRegister(this.form.get('email').value, this.form.get('password').value)
-    this.firebaseService.addData({ email: 'email', password: 'password'})
+    this.firebaseService.addData({ email: this.form.get('email').value, password: this.form.get('password').value})
   }
 
-  login () {
+  login() {
     this.firebaseService.handleLogin(this.form.get('email').value, this.form.get('password').value)
     // console.log(this.form.get('email').value)
     // console.log(this.form.get('password').value)
     
+  }
+
+  resetPassword() {
+    console.log("Hi")
+    this.firebaseService.resetPassword(this.form.get('email').value)
+    console.log(this.form.get('email').value)
   }
 
   closeModal() {

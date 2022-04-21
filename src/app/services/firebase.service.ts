@@ -40,6 +40,13 @@ export class FirebaseService {
       })
   }
 
+  resetPassword(email) {
+    this.firebaseAuth.sendPasswordResetEmail(email)
+      .then(() => {
+        alert('Data Sent')
+      })
+  }
+
   // addData() {
   //   const docRef = await addDoc(collection(db, "users")), {
   //     email: "email",
