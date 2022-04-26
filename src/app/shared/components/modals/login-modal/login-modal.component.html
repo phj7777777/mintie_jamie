@@ -5,6 +5,7 @@
 
   <div class="form-box">
     <div class="form-tab nav-fill">
+      <nav>
       <ul ngbNav #nav="ngbNav" class="justify-content-center nav nav-pills">
         <li ngbNavItem>
           <a ngbNavLink>Sign In</a>
@@ -31,10 +32,9 @@
                   <input type="checkbox" class="custom-control-input" id="signin-remember">
                   <label class="custom-control-label" for="signin-remember">Remember Me</label>
                 </div>
-
-                <button (click)="resetPassword()" class="forgot-link">Forgot Your Password?</button>
               </div>
             </form>
+            <a class="forgot-link" routerLink='forgetPassword'>Forgot Your Password?</a>
             <!-- <div class="form-choice">
                 <p class="text-center">or sign in with</p>
                 <div class="row">
@@ -103,7 +103,12 @@
           </ng-template>
         </li>
       </ul>
+      
       <div [ngbNavOutlet]="nav"></div>
+    </nav>
+    <!-- <router-outlet></router-outlet> -->
     </div>
+      
+
   </div>
 </div>

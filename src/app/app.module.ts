@@ -8,6 +8,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OwlModule } from 'angular-owl-carousel';
 
 // Auth
+import { ForgetPasswordComponent } from './auth/forget-password/forget-password.component';
+import { AuthRoutingModule } from './auth/auth-routing.module';
+
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from "@angular/fire/compat/auth";
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
@@ -38,10 +41,12 @@ import { cartReducer } from './core/reducers/cart.reducer';
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './shared/layout/layout.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     LayoutComponent,
+    ForgetPasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,6 +62,7 @@ import { LayoutComponent } from './shared/layout/layout.component';
       measurementId: "G-RJBSR946WW"
     }),
     AppRoutingModule,
+    AuthRoutingModule,
     NgbModule,
     HttpClientModule,
     OwlModule,

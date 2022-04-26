@@ -2,6 +2,8 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { Injectable } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { FirebaseService } from '../../../../services/firebase.service';
+import { Router, NavigationStart, NavigationEnd } from '@angular/router';
+import { AuthRoutingModule } from 'src/app/auth/auth-routing.module'
 
 @Injectable({
 	providedIn: 'root'
@@ -26,7 +28,7 @@ export class LoginModalComponent implements OnInit {
     password: new FormControl()
   });
 
-  constructor(private firebaseService: FirebaseService) { }
+  constructor(private firebaseService: FirebaseService, private router:Router) { }
 
   ngOnInit(): void {}
 
