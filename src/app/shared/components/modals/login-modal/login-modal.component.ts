@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { FirebaseService } from '../../../../services/firebase.service';
 import { Router, NavigationStart, NavigationEnd } from '@angular/router';
-import { AuthRoutingModule } from 'src/app/auth/auth-routing.module'
+
 
 @Injectable({
 	providedIn: 'root'
@@ -41,7 +41,7 @@ export class LoginModalComponent implements OnInit {
     this.firebaseService.handleLogin(this.form.get('email').value, this.form.get('password').value)
     // console.log(this.form.get('email').value)
     // console.log(this.form.get('password').value)
-    
+
   }
 
   resetPassword() {
