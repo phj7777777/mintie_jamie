@@ -24,9 +24,23 @@ export class LoginModalComponent implements OnInit {
   isSignedIn = false
 
   form = new FormGroup({
-    email: new FormControl(),
-    password: new FormControl()
-  });
+    email: new FormControl( "", [
+      Validators.required,
+      Validators.email
+    ] ),
+    password: new FormControl( "", [
+      Validators.required,
+      Validators.minLength(6),
+    ] )
+  }); 
+
+  get email() {
+    return this.form.get("email");
+  };
+
+  get password() {
+    return this.form.get("password")
+  }
 
   constructor(private firebaseService: FirebaseService, private router:Router) { }
 
@@ -35,12 +49,12 @@ export class LoginModalComponent implements OnInit {
   register () {
     this.firebaseService.handleRegister(this.form.get('email').value, this.form.get('password').value)
     this.firebaseService.addData({ email: this.form.get('email').value, password: this.form.get('password').value})
+    this.router.navigate(['/auth/home'])
   }
 
   login() {
     this.firebaseService.handleLogin(this.form.get('email').value, this.form.get('password').value)
-    // console.log(this.form.get('email').value)
-    // console.log(this.form.get('password').value)
+    this.router.navigate(['/auth/home'])
 
   }
 

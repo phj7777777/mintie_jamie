@@ -42,17 +42,10 @@ export class FirebaseService {
 
   resetPassword(email) {
     this.firebaseAuth.sendPasswordResetEmail(email)
-      .then(() => {
-        alert('Data Sent')
-      })
+      // .then(() => {
+      //   alert('Data Sent')
+      // })
   }
-
-  // addData() {
-  //   const docRef = await addDoc(collection(db, "users")), {
-  //     email: "email",
-  //     password: "password"
-  //   }
-  // }
 
   addData(value:any) {
     this.firestore.collection('users').add(value)
@@ -63,14 +56,7 @@ export class FirebaseService {
           alert(err.message)
         })
       console.log("hi")
-    // addDoc(dbInstance,value)
-    //   .then(() => {
-    //     alert('Data Sent')
-    //   })
-    //   .catch((err) => {
-    //     alert(err.message)
-    //   })
-  }
 
+  }
 
 }

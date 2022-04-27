@@ -16,14 +16,21 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class ForgetPasswordComponent implements OnInit {
 
+  form = new FormGroup({
+    email: new FormControl( "", [
+      Validators.required,
+      Validators.email
+    ] ),
+  });
+
+  get email() {
+    return this.form.get("email");
+  };
+
   constructor(private firebaseService: FirebaseService) { }
 
   ngOnInit(): void {
   }
-
-  form = new FormGroup({
-    email: new FormControl(),
-  });
 
   forgetPassword() {
     console.log("Reset password")
