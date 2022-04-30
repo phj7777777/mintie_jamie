@@ -46,11 +46,18 @@ export class LoginModalComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  register () {
-    this.firebaseService.handleRegister(this.form.get('email').value, this.form.get('password').value)
+  async register () {
+    if (this.form.valid) {
+      const userInfo = await this.firebaseService.handleRegister(this.form.get('email').value, this.form.get('password').value)
+      if (userInfo != null) {
+        await this.router.navigate(['/auth/home'])
+        await this.firebaseService.addData({ email: this.form.get('email').value, password: this.form.get('password').value})
+      }
+      else {
+        this.validateAllFormFields(this.form)
+      }
+    }
     //TODO only when success register then addData and navigate
-    this.firebaseService.addData({ email: this.form.get('email').value, password: this.form.get('password').value})
-    this.router.navigate(['/auth/home'])
   }
 
   async login() {

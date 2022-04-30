@@ -20,14 +20,14 @@ export class FirebaseService {
   constructor( public firebaseAuth: AngularFireAuth, private firestore: AngularFirestore) {	}
 
   // Auth Logic starts here
-  handleRegister(email, password) {
-    this.firebaseAuth.createUserWithEmailAndPassword(email, password)
-      .then((response: any)=> {
-        console.log(response.user)
-      })
+  async handleRegister(email, password) {
+    const res = await this.firebaseAuth.createUserWithEmailAndPassword(email, password)
       .catch((err) => {
         alert(err.message);
+        return null
       })
+
+    return res.user
   }
 
   async handleLogin(email, password) {
