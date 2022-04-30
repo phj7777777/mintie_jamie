@@ -30,13 +30,14 @@ export class FirebaseService {
       })
   }
 
-  handleLogin(email, password) {
+  async handleLogin(email, password) {
     this.firebaseAuth.signInWithEmailAndPassword(email, password)
       .then((response: any)=> {
-        console.log(response.user)
+        return response.user;
       })
       .catch((err) => {
         alert(err.message);
+        return null;
       })
   }
 

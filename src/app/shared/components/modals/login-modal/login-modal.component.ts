@@ -32,7 +32,7 @@ export class LoginModalComponent implements OnInit {
       Validators.required,
       Validators.minLength(6),
     ] )
-  }); 
+  });
 
   get email() {
     return this.form.get("email");
@@ -48,14 +48,31 @@ export class LoginModalComponent implements OnInit {
 
   register () {
     this.firebaseService.handleRegister(this.form.get('email').value, this.form.get('password').value)
+    //TODO only when success register then addData and navigate
     this.firebaseService.addData({ email: this.form.get('email').value, password: this.form.get('password').value})
     this.router.navigate(['/auth/home'])
   }
 
-  login() {
-    this.firebaseService.handleLogin(this.form.get('email').value, this.form.get('password').value)
-    this.router.navigate(['/auth/home'])
+  async login() {
+    if (this.form.valid) {
+      const userInfo = await this.firebaseService.handleLogin(this.form.get('email').value, this.form.get('password').value)
+      if (userInfo != null){
+        await this.router.navigate(['/auth/home'])
+      }
+    } else {
+      this.validateAllFormFields(this.form);
+    }
+  }
 
+  validateAllFormFields(formGroup: FormGroup) {
+    Object.keys(formGroup.controls).forEach(field => {
+      const control = formGroup.get(field);
+      if (control instanceof FormControl) {
+        control.markAsTouched({ onlySelf: true });
+      } else if (control instanceof FormGroup) {
+        this.validateAllFormFields(control);
+      }
+    });
   }
 
   resetPassword() {
