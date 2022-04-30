@@ -23,6 +23,7 @@ export class FirebaseService {
   async handleRegister(email, password) {
     const res = await this.firebaseAuth.createUserWithEmailAndPassword(email, password)
       .catch((err) => {
+        
         alert(err.message);
         return null
       })
