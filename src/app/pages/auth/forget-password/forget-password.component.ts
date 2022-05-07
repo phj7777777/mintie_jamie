@@ -33,8 +33,6 @@ export class ForgetPasswordComponent implements OnInit {
   }
 
   forgetPassword() {
-    console.log("Reset password")
     this.firebaseService.resetPassword(this.form.get('email').value)
-    console.log(this.form.get('email').value)
   }
 }

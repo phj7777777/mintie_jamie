@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
+import {Injectable} from '@angular/core';
+import {AngularFireAuth} from '@angular/fire/compat/auth';
 import {
   addDoc,
   Firestore,
@@ -7,9 +7,9 @@ import {
   getDocs,
   doc
 } from '@angular/fire/firestore';
-import { setDoc } from 'firebase/firestore';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import {setDoc} from 'firebase/firestore';
+import {AngularFirestoreModule} from '@angular/fire/compat/firestore';
+import {AngularFirestore} from '@angular/fire/compat/firestore';
 import Swal from 'sweetalert2';
 
 
@@ -18,7 +18,8 @@ import Swal from 'sweetalert2';
 })
 
 export class FirebaseService {
-  constructor( public firebaseAuth: AngularFireAuth, private firestore: AngularFirestore) {	}
+  constructor(public firebaseAuth: AngularFireAuth, private firestore: AngularFirestore) {
+  }
 
   // Auth Logic starts here
   async handleRegister(email, password) {
@@ -32,13 +33,13 @@ export class FirebaseService {
           timer: 3000
         });
         return null;
-      })
+      });
 
     return res.user;
   }
 
   async handleLogin(email, password) {
-    const res =  await this.firebaseAuth.signInWithEmailAndPassword(email, password)
+    const res = await this.firebaseAuth.signInWithEmailAndPassword(email, password)
       .catch((err) => {
         Swal.fire({
           icon: 'error',
@@ -48,28 +49,50 @@ export class FirebaseService {
           timer: 3000
         });
         return null;
-      })
+      });
 
-    return res.user
+    return res.user;
 
   }
 
-  resetPassword(email) {
-    this.firebaseAuth.sendPasswordResetEmail(email)
-      // .then(() => {
-      //   alert('Data Sent')
-      // })
+  async resetPassword(email) {
+    if (email) {
+
+      let success = true;
+      await this.firebaseAuth.sendPasswordResetEmail(email).catch((err) => {
+        success = false;
+        Swal.fire({
+          icon: 'error',
+          title: 'Something went wrong!',
+          text: err.message.replace('Firebase:', ''),
+          showConfirmButton: false,
+          timer: 3000
+        });
+        return null;
+      });
+
+      if (success) {
+        await Swal.fire({
+          icon: 'success',
+          title: 'Reset email sent!',
+          text: 'Please check your email now!',
+          showConfirmButton: false,
+          timer: 3000
+        });
+      }
+    }
+
   }
 
-  addData(value:any) {
+  addData(value: any) {
     this.firestore.collection('users').add(value)
-     .then(() => {
-          alert('Data Sent')
-        })
-        .catch((err) => {
-          alert(err.message)
-        })
-      console.log("hi")
+      .then(() => {
+        alert('Data Sent');
+      })
+      .catch((err) => {
+        alert(err.message);
+      });
+    console.log('hi');
 
   }
 
