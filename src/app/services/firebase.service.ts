@@ -10,6 +10,7 @@ import {
 import { setDoc } from 'firebase/firestore';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import Swal from 'sweetalert2';
 
 
 @Injectable({
@@ -23,18 +24,29 @@ export class FirebaseService {
   async handleRegister(email, password) {
     const res = await this.firebaseAuth.createUserWithEmailAndPassword(email, password)
       .catch((err) => {
-        
-        alert(err.message);
-        return null
+        Swal.fire({
+          icon: 'error',
+          title: 'Register Failed!',
+          text: err.message.replace('Firebase:', ''),
+          showConfirmButton: false,
+          timer: 3000
+        });
+        return null;
       })
 
-    return res.user
+    return res.user;
   }
 
   async handleLogin(email, password) {
     const res =  await this.firebaseAuth.signInWithEmailAndPassword(email, password)
       .catch((err) => {
-        alert(err.message);
+        Swal.fire({
+          icon: 'error',
+          title: 'Login Failed!',
+          text: err.message.replace('Firebase:', ''),
+          showConfirmButton: false,
+          timer: 3000
+        });
         return null;
       })
 

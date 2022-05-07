@@ -31,7 +31,7 @@ export class LoginModalComponent implements OnInit {
     password: new FormControl( "", [
       Validators.required,
       Validators.minLength(6),
-    ] )
+    ] ),
   });
 
   get email() {
@@ -46,7 +46,7 @@ export class LoginModalComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  async register () {
+  async register() {
     if (this.form.valid) {
       const userInfo = await this.firebaseService.handleRegister(this.form.get('email').value, this.form.get('password').value)
       if (userInfo != null) {
@@ -54,10 +54,10 @@ export class LoginModalComponent implements OnInit {
         await this.firebaseService.addData({ email: this.form.get('email').value, password: this.form.get('password').value})
       }
       else {
-        this.validateAllFormFields(this.form)
+        this.validateAllFormFields(this.form);
       }
     }
-    //TODO only when success register then addData and navigate
+
   }
 
   async login() {
@@ -82,16 +82,8 @@ export class LoginModalComponent implements OnInit {
     });
   }
 
-  resetPassword() {
-    console.log("Hi")
-    this.firebaseService.resetPassword(this.form.get('email').value)
-    console.log(this.form.get('email').value)
-  }
 
-  closeModal() {
-    let modal = document.querySelector('.login-modal') as HTMLElement;
-    if (modal)
-      modal.click();
-  }
+
+
 }
 
