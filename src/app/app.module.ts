@@ -46,7 +46,6 @@ import { LayoutComponent } from './shared/layout/layout.component';
   declarations: [
     AppComponent,
     LayoutComponent,
-
   ],
   imports: [
     BrowserModule,

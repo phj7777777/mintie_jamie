@@ -9,6 +9,7 @@ import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {ContactOnePageComponent} from './contact-one/contact-one.component';
 import {ContactTwoPageComponent} from './contact-two/contact-two.component';
 import {ProfileComponent} from '../profile/profile.component';
+import {AuthGuard} from '../../shared/guard/auth.guard';
 
 const routes: Routes = [
   {
@@ -18,7 +19,8 @@ const routes: Routes = [
   },
   {
     path: 'profile',
-    component: ProfileComponent
+    component: ProfileComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'about',

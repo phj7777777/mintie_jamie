@@ -18,7 +18,22 @@ import Swal from 'sweetalert2';
 })
 
 export class FirebaseService {
+  userData: any;
+
   constructor(public firebaseAuth: AngularFireAuth, private firestore: AngularFirestore) {
+    this.firebaseAuth.authState.subscribe((user) => {
+      if (user) {
+        this.userData = user;
+      } else {
+        this.userData = null;
+      }
+    });
+
+  }
+
+  // Returns true when user is logged in and email is verified
+  get isLoggedIn(): boolean {
+    return this.userData != null && this.userData != undefined;
   }
 
   // Auth Logic starts here
@@ -53,6 +68,10 @@ export class FirebaseService {
 
     return res.user;
 
+  }
+
+  async handleLogout(){
+    await this.firebaseAuth.signOut()
   }
 
   async resetPassword(email) {
