@@ -16,7 +16,7 @@
         opacity: 1;
         transform: translateY(0);
     }
-    
+
     100% {
         opacity: 0;
         transform: translateY(-40px)
@@ -130,9 +130,9 @@
 	margin-left: auto;
 	margin-right: auto;
 	width: 100%;
-	height: 56.6rem; 
+	height: 56.6rem;
 	transform: matrix(1, 0, 0, 1, 0, 0);
-	
+
 	iframe {
 		width: 100%;
 		height: 100%;
@@ -149,7 +149,7 @@
 	}
 }
 
-@media screen and ( max-width: 992px ) {	
+@media screen and ( max-width: 992px ) {
 	.modal-dialog {
 		max-width: none;
 	}

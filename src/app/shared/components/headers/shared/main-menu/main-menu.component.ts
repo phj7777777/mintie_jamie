@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router, NavigationStart, NavigationEnd } from '@angular/router';
 import { Subscription } from 'rxjs';
+import {FirebaseService} from '../../../../../services/firebase.service';
 
 @Component({
 	selector: 'molla-main-menu',
@@ -13,7 +14,7 @@ export class MainMenuComponent implements OnInit, OnDestroy {
 
 	private subscr: Subscription;
 
-	constructor(private router: Router) {
+	constructor(private router: Router, public firebaseService: FirebaseService) {
 		this.subscr = this.router.events.subscribe(event => {
 			if (event instanceof NavigationStart) {
 				this.current = event.url;
@@ -39,4 +40,7 @@ export class MainMenuComponent implements OnInit, OnDestroy {
 
 		event.target.parentElement.classList.add('d-none');
 	}
+
+
+
 }

@@ -4,8 +4,21 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OwlModule } from 'angular-owl-carousel';
+
+// Auth
+
+import { AuthRoutingModule } from './pages/auth/auth-routing.module';
+
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from "@angular/fire/compat/auth";
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { initializeApp } from 'firebase/app';
+import { FirebaseService } from './services/firebase.service';
+
 
 // NGRX
 import { StoreModule } from '@ngrx/store';
@@ -28,6 +41,7 @@ import { cartReducer } from './core/reducers/cart.reducer';
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './shared/layout/layout.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,8 +49,19 @@ import { LayoutComponent } from './shared/layout/layout.component';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     ReactiveFormsModule,
+    AngularFireModule.initializeApp( {
+      apiKey: "AIzaSyCDjvfxZwbOMjMv2dysbQEsm-Z2VYVfjH8",
+      authDomain: "mintiejamie-f0fe3.firebaseapp.com",
+      projectId: "mintiejamie-f0fe3",
+      storageBucket: "mintiejamie-f0fe3.appspot.com",
+      messagingSenderId: "108262154428",
+      appId: "1:108262154428:web:fa94295565045550d730b9",
+      measurementId: "G-RJBSR946WW"
+    }),
     AppRoutingModule,
+    AuthRoutingModule,
     NgbModule,
     HttpClientModule,
     OwlModule,
@@ -57,9 +82,10 @@ import { LayoutComponent } from './shared/layout/layout.component';
     EffectsModule.forRoot([]),
     StoreRouterConnectingModule.forRoot({ stateKey: 'router' }),
     StoreDevtoolsModule.instrument(),
+    AngularFirestoreModule,
   ],
 
-  providers: [],
+  providers: [FirebaseService],
   bootstrap: [AppComponent]
 })
 

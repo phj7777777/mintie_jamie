@@ -40,10 +40,10 @@ export class IndexComponent implements OnInit {
 		}
 	}
 	curentFilter = 'all';
-	
+
 	@ViewChild('priceSlider') priceSlider: any;
 	@ViewChild('isotope') isotope: any;
-	
+
 	constructor(public apiService: ApiService, public utilsService: UtilsService, private modalService: ModalService, public activeRoute: ActivatedRoute, public router: Router) {
 		this.modalService.openNewsletter();
 
@@ -58,7 +58,7 @@ export class IndexComponent implements OnInit {
 				]
 			} else {
 				this.priceRange = [0, 100];
-				
+
 				if(this.priceSlider) {
 					this.priceSlider.slider.reset({min: 0, max: 100});
 				}
@@ -87,7 +87,7 @@ export class IndexComponent implements OnInit {
 		}
 	}
 
-	@HostListener('window: resize', ['$event']) 
+	@HostListener('window: resize', ['$event'])
 	onResize(event) {
 		if (window.innerWidth < 992) {
 			this.isToggle = true;
@@ -225,4 +225,5 @@ export class IndexComponent implements OnInit {
 		}
 		this.isotope.isReset = true;
 	}
+
 }
