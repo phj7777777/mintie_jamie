@@ -18,6 +18,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { ContactOnePageComponent } from './contact-one/contact-one.component';
 import { ContactTwoPageComponent } from './contact-two/contact-two.component';
 import { ComingSoonPageComponent } from './coming-soon/coming-soon.component';
+import { PaymentCancelComponent } from './payment-cancel/payment-cancel.component';
+import { PaymentSuccessComponent } from './payment-success/payment-success.component';
 
 @NgModule( {
 	declarations: [
@@ -28,7 +30,9 @@ import { ComingSoonPageComponent } from './coming-soon/coming-soon.component';
 		PageNotFoundComponent,
 		ContactOnePageComponent,
 		ContactTwoPageComponent,
-		ComingSoonPageComponent
+		ComingSoonPageComponent,
+  PaymentCancelComponent,
+  PaymentSuccessComponent
 	],
 
 	imports: [

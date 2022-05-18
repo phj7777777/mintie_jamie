@@ -5,8 +5,10 @@ import { CartService } from 'src/app/shared/services/cart.service';
 import {switchMap} from 'rxjs/operators';
 import {StripeService} from 'ngx-stripe';
 import {HttpClient} from '@angular/common/http';
+import {environment} from "../../../../environments/environment";
 
 declare var $: any;
+declare var Stripe;
 
 @Component({
 	selector: 'shop-checkout-page',
@@ -71,21 +73,20 @@ export class CheckoutComponent implements OnInit, OnDestroy {
 		event.stopPropagation();
 	}
 
-	checkout(){
-    // Check the server.js tab to see an example implementation
-    this.http.post('/create-checkout-session', {})
-      .pipe(
-        switchMap(session => {
-          return this.stripeService.redirectToCheckout({ sessionId: session['id'] })
-        })
-      )
+  checkout(): void {
+
+	  const ids = this.cartItems.map(cart=>cart.id.toString())
+    const stripe = Stripe(environment.STRIPE_PUBLIC_KEY);
+
+    this.http.post('http://localhost:8080/create-checkout-session', {ids: ids})
       .subscribe(result => {
-        // If `redirectToCheckout` fails due to a browser or network
-        // error, you should display the localized error message to your
-        // customer using `error.message`.
-        if (result.error) {
+        stripe.redirectToCheckout({
+          sessionId: result['id'],
+        }).then(function (result) {
           alert(result.error.message);
-        }
+        });
       });
   }
+
+
 }
