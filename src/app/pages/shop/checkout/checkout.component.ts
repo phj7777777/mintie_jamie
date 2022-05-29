@@ -75,10 +75,9 @@ export class CheckoutComponent implements OnInit, OnDestroy {
 
   checkout(): void {
 
-	  const ids = this.cartItems.map(cart=>cart.id.toString())
     const stripe = Stripe(environment.STRIPE_PUBLIC_KEY);
 
-    this.http.post('http://localhost:8080/create-checkout-session', {ids: ids})
+    this.http.post('http://localhost:8080/create-checkout-session', {carts: this.cartItems})
       .subscribe(result => {
         stripe.redirectToCheckout({
           sessionId: result['id'],
