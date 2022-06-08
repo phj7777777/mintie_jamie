@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ForgetPasswordComponent } from '../auth/forget-password/forget-password.component'
 import { IndexComponent } from '../home/index/index.component';
-
+import { ProfileComponent } from '../../pages/profile/profile.component'
 const routes: Routes = [
     {
       path:'forgetPassword',
@@ -12,6 +12,10 @@ const routes: Routes = [
       path:'home',
       component: IndexComponent
     },
+    {
+      path:'profile',
+      component: ProfileComponent
+    }
 ];
 
 @NgModule({

@@ -19,7 +19,6 @@ import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { initializeApp } from 'firebase/app';
 import { FirebaseService } from './services/firebase.service';
 
-
 // NGRX
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -40,6 +39,8 @@ import { cartReducer } from './core/reducers/cart.reducer';
 
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './shared/layout/layout.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { ProfileModule } from './pages/profile/profile.module';
 
 
 @NgModule({
@@ -83,6 +84,7 @@ import { LayoutComponent } from './shared/layout/layout.component';
     StoreRouterConnectingModule.forRoot({ stateKey: 'router' }),
     StoreDevtoolsModule.instrument(),
     AngularFirestoreModule,
+    ProfileModule,
   ],
 
   providers: [FirebaseService],

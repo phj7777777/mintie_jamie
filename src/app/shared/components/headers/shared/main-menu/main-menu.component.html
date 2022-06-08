@@ -1,9 +1,9 @@
-<nav class="main-nav">
+<nav class="main-nav" >
   <ul class="menu sf-arrows">
     <li class="megamenu-container" [class.active]="current=='/' || current.startsWith('/?')">
       <a routerLink="/" class="sf-with-ul">Home</a>
 
-      <div class="megamenu demo">
+      <!-- <div class="megamenu demo">
         <div class="menu-col">
           <div class="menu-title">Choose your demo</div>
 
@@ -288,14 +288,14 @@
             </a>
           </div>
         </div>
-      </div>
+      </div> -->
     </li>
     <li [class.active]="current.includes('/shop')">
       <a routerLink="/shop/sidebar/list" class="sf-with-ul">Shop</a>
 
       <div class="megamenu megamenu-md">
         <div class="row no-gutters">
-          <div class="col-md-8">
+          <div class="col">
             <div class="menu-col">
               <div class="row">
                 <div class="col-md-6">
@@ -308,7 +308,7 @@
                     <li [class.active]="current.includes('shop/sidebar/2cols')">
                       <a routerLink="/shop/sidebar/2cols">Shop Grid 2 Columns</a>
                     </li>
-                    <li [class.active]="current.includes('shop/sidebar/3cols')">
+                    <!-- <li [class.active]="current.includes('shop/sidebar/3cols')">
                       <a routerLink="/shop/sidebar/3cols">Shop Grid 3 Columns</a>
                     </li>
                     <li [class.active]="current.includes('shop/sidebar/4cols')">
@@ -321,7 +321,7 @@
                                                     <span class="tip tip-new">New</span>
                                                 </span>
                       </a>
-                    </li>
+                    </li> -->
                   </ul>
 
                   <div class="menu-title">Shop no sidebar</div>
@@ -335,9 +335,9 @@
                                                 </span>
                       </a>
                     </li>
-                    <li [class.active]="current.includes('shop/nosidebar/fullwidth')">
+                    <!-- <li [class.active]="current.includes('shop/nosidebar/fullwidth')">
                       <a routerLink="/shop/nosidebar/fullwidth">Shop Fullwidth No Sidebar</a>
-                    </li>
+                    </li> -->
                   </ul>
                 </div>
 
@@ -357,7 +357,7 @@
                       </a>
                     </li>
                   </ul>
-                  <div class="menu-title">Shop Pages</div>
+                  <!-- <div class="menu-title">Shop Pages</div>
 
                   <ul>
                     <li [class.active]="current.includes('shop/cart')">
@@ -375,13 +375,13 @@
                     <li>
                       <a href="javascript:;">Lookbook</a>
                     </li>
-                  </ul>
+                  </ul> -->
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="col-md-4">
+          <!-- <div class="col-md-4">
             <div class="banner banner-overlay">
               <a routerLink="/shop/sidebar/list" class="banner banner-menu">
                 <img src="assets/images/menu/banner-1.jpg" alt="Banner" width="218" height="314"/>
@@ -398,11 +398,11 @@
                 </div>
               </a>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </li>
-    <li [class.active]="current.includes('/product/')">
+    <!-- <li [class.active]="current.includes('/product/')">
       <a routerLink="/product/default/dark-yellow-lace-cut-out-swing-dress" class="sf-with-ul">Product</a>
 
       <div class="megamenu megamenu-sm">
@@ -466,7 +466,7 @@
           </div>
         </div>
       </div>
-    </li>
+    </li> -->
     <li [class.active]="current.includes('/pages')">
       <a href="javascript:;" class="sf-with-ul">Pages</a>
 
@@ -499,15 +499,15 @@
         <li [class.active]="current.includes('pages/faq')">
           <a routerLink="/pages/faq">FAQs</a>
         </li>
-        <li [class.active]="current.includes('pages/404')">
+        <!-- <li [class.active]="current.includes('pages/404')">
           <a routerLink="/pages/404">Error 404</a>
-        </li>
+        </li> -->
         <li [class.active]="current.includes('pages/coming-soon')">
           <a routerLink="/pages/coming-soon">Coming Soon</a>
         </li>
       </ul>
     </li>
-    <li [class.active]="current.includes('/blog/')">
+    <!-- <li [class.active]="current.includes('/blog/')">
       <a routerLink="/blog/classic" class="sf-with-ul">Blog</a>
       <ul>
         <li [class.active]="current.includes('blog/classic')">
@@ -577,8 +577,8 @@
           </ul>
         </li>
       </ul>
-    </li>
-    <li [class.active]="current.includes('/elements')">
+    </li> -->
+    <!-- <li [class.active]="current.includes('/elements')">
       <a routerLink="/elements" class="sf-with-ul">Elements</a>
 
       <ul>
@@ -622,10 +622,11 @@
           <a routerLink="/elements/icon-boxes">Icon Boxes</a>
         </li>
       </ul>
-    </li>
+    </li> -->
+    
     <!-- auth guard -->
     <li *ngIf="!this.firebaseService.isLoggedIn"[class.active]="current.includes('login')">
-      <a routerLink="/pages/login">Login</a>
+      <a routerLink="/pages/login">SIGN IN/ REGISTER</a>
     </li>
     <li *ngIf="this.firebaseService.isLoggedIn" [class.active]="current.includes('profile')">
       <a routerLink="/pages/profile">Dashboard</a>

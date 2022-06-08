@@ -5,8 +5,10 @@ import {
   Firestore,
   collection,
   getDocs,
-  doc
-} from '@angular/fire/firestore';
+  doc,
+  updateDoc,
+} 
+from '@angular/fire/firestore';
 import {setDoc} from 'firebase/firestore';
 import {AngularFirestoreModule} from '@angular/fire/compat/firestore';
 import {AngularFirestore} from '@angular/fire/compat/firestore';
@@ -113,6 +115,10 @@ export class FirebaseService {
       });
     console.log('hi');
 
+  }
+
+  updateData(value: any) {
+    console.log("update data from firebase")
   }
 
 }

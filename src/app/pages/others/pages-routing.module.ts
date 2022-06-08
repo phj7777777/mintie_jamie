@@ -11,6 +11,7 @@ import {ContactTwoPageComponent} from './contact-two/contact-two.component';
 import {ProfileComponent} from '../profile/profile.component';
 import {AuthGuard} from '../../shared/guard/auth.guard';
 
+
 const routes: Routes = [
   {
     path: '',

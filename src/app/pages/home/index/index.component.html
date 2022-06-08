@@ -1,10 +1,10 @@
 <main class="main home-page">
     <div class="intro-slider-container mb-4">
         <owl-carousel carouselClasses="intro-slider owl-simple owl-nav-inside owl-nav-inside" [options]="introSlider">
-            <div class="intro-slide" style="background-image: url(assets/images/home/sliders/slide-1.jpg);">
+            <div class="intro-slide" style="background-image: url(assets/images/home/sliders/slide-4.jpg);">
                 <div class="container intro-content" contentAnim aniName="fadeInUpShorter">
-                    <h3 class="intro-subtitle text-primary">SEASONAL PICKS</h3>
-                    <h1 class="intro-title">Get All <br>The Good Stuff</h1>
+                    <h3 class="intro-subtitle text-primary">TOP PICKS</h3>
+                    <h1 class="intro-title">Good Stuff <br>Is Here!</h1>
 
                     <a routerLink="/shop/sidebar/list" class="btn btn-outline-primary-2">
                         <span>DISCOVER MORE</span>
@@ -15,7 +15,7 @@
 
             <div class="intro-slide" style="background-image: url(assets/images/home/sliders/slide-2.jpg);">
                 <div class="container intro-content" contentAnim aniName="fadeInUpShorter">
-                    <h3 class="intro-subtitle text-primary">all at 50% off</h3>
+                    <h3 class="intro-subtitle text-primary">all at 10% off</h3>
                     <h1 class="intro-title text-white">The Most Beautiful <br>Novelties In Our Shop</h1>
 
                     <a routerLink="/shop/sidebar/list" class="btn btn-outline-primary-2 min-width-sm">
@@ -36,9 +36,9 @@
             <div class="toolbox-right">
                 <ul class="nav-filter product-filter" role="tablist" *ngIf="!params['category'] else noFilterBlock">
                     <li class="active"><a role="tab" href="javascript:;" (click)="filterProducts($event, 'all')">All</a></li>
-                    <li><a role="tab" href="javascript:;" (click)="filterProducts($event, 'furniture')">Furniture</a></li>
-                    <li><a role="tab" href="javascript:;" (click)="filterProducts($event, 'lighting')">Lighting</a></li>
-                    <li><a role="tab" href="javascript:;" (click)="filterProducts($event, 'decoration')">Decoration</a></li>
+                    <li><a role="tab" href="javascript:;" (click)="filterProducts($event, 'furniture')">Sizes</a></li>
+                    <li><a role="tab" href="javascript:;" (click)="filterProducts($event, 'lighting')">Colour</a></li>
+                    <li><a role="tab" href="javascript:;" (click)="filterProducts($event, 'decoration')">Boxes</a></li>
                     <li><a role="tab" class="pr-0" href="javascript:;" (click)="filterProducts($event, 'electronics')">Electronics</a></li>
                 </ul>
                 <ng-template #noFilterBlock>
