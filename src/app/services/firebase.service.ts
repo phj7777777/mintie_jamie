@@ -7,7 +7,7 @@ import {
   getDocs,
   doc,
   updateDoc,
-} 
+}
 from '@angular/fire/firestore';
 import {setDoc} from 'firebase/firestore';
 import {AngularFirestoreModule} from '@angular/fire/compat/firestore';
@@ -105,20 +105,30 @@ export class FirebaseService {
 
   }
 
-  addData(value: any) {
-    this.firestore.collection('users').add(value)
+  addData(docId,value: any) {
+
+    // TODO: Make this function more dynamic,
+    // TODO: add one more parameter "collection" instead hardcode "users",
+
+    this.firestore.collection('users').doc(docId).set(value)
       .then(() => {
         alert('Data Sent');
       })
       .catch((err) => {
         alert(err.message);
       });
-    console.log('hi');
+  }
+
+  updateData(collection: any, doc: any,  value: any) {
+    this.firestore.collection(collection).doc(doc).update(value)
+      .then(() => {
+        alert('Data updated');
+      })
+      .catch((err) => {
+        alert(err.message);
+      });
 
   }
 
-  updateData(value: any) {
-    console.log("update data from firebase")
-  }
 
 }

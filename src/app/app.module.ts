@@ -84,7 +84,7 @@ import { ProfileModule } from './pages/profile/profile.module';
     StoreRouterConnectingModule.forRoot({ stateKey: 'router' }),
     StoreDevtoolsModule.instrument(),
     AngularFirestoreModule,
-    ProfileModule,
+
   ],
 
   providers: [FirebaseService],

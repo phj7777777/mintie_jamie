@@ -18,6 +18,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { ContactOnePageComponent } from './contact-one/contact-one.component';
 import { ContactTwoPageComponent } from './contact-two/contact-two.component';
 import { ComingSoonPageComponent } from './coming-soon/coming-soon.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
 
 @NgModule( {
 	declarations: [
@@ -40,7 +42,10 @@ import { ComingSoonPageComponent } from './coming-soon/coming-soon.component';
 		OwlModule,
 		GoogleMapsModule,
 		HttpClientModule,
-		HttpClientJsonpModule
+		HttpClientJsonpModule,
+    FormsModule,
+    ReactiveFormsModule,
+
 	]
 } )
 
