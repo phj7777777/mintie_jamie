@@ -10,46 +10,55 @@ import {ContactOnePageComponent} from './contact-one/contact-one.component';
 import {ContactTwoPageComponent} from './contact-two/contact-two.component';
 import {ProfileComponent} from '../profile/profile.component';
 import {AuthGuard} from '../../shared/guard/auth.guard';
+import {PaymentCancelComponent} from "./payment-cancel/payment-cancel.component";
+import {PaymentSuccessComponent} from "./payment-success/payment-success.component";
 
 const routes: Routes = [
-  {
-    path: '',
-    redirectTo: 'about',
-    pathMatch: 'full'
-  },
+    {
+        path: '',
+        redirectTo: 'about',
+        pathMatch: 'full'
+    },
   {
     path: 'profile',
     component: ProfileComponent,
     canActivate: [AuthGuard]
   },
+    {
+        path: 'about',
+        component: AboutOneComponent
+    },
+    {
+        path: 'about-2',
+        component: AboutTwoPageComponent
+    },
+    {
+        path: '404',
+        component: PageNotFoundComponent
+    },
   {
-    path: 'about',
-    component: AboutOneComponent
+    path: 'payment-cancel',
+    component: PaymentCancelComponent
+  }, {
+    path: 'payment-success',
+    component: PaymentSuccessComponent
   },
-  {
-    path: 'about-2',
-    component: AboutTwoPageComponent
-  },
-  {
-    path: '404',
-    component: PageNotFoundComponent
-  },
-  {
-    path: 'login',
-    component: LoginPageComponent
-  },
-  {
-    path: 'faq',
-    component: FaqsPageComponent
-  },
-  {
-    path: 'contact',
-    component: ContactOnePageComponent
-  },
-  {
-    path: 'contact-2',
-    component: ContactTwoPageComponent
-  }
+    {
+        path: 'login',
+        component: LoginPageComponent
+    },
+    {
+        path: 'faq',
+        component: FaqsPageComponent
+    },
+    {
+        path: 'contact',
+        component: ContactOnePageComponent
+    },
+    {
+        path: 'contact-2',
+        component: ContactTwoPageComponent
+    }
 ];
 
 @NgModule({
