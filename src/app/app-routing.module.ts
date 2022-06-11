@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LayoutComponent } from './shared/layout/layout.component';
 import { ComingSoonPageComponent } from './pages/others/coming-soon/coming-soon.component';
 import { IndexComponent } from './pages/home/index/index.component';
+import {AuthGuard} from './shared/guard/auth.guard';
 
 const routes: Routes = [
 	{
@@ -17,8 +18,13 @@ const routes: Routes = [
 			{
 				path: '',
 				pathMatch: 'full',
-				component: IndexComponent
+				component: IndexComponent,
 			},
+      {
+        path: 'auth',
+        loadChildren: () => import( './pages/auth/auth.module' ).then( m => m.AuthModule )
+      },
+
 			{
 				path: 'elements',
 				loadChildren: () => import( './pages/elements/elements.module' ).then( m => m.ElementsModule )

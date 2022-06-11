@@ -6,6 +6,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OwlModule } from 'angular-owl-carousel';
 import { LazyLoadImageModule } from 'ng-lazyload-image';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 // Header Element
 import { CartMenuComponent } from './components/headers/shared/cart-menu/cart-menu.component';
 import { CompareMenuComponent } from './components/headers/shared/compare-menu/compare-menu.component';
@@ -145,6 +147,8 @@ import { PostFourComponent } from './components/blog-post/post-four/post-four.co
 		TranslateModule,
 		OwlModule,
 		LazyLoadImageModule,
+    ReactiveFormsModule,
+    FormsModule
 	],
 
   exports: [
