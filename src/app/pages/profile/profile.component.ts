@@ -27,9 +27,7 @@ export class ProfileComponent implements OnInit {
   async getData() {
     if (this.firebaseService.userData) {
       const uid = this.firebaseService.userData.uid;
-      await this.firebaseService.getData('users', uid, {
 
-      })
     }
   }
 

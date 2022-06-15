@@ -43,6 +43,7 @@ import { AppComponent } from './app.component';
 import { LayoutComponent } from './shared/layout/layout.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { ProfileModule } from './pages/profile/profile.module';
+import {AdminModule} from "./pages/admin/admin.module";
 
 @NgModule({
   declarations: [
@@ -72,6 +73,7 @@ import { ProfileModule } from './pages/profile/profile.module';
     PagesModule,
     SharedModule,
     HomeModule,
+    AdminModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       timeOut: 2000,
@@ -86,7 +88,7 @@ import { ProfileModule } from './pages/profile/profile.module';
     StoreRouterConnectingModule.forRoot({ stateKey: 'router' }),
     StoreDevtoolsModule.instrument(),
     AngularFirestoreModule,
-    CommonModule, 
+    CommonModule,
   ],
 
   providers: [FirebaseService],
