@@ -626,7 +626,7 @@
     
     <!-- auth guard -->
     <li *ngIf="!this.firebaseService.isLoggedIn"[class.active]="current.includes('login')">
-      <a routerLink="/pages/login">SIGN IN/ REGISTER</a>
+      <a routerLink="/pages/login">SIGN IN | REGISTER</a>
     </li>
     <li *ngIf="this.firebaseService.isLoggedIn" [class.active]="current.includes('profile')">
       <a routerLink="/pages/profile">Dashboard</a>

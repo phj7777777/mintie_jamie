@@ -130,5 +130,8 @@ export class FirebaseService {
 
   }
 
+  getData(collection: any, doc: any, value:any) {
+    
+  }
 
 }

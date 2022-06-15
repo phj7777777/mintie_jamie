@@ -1,0 +1,53 @@
+<div class="modal-body">
+    <div class="container mt-3">
+        <h2>Order Tracking</h2>
+        <table class="table table-hover">
+          <thead>
+            <tr>
+                <th>Created</th>
+                <th>Order#</th>
+                <th>FirstName</th>
+                <th>Items</th>
+                <th>Total</th>
+                <th>Status</th>
+                <th>Remarks</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>14-Jun-2022</td>
+              <td>01</td>
+              <td>Mintie</td>
+              <td>1 * Box</td>
+              <td>$27</td>
+              <td>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Update order status</option>
+                    <option value="1">Shipped</option>
+                    <option value="2">Cancelled</option>
+                    <option value="3">Others</option>
+                  </select>
+              </td>
+              <td>
+                <input type="text" placeholder="N/A">
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+
+        <p>Hi</p>
+        <ul>
+          <li *ngFor="let order of Orders">
+            <span>{{order.number}}</span>
+          </li>
+          <li>Hello</li>
+        </ul>
+
+        <h4 *ngFor="let item of data">
+          <span>{{item}}</span>
+        </h4>
+
+      </div>
+</div>

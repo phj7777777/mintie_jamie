@@ -10,6 +10,7 @@ import {ContactOnePageComponent} from './contact-one/contact-one.component';
 import {ContactTwoPageComponent} from './contact-two/contact-two.component';
 import {ProfileComponent} from '../profile/profile.component';
 import {AuthGuard} from '../../shared/guard/auth.guard';
+import { AdminComponent } from '../admin/admin.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,10 @@ const routes: Routes = [
     path: 'profile',
     component: ProfileComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: 'admin',
+    component: AdminComponent,
   },
   {
     path: 'about',

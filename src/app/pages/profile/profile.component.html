@@ -7,7 +7,7 @@
             <form [formGroup]="form" (ngSubmit)="update()">
                 <div class="row">
                     <div class="col-lg-6 col-12 mb-30">
-                        <input id="first-name" placeholder="First Name" type="text" formControlName="firstName">
+                        <input id="first-name" placeholder="{{somePlaceholder}}" type="text" formControlName="firstName">
                     </div>
 
                     <div class="col-lg-6 col-12 mb-30">
@@ -59,18 +59,22 @@
                           <span>SAVE CHANGES</span>
                           <i class="icon-long-arrow-right"></i>
                         </button>
+
+                        <div class="col">
+                          <button class="btn btn-outline-primary-2" (click)="logout()">
+                            <span>LOG OUT</span>
+                            <i class="icon-long-arrow-right"></i>
+                        </button>
+                    </div>
                       </div>
                     </div>
-                <!-- </div> -->
 
             </form>
         </div>
-
-
     </div>
 
 
- <button class="btn-success" (click)="logout()">Logout</button>
+ 
 
 </div>
 </div>
