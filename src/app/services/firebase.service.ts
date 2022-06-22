@@ -8,7 +8,7 @@ import {
   doc,
   updateDoc,
 }
-from '@angular/fire/firestore';
+  from '@angular/fire/firestore';
 import {setDoc} from 'firebase/firestore';
 import {AngularFirestoreModule} from '@angular/fire/compat/firestore';
 import {AngularFirestore} from '@angular/fire/compat/firestore';
@@ -23,9 +23,14 @@ export class FirebaseService {
   userData: any;
 
   constructor(public firebaseAuth: AngularFireAuth, private firestore: AngularFirestore) {
-    this.firebaseAuth.authState.subscribe((user) => {
+    this.firebaseAuth.authState.subscribe(async (user) => {
       if (user) {
-        this.userData = user;
+
+        const uid = user.uid;
+        console.log(uid);
+        this.userData = await this.getData('users', uid);
+        console.log(this.userData);
+
       } else {
         this.userData = null;
       }
@@ -72,7 +77,7 @@ export class FirebaseService {
 
   }
 
-  async handleLogout(){
+  async handleLogout() {
     await this.firebaseAuth.signOut()
   }
 
@@ -105,7 +110,7 @@ export class FirebaseService {
 
   }
 
-  addData(docId,value: any) {
+  addData(docId, value: any) {
 
     // TODO: Make this function more dynamic,
     // TODO: add one more parameter "collection" instead hardcode "users",
@@ -119,7 +124,7 @@ export class FirebaseService {
       });
   }
 
-  updateData(collection: any, doc: any,  value: any) {
+  updateData(collection: any, doc: any, value: any) {
     this.firestore.collection(collection).doc(doc).update(value)
       .then(() => {
         alert('Data updated');
@@ -130,5 +135,15 @@ export class FirebaseService {
 
   }
 
+  async getData(collection: any, doc: any) {
+    let result = await this.firestore.collection(collection).doc(doc).ref.get()
+    if(result){
+      return result.data()
+    }
+
+    return null;
+
+
+  }
 
 }

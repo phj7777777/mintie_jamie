@@ -1,22 +1,23 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProfileComponent } from './profile.component';
-import { AuthGuard } from '../../shared/guard/auth.guard';
+import { AdminComponent } from './admin.component';
+import { TrackingComponent } from './tracking/tracking.component';
+
 
 const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    component: ProfileComponent,
+    component: AdminComponent,
+  },
+  {
+    path: 'tracking',
+    component: TrackingComponent,
   },
 ];
 
 @NgModule({
-
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ProfileRoutingModule {
-
-
-}
+export class AdminRoutingModule { }

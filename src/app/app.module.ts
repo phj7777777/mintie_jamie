@@ -6,7 +6,9 @@ import { ToastrModule } from 'ngx-toastr';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OwlModule } from 'angular-owl-carousel';
+import { CommonModule } from "@angular/common";
 
+import { AdminRoutingModule } from './pages/admin/admin-routing.module';
 // Auth
 
 import { AuthRoutingModule } from './pages/auth/auth-routing.module';
@@ -41,7 +43,7 @@ import { AppComponent } from './app.component';
 import { LayoutComponent } from './shared/layout/layout.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { ProfileModule } from './pages/profile/profile.module';
-
+import {AdminModule} from "./pages/admin/admin.module";
 
 @NgModule({
   declarations: [
@@ -63,6 +65,7 @@ import { ProfileModule } from './pages/profile/profile.module';
     }),
     AppRoutingModule,
     AuthRoutingModule,
+    AdminRoutingModule,
     NgbModule,
     HttpClientModule,
     OwlModule,
@@ -70,6 +73,7 @@ import { ProfileModule } from './pages/profile/profile.module';
     PagesModule,
     SharedModule,
     HomeModule,
+    AdminModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       timeOut: 2000,
@@ -84,7 +88,7 @@ import { ProfileModule } from './pages/profile/profile.module';
     StoreRouterConnectingModule.forRoot({ stateKey: 'router' }),
     StoreDevtoolsModule.instrument(),
     AngularFirestoreModule,
-
+    CommonModule,
   ],
 
   providers: [FirebaseService],
