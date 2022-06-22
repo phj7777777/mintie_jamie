@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CommonModule } from "@angular/common";
-import {Router} from '@angular/router';
+import { Router} from '@angular/router';
+import { FirebaseService } from 'src/app/services/firebase.service';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'molla-admin',
@@ -24,11 +26,12 @@ export class AdminComponent implements OnInit {
     }
   ]
   
-  constructor(private router: Router) {
+  // console.log(this.firebaseService)
+  constructor(private router: Router, private firestore: AngularFirestore, public firebaseService: FirebaseService) {
+    
   }
 
   ngOnInit(): void {
+    console.log(this.firebaseService.userData)
   }
-
-  data = [ 'a', 'b', 'c' ]
 }
