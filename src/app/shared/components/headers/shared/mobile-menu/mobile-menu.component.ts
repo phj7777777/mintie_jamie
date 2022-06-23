@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit, OnDestroy } from '@angular/core';
-import { Router, NavigationStart } from '@angular/router';
+import { Router, NavigationStart, NavigationEnd } from '@angular/router';
 import { Subscription } from 'rxjs';
+import {FirebaseService} from '../../../../../services/firebase.service';
+
 
 declare var $: any;
 
@@ -15,15 +17,27 @@ export class MobileMenuComponent implements OnInit, OnDestroy {
 
 	searchTerm = "";
 
+	current = '/';
+
 	private subscr: Subscription;
 
-	constructor(private router: Router) {
+	// constructor(private router: Router) {
+	// 	this.subscr = this.router.events.subscribe(event => {
+	// 		if (event instanceof NavigationStart) {
+	// 			this.hideMobileMenu();
+	// 		}
+	// 	});
+	// }
+	constructor(private router: Router, public firebaseService: FirebaseService) {
 		this.subscr = this.router.events.subscribe(event => {
 			if (event instanceof NavigationStart) {
-				this.hideMobileMenu();
+				this.current = event.url;
+			} else if (event instanceof NavigationEnd) {
+				this.current = event.url;
 			}
 		});
 	}
+
 
 	ngOnInit(): void {
 	}

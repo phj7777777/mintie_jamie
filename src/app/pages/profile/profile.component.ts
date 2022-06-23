@@ -23,6 +23,7 @@ export class ProfileComponent implements OnInit {
     zip_code: new FormControl('', []),
   });
 
+
   // read data from firebase
   async getData() {
     if (this.firebaseService.userData) {
@@ -30,9 +31,6 @@ export class ProfileComponent implements OnInit {
 
     }
   }
-
-  // somePlaceholder : string = this.getData();
-  somePlaceholder : string ;
 
   get firstName() {
     return this.form.get('firstName');
@@ -67,6 +65,19 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log(this.firebaseService.userData)
+    
+    // if (this.firebaseService.userData.firstName != null) {
+    //   this.form.setValue({
+    //     firstName: this.firebaseService.userData.firstName,
+    //     lastName: this.firebaseService.userData.lastName,
+    //     address_line1: this.firebaseService.userData.address_line1,
+    //     address_apartment: this.firebaseService.userData.address_apartment,
+    //     country: this.firebaseService.userData.country,
+    //     state: this.firebaseService.userData.state,
+    //     zip_code: this.firebaseService.userData.zip_code,
+    //   });
+    // }
   }
 
 }

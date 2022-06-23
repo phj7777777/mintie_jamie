@@ -291,7 +291,7 @@
       </div> -->
     </li>
     <li [class.active]="current.includes('/shop')">
-      <a routerLink="/shop/sidebar/list" class="sf-with-ul">Shop</a>
+      <a routerLink="/shop/sidebar/2cols" class="sf-with-ul">Shop</a>
 
       <div class="megamenu megamenu-md">
         <div class="row no-gutters">
@@ -507,6 +507,9 @@
         </li>
       </ul>
     </li>
+
+    <!-- <li [class.active]="current.includes('/admin/tracking')">
+      <a href="javascript:;" class="sf-with-ul">Track Order</a> -->
     <!-- <li [class.active]="current.includes('/blog/')">
       <a routerLink="/blog/classic" class="sf-with-ul">Blog</a>
       <ul>
@@ -628,6 +631,7 @@
     <li *ngIf="!this.firebaseService.isLoggedIn"[class.active]="current.includes('login')">
       <a routerLink="/pages/login">SIGN IN | REGISTER</a>
     </li>
+
     <li *ngIf="this.firebaseService.isLoggedIn" [class.active]="current.includes('profile')">
       <a routerLink="/pages/profile">Dashboard</a>
     </li>
