@@ -25,6 +25,10 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
+    path: 'admin',
+    component: AdminComponent,
+  },
+  {
     path: 'about',
     component: AboutOneComponent
   },
@@ -61,3 +65,5 @@ const routes: Routes = [
 
 export class PagesRoutingModule {
 };
+
+

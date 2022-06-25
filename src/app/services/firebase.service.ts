@@ -25,11 +25,9 @@ export class FirebaseService {
   constructor(public firebaseAuth: AngularFireAuth, private firestore: AngularFirestore) {
     this.firebaseAuth.authState.subscribe(async (user) => {
       if (user) {
-
         const uid = user.uid;
-        console.log(uid);
         this.userData = await this.getData('users', uid);
-        console.log(this.userData);
+        this.userData.uid = uid
 
       } else {
         this.userData = null;
@@ -126,8 +124,14 @@ export class FirebaseService {
 
   updateData(collection: any, doc: any, value: any) {
     this.firestore.collection(collection).doc(doc).update(value)
-      .then(() => {
-        alert('Data updated');
+      .then(async () => {
+        await Swal.fire({
+          icon: 'success',
+          title: 'Success!',
+          text: 'Successfully updated!',
+          showConfirmButton: false,
+          timer: 1500
+        });
       })
       .catch((err) => {
         alert(err.message);

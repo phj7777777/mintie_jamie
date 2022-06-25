@@ -33,10 +33,10 @@ export class LoginModalComponent implements OnInit {
       Validators.required,
       Validators.minLength(6),
     ] ),
-    firstName: new FormControl("", [
+    first_name: new FormControl("", [
       Validators.required,
     ]),
-    lastName: new FormControl("", []),
+    last_name: new FormControl("", []),
   });
 
   form2= new FormGroup({
@@ -90,11 +90,11 @@ export class LoginModalComponent implements OnInit {
           timer: 3000
         });
         await this.router.navigate(['/auth/home'])
-        await this.firebaseService.addData(userInfo.uid, { 
-          email: this.form.get('email').value, 
-          password: this.form.get('password').value, 
-          firstName: this.form.get('firstName').value,
-          lastName: this.form.get('lastName').value })
+        await this.firebaseService.addData(userInfo.uid, {
+          email: this.form.get('email').value,
+          password: this.form.get('password').value,
+          first_name: this.form.get('firstName').value,
+          last_name: this.form.get('lastName').value })
       }
       else {
         this.validateAllFormFields(this.form);

@@ -11,11 +11,11 @@ import {FormGroup, FormControl, Validators} from '@angular/forms';
 })
 export class ProfileComponent implements OnInit {
 
+  userData: any;
+
   form = new FormGroup({
-    firstName: new FormControl('', []),
-    lastName: new FormControl('', []),
-    password: new FormControl('', []),
-    newPassword: new FormControl('', []),
+    first_name: new FormControl('', []),
+    last_name: new FormControl('', []),
     address_line1: new FormControl('', []),
     address_apartment: new FormControl('', []),
     country: new FormControl('', []),
@@ -23,61 +23,93 @@ export class ProfileComponent implements OnInit {
     zip_code: new FormControl('', []),
   });
 
+  constructor(private router: Router, public firebaseService: FirebaseService) {
+  }
 
-  // read data from firebase
-  async getData() {
-    if (this.firebaseService.userData) {
-      const uid = this.firebaseService.userData.uid;
+  ngOnInit(): void {
+
+    this.userData = this.firebaseService.userData;
+    this.form.setValue({
+      first_name: this.firebaseService.userData.first_name ?? '',
+      last_name: this.firebaseService.userData.last_name ?? '',
+      address_line1: this.firebaseService.userData.address_line1 ?? '',
+      address_apartment: this.firebaseService.userData.address_apartment ?? '',
+      country: this.firebaseService.userData.country ?? '',
+      state: this.firebaseService.userData.state ?? '',
+      zip_code: this.firebaseService.userData.zip_code ?? '',
+    });
+
+  }
+
+
+  async update() {
+    if (this.userData) {
+      const uid = this.userData.uid;
+
+      // Initial form variable
+      const firstName = this.form.get('first_name').value;
+      const lastName = this.form.get('last_name').value;
+      const addressLine1 = this.form.get('address_line1').value;
+      const addressApartment = this.form.get('address_apartment').value;
+      const country = this.form.get('country').value;
+      const state = this.form.get('state').value;
+      const zipCode = this.form.get('zip_code').value;
+
+      // Check if form change
+      const firstNameChange = this.userData.first_name != firstName && firstName;
+      const lastNameChange = this.userData.last_name != lastName && lastName;
+      const addressLine1Change = this.userData.address_line1 != addressLine1 && addressLine1;
+      const addressApartmentChange = this.userData.address_apartment != addressApartment && addressApartment;
+      const countryChange = this.userData.country != country && country;
+      const stateChange = this.userData.state != state && state;
+      const zipCodeChange = this.userData.zip_code != zipCode && zipCode;
+
+
+      let tempUserData = {};
+
+      if (firstNameChange) {
+        tempUserData['first_name'] = firstName;
+      }
+      if (lastNameChange) {
+        tempUserData['last_name'] = lastName;
+      }
+      if (addressLine1Change) {
+        tempUserData['address_line1'] = addressLine1;
+      }
+      if (addressApartmentChange) {
+        tempUserData['address_apartment'] = addressApartment;
+      }
+      if (countryChange) {
+        tempUserData['country'] = country;
+      }
+      if (stateChange) {
+        tempUserData['state'] = state;
+      }
+      if (zipCodeChange) {
+        tempUserData['zip_code'] = zipCode;
+      }
+
+      const update = firstNameChange || lastNameChange || addressLine1Change || addressApartmentChange || countryChange || stateChange || zipCodeChange;
+
+      // Pass in data field into tempUserData if form updated
+      if (update) {
+        this.firebaseService.updateData('users', uid,
+          tempUserData
+        );
+
+        this.firebaseService.userData = await this.firebaseService.getData('users', uid);
+        this.firebaseService.userData.uid = uid;
+        this.userData = this.firebaseService.userData;
+
+      }
 
     }
   }
-
-  get firstName() {
-    return this.form.get('firstName');
-  };
-
-  async update() {
-    console.log('Updating');
-    if (this.firebaseService.userData) {
-      const uid = this.firebaseService.userData.uid;
-      console.log(this.form.get('firstName').value)
-      console.log(uid)
-      await this.firebaseService.updateData('users', uid,
-        {
-          firstName: this.form.get('firstName').value,
-          lastName: this.form.get('lastName').value,
-          address_line1: this.form.get('address_line1').value,
-          address_apartment: this.form.get('address_apartment').value,
-          country: this.form.get('country').value,
-          state: this.form.get('state').value,
-          zip_code: this.form.get('zip_code').value,
-        }
-      );
-      }
-    }
 
   async logout() {
     await this.firebaseService.handleLogout();
     await this.router.navigate(['/auth/home']);
   }
 
-  constructor(private router: Router, public firebaseService: FirebaseService) {
-  }
-
-  ngOnInit(): void {
-    console.log(this.firebaseService.userData)
-    
-    // if (this.firebaseService.userData.firstName != null) {
-    //   this.form.setValue({
-    //     firstName: this.firebaseService.userData.firstName,
-    //     lastName: this.firebaseService.userData.lastName,
-    //     address_line1: this.firebaseService.userData.address_line1,
-    //     address_apartment: this.firebaseService.userData.address_apartment,
-    //     country: this.firebaseService.userData.country,
-    //     state: this.firebaseService.userData.state,
-    //     zip_code: this.firebaseService.userData.zip_code,
-    //   });
-    // }
-  }
 
 }
