@@ -34,6 +34,7 @@ const routes: Routes = [
   },
   {
     path: 'about-2',
+
     component: AboutTwoPageComponent
   },
   {
@@ -42,7 +43,8 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    component: LoginPageComponent
+    component: LoginPageComponent,
+    canActivate: [!AuthGuard]
   },
   {
     path: 'faq',

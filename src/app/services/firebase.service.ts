@@ -1,16 +1,5 @@
 import {Injectable} from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/compat/auth';
-import {
-  addDoc,
-  Firestore,
-  collection,
-  getDocs,
-  doc,
-  updateDoc,
-}
-  from '@angular/fire/firestore';
-import {setDoc} from 'firebase/firestore';
-import {AngularFirestoreModule} from '@angular/fire/compat/firestore';
 import {AngularFirestore} from '@angular/fire/compat/firestore';
 import Swal from 'sweetalert2';
 
