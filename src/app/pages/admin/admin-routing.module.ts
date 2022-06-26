@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin.component';
-import { TrackingComponent } from './tracking/tracking.component';
-
 
 const routes: Routes = [
   {
@@ -10,10 +8,7 @@ const routes: Routes = [
     pathMatch: 'full',
     component: AdminComponent,
   },
-  {
-    path: 'tracking',
-    component: TrackingComponent,
-  },
+
 ];
 
 @NgModule({

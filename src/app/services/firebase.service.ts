@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/compat/auth';
 import {AngularFirestore} from '@angular/fire/compat/firestore';
 import Swal from 'sweetalert2';
+import {first} from 'rxjs/operators';
 
 
 @Injectable({
@@ -136,7 +137,7 @@ export class FirebaseService {
 
     return null;
 
-
   }
+
 
 }

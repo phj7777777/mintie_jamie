@@ -10,6 +10,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProductCategoryBoxedPageComponent } from './product-category-boxed/product-category-boxed.component';
 import { ProductCategoryFluidPageComponent } from './product-category-fluid/product-category-fluid.component';
+import {TrackingComponent} from './tracking/tracking.component';
 
 const routes: Routes = [
 	{
@@ -62,7 +63,11 @@ const routes: Routes = [
 	{
 		path: 'category/fullwidth',
 		component: ProductCategoryFluidPageComponent
-	}
+	},
+  {
+    path: 'tracking',
+    component: TrackingComponent,
+  },
 ];
 
 @NgModule( {

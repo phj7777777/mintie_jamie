@@ -29,28 +29,32 @@ export class TrackingComponent implements OnInit {
   };
 
   data = null
-  status1 = null
-  status2 = null
-  status3 = null
+  errorMessage = false
 
   constructor(private firebaseService: FirebaseService) { }
-  
+
   ngOnInit(): void {
   }
 
-  checkStatus() {
+  async checkStatus() {
     if (this.form.valid) {
-      if (!(this.data)) {
-        this.data = "abc";
-        // this.status1 = "Order Received"
-        this.status2 = "Shipping"
-        // this.status3 = "Delivered"
+
+      try {
+        let order = await this.firebaseService.getData('orders', this.order.value);
+        if (order) {
+          this.data = order
+          this.errorMessage = false
+        } else {
+          this.data = null
+          this.errorMessage = true
+        }
+
+      } catch (e) {
+        this.validateAllFormFields(this.form);
       }
-      else {
-        this.data = "None";
-      }
-    }
-    else {
+
+
+    } else {
       this.validateAllFormFields(this.form);
     }
   }

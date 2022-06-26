@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es5",
+    "lib": ["dom"],
+    "sourceMap": true,
+    "strictDomEventTypes": false
+  },
+  "angularCompilerOptions": {
+    "strictDomEventTypes": false
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

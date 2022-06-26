@@ -1,0 +1,51 @@
+<main class="main">
+  <molla-page-header title="Order Tracking"></molla-page-header>
+  <br>
+  <br>
+  <div class="modal-body">
+    <div class="form-box">
+
+      <div class="form-tab nav-fill">
+        <form [formGroup]="form" (ngSubmit)="checkStatus()">
+
+          <div class="form-group">
+            <label for="order">Please key in order number *</label>
+            <input
+              type="order"
+              formControlName="order"
+              ngModel
+              class="form-control"
+              id="order"
+              name="order"
+              required
+            />
+            <div *ngIf="order && order.invalid && order.touched" style="color: red;">
+              Tracking ID is invalid or might have expired.
+            </div>
+
+          </div>
+          <div class="form-footer">
+            <button type="submit" class="btn btn-outline-primary-2">
+              <span>TRACK YOUR ORDER</span>
+              <i class="icon-long-arrow-right"></i>
+            </button>
+          </div>
+        </form>
+
+        <div *ngIf="errorMessage">
+          <span style="color: darkred; font-style: italic;">Order Not found...</span>
+        </div>
+
+        <div *ngIf="data">
+          <p><b><u>Order Details</u></b></p>
+          <p>Date of purchased: {{data.created_time | date: 'dd/MM/yyyy'}}</p>
+          <span>Order Status: </span><span style="color: rgb(200, 156, 45); font-style: italic;">
+                <a href="https://www.w3schools.com/" target="_blank">{{data.delivery_status}}</a></span>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>

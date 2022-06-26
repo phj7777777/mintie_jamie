@@ -9,7 +9,7 @@ import { OwlModule } from 'angular-owl-carousel';
 import { CommonModule } from "@angular/common";
 
 import { AdminRoutingModule } from './pages/admin/admin-routing.module';
-import { TrackingComponent } from './pages/admin/tracking/tracking.component';
+import { TrackingComponent } from './pages/shop/tracking/tracking.component';
 // Auth
 
 import { AuthRoutingModule } from './pages/auth/auth-routing.module';

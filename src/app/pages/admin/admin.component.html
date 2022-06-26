@@ -3,46 +3,40 @@
         <h2>Order Tracking</h2>
         <table class="table table-hover">
           <thead>
-            <tr>
+            <tr >
                 <th>Created</th>
                 <th>Order#</th>
                 <th>FirstName</th>
                 <th>Items</th>
                 <th>Total</th>
                 <th>Status</th>
-                <th>Remarks</th>
+                <th>Tracking Number</th>
             </tr>
           </thead>
 
           <tbody>
-            <tr>
-              <td>14-Jun-2022</td>
-              <td>01</td>
+            <tr  *ngFor="let order of orders">
+              <td>{{order.info.created_time | date: 'dd/MM/yyyy hh:mm:ss '}}</td>
+              <td>{{order.id}}</td>
               <td>Mintie</td>
-              <td>1 * Box</td>
-              <td>$27</td>
+              <td *ngFor='let item of order.products[0] | keyvalue'>{{item.key}} - {{item.value}}</td>
+              <td>${{order.info.total_price}}</td>
+
               <td>
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Update order status</option>
-                    <option value="1">Shipped</option>
-                    <option value="2">Cancelled</option>
-                    <option value="3">Others</option>
+                <select class="form-select" #status aria-label="Default select example"  (change)="updateStatus($event, order.info.delivery_status, status.value, order.id)" [value] = 'order.info.delivery_status'>
+                    <option value="pending">Pending</option>
+                    <option value="shipping">Shipping</option>
+                    <option value="shipped">Shipped</option>
+                    <option value="cancelled">Cancelled</option>
                   </select>
               </td>
               <td>
-                <input type="text" placeholder="N/A">
+                <input type="text" placeholder="N/A" (keydown.enter)="updateTrackingID($event,order.id)" [value]="order.info.tracking_id??''">
               </td>
             </tr>
 
           </tbody>
         </table>
-
-        <ul>
-          <li *ngFor="let order of Orders">
-            <span>{{order.number}}</span>
-          </li>
-          <li>Hello</li>
-        </ul>
 
       </div>
 </div>
