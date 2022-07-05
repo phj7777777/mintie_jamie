@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import { Component, OnInit, ElementRef, Renderer2 } from '@angular/core'
 import {Router} from '@angular/router';
 import {FirebaseService} from '../../services/firebase.service';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
@@ -23,7 +23,7 @@ export class ProfileComponent implements OnInit {
     zip_code: new FormControl('', []),
   });
 
-  constructor(private router: Router, public firebaseService: FirebaseService) {
+  constructor(private router: Router, public firebaseService: FirebaseService,private el: ElementRef, private renderer: Renderer2) {
   }
 
   ngOnInit(): void {
@@ -40,6 +40,13 @@ export class ProfileComponent implements OnInit {
     });
 
   }
+
+  viewTab($event: Event, prevId: number, nextId: number) {
+		$event.preventDefault();
+		let nodes = this.el.nativeElement.querySelectorAll(".nav-dashboard .nav-link");
+		this.renderer.removeClass(nodes[prevId], 'active');
+		this.renderer.addClass(nodes[nextId], 'active');
+	}
 
 
   async update() {

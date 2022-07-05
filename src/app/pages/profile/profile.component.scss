@@ -1,3 +1,10 @@
+@media only screen and (max-width: 600px) {
+  .example {
+    padding: 5px;
+  }
+}
+
+
 /*-- My Account Content -*/
 .myaccount-content {
   background-color: #ffffff;
@@ -14,7 +21,7 @@
 
 .account-details-form {
     & h4 {
-        margin-top: 25px;
+        margin-top: 5px;
         border-bottom: 1px dashed #eeeeee;
         padding-bottom: 10px;
         margin-bottom: 25px;
@@ -39,15 +46,13 @@
 .form-box {
     
 	max-width: 850px;
-	// margin-left: auto;
-	// margin-right: auto;
-    margin-top: 4rem;
-    margin-bottom: 8rem;
+  margin-bottom: 8rem;
 	background-color: #fff;
 	padding: 2.2rem 2rem 4.4rem;
 	box-shadow: 0 3px 16px rgba(51, 51, 51, .1);
 
 	.btn {
-		min-width: 115px;
+    width: 100%;
+    text-align: center;
 	}
 }

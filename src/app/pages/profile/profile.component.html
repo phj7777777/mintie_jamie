@@ -1,81 +1,170 @@
-<div class="modal-body">
-  <div class="form-box">
-    <div class="myaccount-content">
-        <h3>Account Details</h3>
-
-        <div class="account-details-form">
-            <form [formGroup]="form" (ngSubmit)="update()">
-                <div class="row">
-                    <div class="col-lg-6 col-12 mb-30">
-                        <input id="first-name" placeholder="First Name" type="text" formControlName="first_name">
-                    </div>
-
-                    <div class="col-lg-6 col-12 mb-30">
-                        <input id="last-name" placeholder="Last Name" type="text" formControlName="last_name">
-                    </div>
-                    <br>
-                    <br>
-
-<!--                    <div class="col-lg-6 col-12 mb-30">-->
-<!--                        <input id="new-pwd" placeholder="Password" type="password" formControlName="password">-->
-<!--                    </div>-->
-
-<!--                    <div class="col-lg-6 col-12 mb-30">-->
-<!--                        <input id="confirm-pwd" placeholder="Confirm Password" type="password" formControlName="newPassword">-->
-<!--                    </div>-->
-
-                    <!-- <div class="account-details-form2"> -->
-                    <div class="col-lg-12 col-12 mb-30">
-                        <h4>Shipping Address</h4>
-                    </div>
-                    <br>
-
-                    <div class="col-lg-12 col-12 mb-30">
-                        <input id="address-line1" placeholder="Address Line 1" type="text" formControlName="address_line1">
-                    </div>
-                    <br>
-                    <br>
-                    <div class="col-lg-12 col-12 mb-30">
-                        <input id="address-apartment" placeholder="Apartment, suite, etc. (Optional)" type="text" formControlName="address_apartment">
-                    </div>
-                    <br>
-                    <br>
-                    <div class="col-lg-4 col-4 mb-30">
-                        <input id="country" placeholder="Country" type="text" formControlName="country">
-                    </div>
-
-                    <div class="col-lg-4 col-4 mb-30">
-                        <input id="state" placeholder="State" type="text" formControlName="state">
-                    </div>
-
-                    <div class="col-lg-4 col-4 mb-30">
-                        <input id="zip-code" placeholder="ZIP Code" type="text" formControlName="zip_code">
-                    </div>
-                </div>
-                <br>
-                    <div class="col-12 mb-30">
-                    <div class="form-footer">
-                        <button type="submit" class="btn btn-outline-primary-2">
-                          <span>SAVE CHANGES</span>
-                          <i class="icon-long-arrow-right"></i>
-                        </button>
-
-                        <div class="col">
-                          <button class="btn btn-outline-primary-2" (click)="logout()">
-                            <span>LOG OUT</span>
-                            <i class="icon-long-arrow-right"></i>
-                        </button>
-                    </div>
-                      </div>
-                    </div>
-
-            </form>
+<main class="main">
+    <div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
+        <div class="container">
+            <h1 class="page-title">My Account</h1>
         </div>
     </div>
 
+    <!-- navigation Home > Shop > My Account -->
+    <nav class="breadcrumb-nav mb-3">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a routerLink="/">Home</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a routerLink="/shop/sidebar/3cols">Shop</a>
+                </li>
+                <li class="breadcrumb-item active">My Account</li>
+            </ol>
+        </div>
+    </nav>
 
 
 
+<!-- New added navigation tab -->
+
+
+    <div class="page-content">
+        <div class="dashboard">
+            <div class="container">
+                <div class="row">
+                    <aside class="col-md-4 col-lg-3">
+                        <ul class="nav nav-dashboard flex-column mb-3 mb-md-0" role="tablist" tabClick>
+                            <li class="nav-item">
+                                <a class="nav-link" href="javascript:;" role="tab"
+                                    (click)="nav.select('tab-1')">Dashboard</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="javascript:;" role="tab"
+                                    (click)="nav.select('tab-2')">Orders</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" (click)="logout()">Sign Out</a>
+                            </li>
+                        </ul>
+                    </aside>
+
+                    <div class="col-md-8 col-lg-9">
+                        <div class="tab-content">
+                            <ul ngbNav #nav="ngbNav">
+                                <li [ngbNavItem]="'tab-1'">
+                                    <ng-template ngbNavContent>
+                                        <!-- <p>Hello <span class="font-weight-normal text-dark">User</span> (not <span
+                                                class="font-weight-normal text-dark">User</span>? <a
+                                                routerLink="/">Log out</a>)
+                                            <br>
+                                            From your account dashboard you can view your <a href="javascript:;"
+                                                (click)="nav.select('tab-2'); viewTab( $event, 0, 1 );"
+                                                class="tab-trigger-link link-underline">recent orders</a>, manage your
+                                            <a href="javascript:;"
+                                                (click)="nav.select('tab-2'); viewTab( $event, 0, 3 );"
+                                                class="tab-trigger-link">shipping and billing addresses</a>, and <a
+                                                href="javascript:;"
+                                                (click)="nav.select('tab-2'); viewTab( $event, 0, 4 );"
+                                                class="tab-trigger-link">edit your password and account details</a>.</p>
+                                     -->
+                                    
+                                <div class="modal-body">
+                                    <div class="form-box">
+                                        <div class="myaccount-content">
+                                            <h3>Account Details</h3>
+                                    
+                                            <div class="account-details-form">
+                                                <form [formGroup]="form" (ngSubmit)="update()">
+                                                    <div class="row">
+                                                        <div class="col-lg-6 col-12 mb-30">
+                                                            <input id="first-name" placeholder="First Name" type="text" formControlName="first_name">
+                                                        </div>
+                                                        <br>
+                                                        <br>
+                                                        <div class="col-lg-6 col-12 mb-30">
+                                                            <input id="last-name" placeholder="Last Name" type="text" formControlName="last_name">
+                                                        </div>
+                                                        <br>
+                                                        <br>
+                                    
+                                                        <div class="col-lg-12 col-12 mb-30">
+                                                            <h4>Shipping Address</h4>
+                                                        </div>
+                                                        <br>
+                                    
+                                                        <div class="col-lg-12 col-12 mb-30">
+                                                            <input id="address-line1" placeholder="Address Line 1" type="text" formControlName="address_line1">
+                                                        </div>
+                                                        <br>
+                                                        <br>
+                                                        <div class="col-lg-12 col-12 mb-30">
+                                                            <input id="address-apartment" placeholder="Apartment, suite, etc. (Optional)" type="text" formControlName="address_apartment">
+                                                        </div>
+                                                        <br>
+                                                        <br>
+                                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                                            <input id="country" placeholder="Country" type="text" formControlName="country">
+                                                        </div>
+                                                        <br>
+                                                        <br>
+                                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                                            <input id="state" placeholder="State" type="text" formControlName="state">
+                                                        </div>
+                                                        <br>
+                                                        <br>
+                                                        <div class="col-lg-4 col-md-4 col-sm-4">
+                                                            <input id="zip-code" placeholder="Postcode / ZIP" type="text" formControlName="zip_code">
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                        
+                                                        <div class="form-footer example">
+                                                            <div class="col-lg-6 col-md-6 col-sm-6 mb-30">
+                                                            <button type="submit" class="btn btn-outline-primary-2">
+                                                            <span>SAVE CHANGES</span>
+                                                            <i class="icon-long-arrow-right"></i>
+                                                            </button>
+                                                            </div>
+                                                            <br> 
+                                                            <br> 
+                                                        </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    
+                                    
+                                    
+                                    
+                                    </div>
+                                    </div>
+                                    
+                                            </ng-template>
+
+                                    
+                                </li>
+
+                                <li [ngbNavItem]="'tab-2'">
+                                    <ng-template ngbNavContent>
+                                        <p>No order has been made yet.</p>
+                                        <a routerLink="/shop/sidebar/list" class="btn btn-outline-primary-2"><span>GO
+                                                SHOP</span><i class="icon-long-arrow-right"></i></a>
+                                    </ng-template>
+                                </li>
+                            </ul>
+                            <div [ngbNavOutlet]="nav"></div>
+                        </div>
+                    </div>
+        </div>
+    </div>
 </div>
 </div>
 
+
+
+
+
+
+
+<!-- New added navigation tab ends here-->
+
+
+
+
+</main>

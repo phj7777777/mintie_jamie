@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
+import {FormGroup, FormControl, Validators} from '@angular/forms';
 
 import { CartService } from 'src/app/shared/services/cart.service';
 
@@ -13,6 +14,52 @@ declare var $: any;
 
 export class CheckoutComponent implements OnInit, OnDestroy {
 
+	form = new FormGroup({
+		first_name: new FormControl('', [
+			Validators.required,
+		]),
+		last_name: new FormControl('', [
+			Validators.required,
+		]),
+		address_line1: new FormControl('', [
+			Validators.required,
+		]),
+		address_apartment: new FormControl('', [
+			Validators.required,
+		]),
+		country: new FormControl('', [
+			Validators.required,
+		]),
+		state: new FormControl('', [
+			Validators.required,
+		]),
+		city: new FormControl('', [
+			Validators.required,
+		]),
+		zip_code: new FormControl('', [
+			Validators.required,
+		]),
+		phone: new FormControl('', [
+			Validators.required,
+		]),
+		email: new FormControl('', [
+			Validators.required,
+			Validators.email
+		]),
+	  });
+
+	form2 = new FormGroup(
+		{
+			coupon: new FormControl('', []),
+		}
+	)
+	coupun() {
+
+	}
+
+	checkout() {
+
+	}
 	cartItems = [];
 
 	private subscr: Subscription;

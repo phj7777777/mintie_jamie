@@ -1,7 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {Router} from '@angular/router';
-import {FirebaseService} from 'src/app/services/firebase.service';
+import { FirebaseService } from '../../services/firebase.service';
 import {AngularFirestore} from '@angular/fire/compat/firestore';
 import Swal from 'sweetalert2';
 
@@ -21,7 +21,17 @@ export class AdminComponent implements OnInit {
 
   }
 
+  mobile = false
+  public getScreenWidth: any;
+
   async ngOnInit(): Promise<void> {
+
+    this.getScreenWidth = window.innerWidth;
+    // console.log(this.getScreenWidth)
+    if (this.getScreenWidth < 768) { // If 768px and below, show mobile layout
+      this.mobile = true;
+    }
+
     this.firestore.collection('orders')
       .snapshotChanges()
       .subscribe(docs => {

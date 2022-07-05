@@ -4,6 +4,8 @@ import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OwlModule } from 'angular-owl-carousel';
 import { NouisliderModule } from 'ng2-nouislider';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 import { ShopRoutingModule } from './shop-routing.module';
 import { SharedModule } from '../../shared/shared.module';
@@ -49,7 +51,9 @@ import { ShopListThreeComponent } from './shared/list/shop-list-three/shop-list-
 		RouterModule,
 		NgbModule,
 		OwlModule,
-		NouisliderModule
+		NouisliderModule,
+		FormsModule,
+		ReactiveFormsModule,
 	]
 } )
 

@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { ForgetPasswordComponent } from '../auth/forget-password/forget-password.component'
 import { IndexComponent } from '../home/index/index.component';
 import { ProfileComponent } from '../../pages/profile/profile.component'
+import { LoginModalComponent } from 'src/app/shared/components/modals/login-modal/login-modal.component';
+
 const routes: Routes = [
     {
       path:'forgetPassword',
@@ -15,6 +17,10 @@ const routes: Routes = [
     {
       path:'profile',
       component: ProfileComponent
+    },
+    {
+      path: 'login',
+      component: LoginModalComponent
     }
 ];
 

@@ -1,42 +1,135 @@
-<div class="modal-body">
+<div class="page-header text-center" style="background-image: url('assets/images/page-header-bg.jpg')">
+  <div class="container">
+      <h1 class="page-title">Order Tracking</h1>
+  </div>
+</div>
+
+<!-- Not mobile view -->
+<div class="modal-body" *ngIf="!mobile">
+<div class="container mt-3">
+<table class="table table-hover">
+  <thead>
+    <tr >
+        <th>Created</th>
+        <th>Order#</th>
+        <th>FirstName</th>
+        <th>Items</th>
+        <th>Total</th>
+        <th>Status</th>
+        <th>Tracking Number</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr  *ngFor="let order of orders">
+      <td style="color: red;">{{order.info.created_time | date: 'dd/MM/yyyy hh:mm:ss '}}</td>
+      <td>{{order.id}}</td>
+      <td>Mintie</td>
+      <td *ngFor='let item of order.products[0] | keyvalue'>{{item.key}} - {{item.value}}</td>
+      <td>${{order.info.total_price}}</td>
+
+      <td>
+        <select class="form-select" #status aria-label="Default select example"  (change)="updateStatus($event, order.info.delivery_status, status.value, order.id)" [value] = 'order.info.delivery_status'>
+            <option value="pending">Pending</option>
+            <option value="shipping">Shipping</option>
+            <option value="shipped">Shipped</option>
+            <option value="cancelled">Cancelled</option>
+          </select>
+      </td>
+      <td>
+        <input type="text" placeholder="N/A" (keydown.enter)="updateTrackingID($event,order.id)" [value]="order.info.tracking_id??''">
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+</div>
+</div>
+
+<!-- Not mobile view ends here -->
+
+
+<!-- Mobile view -->
+<div class="modal-body" *ngIf="mobile">
     <div class="container mt-3">
-        <h2>Order Tracking</h2>
-        <table class="table table-hover">
-          <thead>
-            <tr >
-                <th>Created</th>
-                <th>Order#</th>
-                <th>FirstName</th>
-                <th>Items</th>
-                <th>Total</th>
-                <th>Status</th>
-                <th>Tracking Number</th>
-            </tr>
-          </thead>
+        
+            <ul  *ngFor="let order of orders">
 
-          <tbody>
-            <tr  *ngFor="let order of orders">
-              <td>{{order.info.created_time | date: 'dd/MM/yyyy hh:mm:ss '}}</td>
-              <td>{{order.id}}</td>
-              <td>Mintie</td>
-              <td *ngFor='let item of order.products[0] | keyvalue'>{{item.key}} - {{item.value}}</td>
-              <td>${{order.info.total_price}}</td>
+              <div class="row bg-warning">
+                <div class="col-md-4 col-sm-4">
+                  <p><strong>Order#: </strong></p>
+                </div>
+                <div class="col-md-8 col-sm-8">
+                  {{order.id}}
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="col-md-4 col-sm-4">
+                  <p><strong>Created: </strong></p>
+                </div>
+                <div class="col-md-8 col-sm-8">
+                  <p style="color: red;">{{order.info.created_time | date: 'dd/MM/yyyy hh:mm:ss '}}</p>
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="col-md-4 col-sm-4">
+                  <p><strong>FirstName: </strong></p>
+                </div>
+                <div class="col-md-8 col-sm-8">
+                  <p>Mintie</p>
+                </div>
+              </div>
 
-              <td>
-                <select class="form-select" #status aria-label="Default select example"  (change)="updateStatus($event, order.info.delivery_status, status.value, order.id)" [value] = 'order.info.delivery_status'>
+              <div class="row">
+                <div class="col-md-4 col-sm-4">
+                  <p><strong>Items: </strong></p>
+                </div>
+                <div class="col-md-8 col-sm-8">
+                  <p *ngFor='let item of order.products[0] | keyvalue'>{{item.key}} - {{item.value}}</p>
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="col-md-4 col-sm-4">
+                  <p><strong>Total: </strong></p>
+                </div>
+                <div class="col-md-8 col-sm-8">
+                  <p>${{order.info.total_price}}</p>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-4 col-sm-4">
+                  <p><strong>Status: </strong></p>
+                </div>
+                <div class="col-md-8 col-sm-8">
+                  <select class="form-select" #status aria-label="Default select example"  (change)="updateStatus($event, order.info.delivery_status, status.value, order.id)" [value] = 'order.info.delivery_status'>
                     <option value="pending">Pending</option>
                     <option value="shipping">Shipping</option>
                     <option value="shipped">Shipped</option>
                     <option value="cancelled">Cancelled</option>
                   </select>
-              </td>
-              <td>
-                <input type="text" placeholder="N/A" (keydown.enter)="updateTrackingID($event,order.id)" [value]="order.info.tracking_id??''">
-              </td>
-            </tr>
+                </div>
+              </div>
 
-          </tbody>
-        </table>
+              <div class="row">
+                <div class="col-md-4 col-sm-4">
+                  <p><strong>Tracking Number: </strong></p>
+                </div>
+                <div class="col-md-8 col-sm-8">
+                  <p>
+                    <input type="text" placeholder="N/A" (keydown.enter)="updateTrackingID($event,order.id)" [value]="order.info.tracking_id??''">
+                  </p>
+                </div>
+              </div>
 
+              
+            </ul>
       </div>
 </div>
+<!-- Mobile view ends here -->
+
+
+
