@@ -14,7 +14,7 @@ declare var $:any;
 
 @Component({
 	selector: 'molla-index',
-	templateUrl: './index.component.html',
+	templateUrl: './../../others/coming-soon/coming-soon.component.html',
 	styleUrls: ['./index.component.scss']
 })
 
