@@ -20,34 +20,34 @@ const routes: Routes = [
 				pathMatch: 'full',
 				component: IndexComponent,
 			},
-			{
-				path: 'auth',
-				loadChildren: () => import( './pages/auth/auth.module' ).then( m => m.AuthModule )
-			},
-			{
-				path: 'admin',
-				loadChildren: () => import( './pages/admin/admin.module' ).then( m => m.AdminModule )
-			},
-			{
-				path: 'elements',
-				loadChildren: () => import( './pages/elements/elements.module' ).then( m => m.ElementsModule )
-			},
-			{
-				path: 'blog',
-				loadChildren: () => import( './pages/blog/blog.module' ).then( m => m.BlogModule )
-			},
-			{
-				path: 'pages',
-				loadChildren: () => import( './pages/others/pages.module' ).then( m => m.PagesModule )
-			},
-			{
-				path: 'shop',
-				loadChildren: () => import( './pages/shop/shop.module' ).then( m => m.ShopModule )
-			},
-			{
-				path: 'product',
-				loadChildren: () => import( './pages/product/product.module' ).then( m => m.ProductModule )
-			},
+			// {
+			// 	path: 'auth',
+			// 	loadChildren: () => import( './pages/auth/auth.module' ).then( m => m.AuthModule )
+			// },
+			// {
+			// 	path: 'admin',
+			// 	loadChildren: () => import( './pages/admin/admin.module' ).then( m => m.AdminModule )
+			// },
+			// {
+			// 	path: 'elements',
+			// 	loadChildren: () => import( './pages/elements/elements.module' ).then( m => m.ElementsModule )
+			// },
+			// {
+			// 	path: 'blog',
+			// 	loadChildren: () => import( './pages/blog/blog.module' ).then( m => m.BlogModule )
+			// },
+			// {
+			// 	path: 'pages',
+			// 	loadChildren: () => import( './pages/others/pages.module' ).then( m => m.PagesModule )
+			// },
+			// {
+			// 	path: 'shop',
+			// 	loadChildren: () => import( './pages/shop/shop.module' ).then( m => m.ShopModule )
+			// },
+			// {
+			// 	path: 'product',
+			// 	loadChildren: () => import( './pages/product/product.module' ).then( m => m.ProductModule )
+			// },
 			// {
 			// 	path: 'shared',
 			// 	loadChildren: () => import( './shared/shared.module' ).then( m => m.SharedModule )
