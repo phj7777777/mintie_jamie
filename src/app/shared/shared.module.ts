@@ -74,6 +74,8 @@ import { PostOneComponent } from './components/blog-post/post-one/post-one.compo
 import { PostTwoComponent } from './components/blog-post/post-two/post-two.component';
 import { PostThreeComponent } from './components/blog-post/post-three/post-three.component';
 import { PostFourComponent } from './components/blog-post/post-four/post-four.component';
+import { PolicyComponent } from './components/policy/policy.component';
+import { TermsOfUseComponent } from './components/terms-of-use/terms-of-use.component';
 
 @NgModule({
 	declarations: [
@@ -137,7 +139,9 @@ import { PostFourComponent } from './components/blog-post/post-four/post-four.co
 		PostTwoComponent,
 		PostThreeComponent,
 		PostFourComponent,
-		CountToComponent
+		CountToComponent,
+  PolicyComponent,
+  TermsOfUseComponent
 	],
 
 	imports: [

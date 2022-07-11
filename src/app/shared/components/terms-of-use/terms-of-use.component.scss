@@ -1,0 +1,13 @@
+li {
+    // font-size: 14px;
+    margin-left: 50px;
+    list-style-type: circle;
+ }
+
+ li {
+    margin-bottom: 8px;
+  }
+  
+  li:last-child {
+   margin-bottom: 0px;
+  }
