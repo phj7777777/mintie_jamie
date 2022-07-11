@@ -6,10 +6,21 @@ import { ComingSoonPageComponent } from './pages/others/coming-soon/coming-soon.
 import { IndexComponent } from './pages/home/index/index.component';
 import {AuthGuard} from './shared/guard/auth.guard';
 
+import { PolicyComponent } from './shared/components/policy/policy.component';
+import { TermsOfUseComponent } from './shared/components/terms-of-use/terms-of-use.component';
+
 const routes: Routes = [
 	{
 		path: 'pages/coming-soon',
 		component: ComingSoonPageComponent
+	},
+	{
+		path: 'terms',
+		component: TermsOfUseComponent
+	},
+	{
+		path: 'privacyPolicy',
+		component: PolicyComponent
 	},
 	{
 		path: '',
