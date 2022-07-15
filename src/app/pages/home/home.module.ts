@@ -8,6 +8,7 @@ import { NouisliderModule } from 'ng2-nouislider';
 import { SharedModule } from '../../shared/shared.module';
 
 import { IndexComponent } from './index/index.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
 	declarations: [
@@ -20,7 +21,9 @@ import { IndexComponent } from './index/index.component';
 		NgbModule,
 		OwlModule,
 		NouisliderModule,
-		SharedModule
+		SharedModule,
+    FormsModule,
+    ReactiveFormsModule,
 	]
 })
 

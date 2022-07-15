@@ -90,7 +90,7 @@ export class LoginModalComponent implements OnInit {
           timer: 3000
         });
         await this.router.navigate(['/auth/home'])
-        await this.firebaseService.addData(userInfo.uid, {
+        await this.firebaseService.addData('users', userInfo.uid, {
           email: this.form.get('email').value,
           password: this.form.get('password').value,
           first_name: this.form.get('firstName').value,

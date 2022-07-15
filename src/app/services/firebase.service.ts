@@ -17,7 +17,7 @@ export class FirebaseService {
       if (user) {
         const uid = user.uid;
         this.userData = await this.getData('users', uid);
-        this.userData.uid = uid
+        this.userData.uid = uid;
 
       } else {
         this.userData = null;
@@ -66,7 +66,7 @@ export class FirebaseService {
   }
 
   async handleLogout() {
-    await this.firebaseAuth.signOut()
+    await this.firebaseAuth.signOut();
   }
 
   async resetPassword(email) {
@@ -98,15 +98,12 @@ export class FirebaseService {
 
   }
 
-  addData(docId, value: any) {
+  addData(collectionId, docId, value: any) {
 
     // TODO: Make this function more dynamic,
     // TODO: add one more parameter "collection" instead hardcode "users",
 
-    this.firestore.collection('users').doc(docId).set(value)
-      .then(() => {
-        alert('Data Sent');
-      })
+    this.firestore.collection(collectionId).doc(docId).set(value)
       .catch((err) => {
         alert(err.message);
       });
@@ -130,9 +127,9 @@ export class FirebaseService {
   }
 
   async getData(collection: any, doc: any) {
-    let result = await this.firestore.collection(collection).doc(doc).ref.get()
-    if(result){
-      return result.data()
+    let result = await this.firestore.collection(collection).doc(doc).ref.get();
+    if (result) {
+      return result.data();
     }
 
     return null;
