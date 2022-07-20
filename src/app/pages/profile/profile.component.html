@@ -142,9 +142,79 @@
 
                                 <li [ngbNavItem]="'tab-2'">
                                     <ng-template ngbNavContent>
-                                        <p>No order has been made yet.</p>
-                                        <a routerLink="/shop/sidebar/list" class="btn btn-outline-primary-2"><span>GO
-                                                SHOP</span><i class="icon-long-arrow-right"></i></a>
+                                        <div *ngIf="noOrders">
+                                            <p>No order has been made yet.</p>
+                                            <a routerLink="/shop/sidebar/list" class="btn btn-outline-primary-2"><span>GO
+                                                    SHOP</span><i class="icon-long-arrow-right"></i></a>
+                                        </div>
+
+                                        <div *ngIf="!noOrders">
+                                            <label>
+                                            <div class="wrapper">
+                                                <div class="title">
+                                                </div>
+                                                <div class="flip3D">
+                                                  <div class="back" id="back" *ngIf="isShown">
+                                                    <p>back</p>
+                                                    <div class="click" ></div>
+                                                    <button (click)="moreDetails()">Click here for more details</button>
+                                                </div>
+                                                  <div class="front" id="front" *ngIf="!isShown">
+                                                    <ul  *ngFor="let order of orders">
+                                                        <div class="row">
+                                                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                                            <p><strong>Order#: </strong></p>
+                                                          </div>
+                                                          <div class="col-lg-6 col-md-6 col-sm-6">
+                                                            {{order.id}}
+                                                          </div>
+                                                        </div>
+                                                        
+                                                        <div class="row">
+                                                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                                            <p><strong>Created: </strong></p>
+                                                          </div>
+                                                          <div class="col-lg-6 col-md-6 col-sm-6">
+                                                            <!-- <p style="color: red;">{{order.info.created_time | date: 'dd/MM/yyyy hh:mm:ss '}}</p> -->
+                                                            <p style="color: red;">{{order.date}}</p>
+                                                          </div>
+                                                        </div>
+                                                        
+                                                        
+                                                        <div class="row">
+                                                            <div class="col-lg-6 col-md-6 col-sm-6">
+
+                                                            <p><strong>Total: </strong></p>
+                                                          </div>
+                                                          <div class="col-lg-6 col-md-6 col-sm-6">
+
+                                                            <p>${{order.total_price}}</p>
+                                                          </div>
+                                                        </div>
+                                          
+                                                        <div class="row">
+                                                            <div class="col-lg-6 col-md-6 col-sm-6">
+
+                                                            <p><strong>Tracking Number: </strong></p>
+                                                          </div>
+                                                          <div class="col-lg-6 col-md-6 col-sm-6">
+
+                                                              <p>{{order.tracking}}</p>
+                                                          </div>
+                                                        </div>
+
+                                                        <div class="click" ></div>
+                                                        <button (click)="moreDetails()">Click here for more details</button>
+                                                    
+                                                      </ul>
+                                                  </div>
+                                                </div>
+                                            </div>
+                                        </label>
+                                        </div>
+
+                                  
+                                        
                                     </ng-template>
                                 </li>
                             </ul>
@@ -155,8 +225,8 @@
     </div>
 </div>
 </div>
-
-
+<br>
+<br>
 
 
 
