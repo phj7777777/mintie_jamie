@@ -56,3 +56,63 @@
     text-align: center;
 	}
 }
+
+// Order listing design
+
+.wrapper {
+ width: 95%;
+}
+
+.title {
+ display: block;
+ margin: 0 auto;
+}
+
+.flip3D {
+ height: 200px;
+ margin: 10px;
+ float: left;
+}
+
+.flip3D .front {
+  width: 80%;
+ height: fit-content;
+ position: absolute;
+ transform: perspective(600px) rotateX(0deg);
+ -webkit-transform: perspective(600px) rotateY(0deg);
+//  backface-visibility: hidden;
+ transition: transform .6s linear 0s;
+ transition: -webkit-transform .6s linear 0s;
+// max-width: 850px;
+background-color: #fff;
+// padding: 2.2rem 2rem 4.4rem;
+padding: 35px;
+box-shadow: 0 3px 16px rgba(51, 51, 51, .1);
+}
+
+.flip3D .back {
+//  display:flex;
+//  align-items: center;
+//  justify-content: center;
+ width: 80%;
+ height: 200px;
+ position: absolute;
+//  transform: perspective(600px) rotateX(180deg);
+//  backface-visibility: hidden;
+//  transition: transform .6s linear 0s;
+max-width: 850px;
+// margin-bottom: 8rem;
+background-color: rgb(255, 255, 255);
+padding: 2.2rem 2rem 4.4rem;
+box-shadow: 0 3px 16px rgba(51, 51, 51, .1);
+}
+
+// .flip3D:hover .front {
+//  transform: perspective(600px) rotateX(-180deg);
+//  box-shadow: 0 0 10px .5px darkslategrey;
+// }
+
+// .flip3D:hover .back {
+//  transform: perspective(600px) rotateX(0deg);
+
+// }
