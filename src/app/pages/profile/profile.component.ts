@@ -145,30 +145,17 @@ export class ProfileComponent implements OnInit {
   //   else {
   //     front.style.visibility = "hidden";
   //     back.style.display = 'block';
-      
+
   //   }
   // }
-  
-  isShown: boolean = false 
 
-  moreDetails() {
-    console.log("Click");
-    // this.isShown = ! this.isShown
-    // this.isShown = true;
+  isShown: boolean = false
 
+  toggleView() {
+
+    this.isShown = !this.isShown
     console.log(this.isShown)
 
-    // if (this.isShown = ! this.isShown) {
-    //   console.log(">>")
-    // }
-    if (this.isShown = true){
-      console.log("is Shown is true")
-      // this.isShown = false;
-    }
-    else {
-      console.log("is Shown is false")
-      // this.isShown = true;
-    }
   }
 
 

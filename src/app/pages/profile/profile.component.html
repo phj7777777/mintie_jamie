@@ -64,12 +64,12 @@
                                                 (click)="nav.select('tab-2'); viewTab( $event, 0, 4 );"
                                                 class="tab-trigger-link">edit your password and account details</a>.</p>
                                      -->
-                                    
+
                                 <div class="modal-body">
                                     <div class="form-box">
                                         <div class="myaccount-content">
                                             <h3>Account Details</h3>
-                                    
+
                                             <div class="account-details-form">
                                                 <form [formGroup]="form" (ngSubmit)="update()">
                                                     <div class="row">
@@ -83,12 +83,12 @@
                                                         </div>
                                                         <br>
                                                         <br>
-                                    
+
                                                         <div class="col-lg-12 col-12 mb-30">
                                                             <h4>Shipping Address</h4>
                                                         </div>
                                                         <br>
-                                    
+
                                                         <div class="col-lg-12 col-12 mb-30">
                                                             <input id="address-line1" placeholder="Address Line 1" type="text" formControlName="address_line1">
                                                         </div>
@@ -114,7 +114,7 @@
                                                         </div>
                                                     </div>
                                                     <br>
-                                                        
+
                                                         <div class="form-footer example">
                                                             <div class="col-lg-6 col-md-6 col-sm-6 mb-30">
                                                             <button type="submit" class="btn btn-outline-primary-2">
@@ -122,22 +122,22 @@
                                                             <i class="icon-long-arrow-right"></i>
                                                             </button>
                                                             </div>
-                                                            <br> 
-                                                            <br> 
+                                                            <br>
+                                                            <br>
                                                         </div>
                                                 </form>
                                             </div>
                                         </div>
-                                    
-                                    
-                                    
-                                    
+
+
+
+
                                     </div>
                                     </div>
-                                    
+
                                             </ng-template>
 
-                                    
+
                                 </li>
 
                                 <li [ngbNavItem]="'tab-2'">
@@ -149,15 +149,14 @@
                                         </div>
 
                                         <div *ngIf="!noOrders">
-                                            <label>
+
+
                                             <div class="wrapper">
                                                 <div class="title">
                                                 </div>
                                                 <div class="flip3D">
                                                   <div class="back" id="back" *ngIf="isShown">
-                                                    <p>back</p>
-                                                    <div class="click" ></div>
-                                                    <button (click)="moreDetails()">Click here for more details</button>
+                                                    <p (click)="toggleView()" style="cursor: pointer" >back</p>
                                                 </div>
                                                   <div class="front" id="front" *ngIf="!isShown">
                                                     <ul  *ngFor="let order of orders">
@@ -169,7 +168,7 @@
                                                             {{order.id}}
                                                           </div>
                                                         </div>
-                                                        
+
                                                         <div class="row">
                                                             <div class="col-lg-6 col-md-6 col-sm-6">
                                                             <p><strong>Created: </strong></p>
@@ -179,8 +178,8 @@
                                                             <p style="color: red;">{{order.date}}</p>
                                                           </div>
                                                         </div>
-                                                        
-                                                        
+
+
                                                         <div class="row">
                                                             <div class="col-lg-6 col-md-6 col-sm-6">
 
@@ -191,7 +190,7 @@
                                                             <p>${{order.total_price}}</p>
                                                           </div>
                                                         </div>
-                                          
+
                                                         <div class="row">
                                                             <div class="col-lg-6 col-md-6 col-sm-6">
 
@@ -203,18 +202,16 @@
                                                           </div>
                                                         </div>
 
-                                                        <div class="click" ></div>
-                                                        <button (click)="moreDetails()">Click here for more details</button>
-                                                    
                                                       </ul>
+
+                                                    <button (click)="toggleView()">Click here for more details</button>
+
                                                   </div>
                                                 </div>
+
                                             </div>
-                                        </label>
                                         </div>
 
-                                  
-                                        
                                     </ng-template>
                                 </li>
                             </ul>
