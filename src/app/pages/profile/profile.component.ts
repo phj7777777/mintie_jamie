@@ -152,10 +152,7 @@ export class ProfileComponent implements OnInit {
   isShown: boolean = false
 
   toggleView() {
-
     this.isShown = !this.isShown
-    console.log(this.isShown)
-
   }
 
 
