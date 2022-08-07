@@ -33,11 +33,11 @@
                         <ul class="nav nav-dashboard flex-column mb-3 mb-md-0" role="tablist" tabClick>
                             <li class="nav-item">
                                 <a class="nav-link" href="javascript:;" role="tab"
-                                    (click)="nav.select('tab-1')">Dashboard</a>
+                                    (click)="nav.select('tab-1'); viewTab( $event, 1,0 );">Dashboard</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="javascript:;" role="tab"
-                                    (click)="nav.select('tab-2')">Orders</a>
+                                    (click)="nav.select('tab-2'); viewTab( $event, 0, 1 );">Orders</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" (click)="logout()">Sign Out</a>
@@ -64,12 +64,12 @@
                                                 (click)="nav.select('tab-2'); viewTab( $event, 0, 4 );"
                                                 class="tab-trigger-link">edit your password and account details</a>.</p>
                                      -->
-                                    
+
                                 <div class="modal-body">
                                     <div class="form-box">
                                         <div class="myaccount-content">
                                             <h3>Account Details</h3>
-                                    
+
                                             <div class="account-details-form">
                                                 <form [formGroup]="form" (ngSubmit)="update()">
                                                     <div class="row">
@@ -83,12 +83,12 @@
                                                         </div>
                                                         <br>
                                                         <br>
-                                    
+
                                                         <div class="col-lg-12 col-12 mb-30">
                                                             <h4>Shipping Address</h4>
                                                         </div>
                                                         <br>
-                                    
+
                                                         <div class="col-lg-12 col-12 mb-30">
                                                             <input id="address-line1" placeholder="Address Line 1" type="text" formControlName="address_line1">
                                                         </div>
@@ -114,7 +114,7 @@
                                                         </div>
                                                     </div>
                                                     <br>
-                                                        
+
                                                         <div class="form-footer example">
                                                             <div class="col-lg-6 col-md-6 col-sm-6 mb-30">
                                                             <button type="submit" class="btn btn-outline-primary-2">
@@ -122,22 +122,22 @@
                                                             <i class="icon-long-arrow-right"></i>
                                                             </button>
                                                             </div>
-                                                            <br> 
-                                                            <br> 
+                                                            <br>
+                                                            <br>
                                                         </div>
                                                 </form>
                                             </div>
                                         </div>
-                                    
-                                    
-                                    
-                                    
+
+
+
+
                                     </div>
                                     </div>
-                                    
+
                                             </ng-template>
 
-                                    
+
                                 </li>
 
                                 <li [ngbNavItem]="'tab-2'">
