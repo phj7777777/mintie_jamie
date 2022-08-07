@@ -55,6 +55,7 @@ var config = {
   messagingSenderId: environment['messagingSenderId'],
   appId: environment['appId'],
   measurementId: environment['measurementId'],
+  
 }
 
 @NgModule({
