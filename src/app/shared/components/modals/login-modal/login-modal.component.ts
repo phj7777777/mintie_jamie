@@ -33,10 +33,10 @@ export class LoginModalComponent implements OnInit {
       Validators.required,
       Validators.minLength(6),
     ] ),
-    first_name: new FormControl("", [
+    firstName: new FormControl("", [
       Validators.required,
     ]),
-    last_name: new FormControl("", []),
+    lastName: new FormControl("", []),
   });
 
   form2= new FormGroup({
