@@ -45,6 +45,17 @@ import { LayoutComponent } from './shared/layout/layout.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { ProfileModule } from './pages/profile/profile.module';
 import {AdminModule} from "./pages/admin/admin.module";
+import { environment } from 'src/environments/environment.prod';
+
+var config = {
+  apiKey: environment['apiKey'],
+  authDomain: environment['authDomain'],
+  projectId: environment['projectId'],
+  storageBucket: environment['storageBucket'],
+  messagingSenderId: environment['messagingSenderId'],
+  appId: environment['appId'],
+  measurementId: environment['measurementId'],
+}
 
 @NgModule({
   declarations: [
@@ -55,15 +66,17 @@ import {AdminModule} from "./pages/admin/admin.module";
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AngularFireModule.initializeApp( {
-      apiKey: "AIzaSyCDjvfxZwbOMjMv2dysbQEsm-Z2VYVfjH8",
-      authDomain: "mintiejamie-f0fe3.firebaseapp.com",
-      projectId: "mintiejamie-f0fe3",
-      storageBucket: "mintiejamie-f0fe3.appspot.com",
-      messagingSenderId: "108262154428",
-      appId: "1:108262154428:web:fa94295565045550d730b9",
-      measurementId: "G-RJBSR946WW"
-    }),
+    // AngularFireModule.initializeApp( {
+    //   apiKey: "AIzaSyCDjvfxZwbOMjMv2dysbQEsm-Z2VYVfjH8",
+    //   authDomain: "mintiejamie-f0fe3.firebaseapp.com",
+    //   projectId: "mintiejamie-f0fe3",
+    //   storageBucket: "mintiejamie-f0fe3.appspot.com",
+    //   messagingSenderId: "108262154428",
+    //   appId: "1:108262154428:web:fa94295565045550d730b9",
+    //   measurementId: "G-RJBSR946WW"
+    // }),
+
+    AngularFireModule.initializeApp(config),
     AppRoutingModule,
     AuthRoutingModule,
     AdminRoutingModule,
