@@ -3,6 +3,7 @@ import {AngularFireAuth} from '@angular/fire/compat/auth';
 import {AngularFirestore} from '@angular/fire/compat/firestore';
 import Swal from 'sweetalert2';
 import {first} from 'rxjs/operators';
+import {CartService} from '../shared/services/cart.service';
 
 
 @Injectable({
@@ -12,7 +13,7 @@ import {first} from 'rxjs/operators';
 export class FirebaseService {
   userData: any = {};
 
-  constructor(public firebaseAuth: AngularFireAuth, private firestore: AngularFirestore) {
+  constructor(public firebaseAuth: AngularFireAuth, private firestore: AngularFirestore,  private cartService: CartService) {
     this.firebaseAuth.authState.subscribe(async (user) => {
       if (user) {
         const uid = user.uid;
@@ -68,6 +69,7 @@ export class FirebaseService {
 
   async handleLogout() {
     await this.firebaseAuth.signOut()
+    await this.cartService.clearStore()
   }
 
   async resetPassword(email) {

@@ -8,7 +8,7 @@ import { Store, select } from '@ngrx/store';
 import { Product } from 'src/app/shared/classes/product';
 import { CartItem } from 'src/app/shared/classes/cart-item';
 import { cartItemsSelector } from 'src/app/core/selectors/selectors';
-import { AddToCartAction, RemoveFromCartAction, UpdateCartAction } from 'src/app/core/actions/actions';
+import {AddToCartAction, RefreshStoreAction, RemoveFromCartAction, UpdateCartAction} from 'src/app/core/actions/actions';
 
 @Injectable({
 	providedIn: 'root'
@@ -61,6 +61,11 @@ export class CartService {
 		this.store.dispatch(new UpdateCartAction({ cartItems }));
 		this.toastrService.success('Cart Updated.');
 	}
+
+  clearStore() {
+    this.store.dispatch(new RefreshStoreAction());
+    this.toastrService.success('You been logged out.');
+  }
 
 	// Check whether product is in Cart or not
 	isInCart(product: Product): boolean {
