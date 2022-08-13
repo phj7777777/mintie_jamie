@@ -10,12 +10,13 @@ import {first} from 'rxjs/operators';
 })
 
 export class FirebaseService {
-  userData: any;
+  userData: any = {};
 
   constructor(public firebaseAuth: AngularFireAuth, private firestore: AngularFirestore) {
     this.firebaseAuth.authState.subscribe(async (user) => {
       if (user) {
         const uid = user.uid;
+
         this.userData = await this.getData('users', uid);
         this.userData.uid = uid
 
@@ -100,13 +101,7 @@ export class FirebaseService {
 
   addData(docId, value: any) {
 
-    // TODO: Make this function more dynamic,
-    // TODO: add one more parameter "collection" instead hardcode "users",
-
     this.firestore.collection('users').doc(docId).set(value)
-      .then(() => {
-        alert('Data Sent');
-      })
       .catch((err) => {
         alert(err.message);
       });
