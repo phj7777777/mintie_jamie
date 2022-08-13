@@ -45,7 +45,7 @@ export class IndexComponent implements OnInit {
 	@ViewChild('isotope') isotope: any;
 
 	constructor(public apiService: ApiService, public utilsService: UtilsService, private modalService: ModalService, public activeRoute: ActivatedRoute, public router: Router) {
-		this.modalService.openNewsletter();
+		// this.modalService.openNewsletter();
 
 		activeRoute.queryParams.subscribe(params => {
 			this.loaded = false;
