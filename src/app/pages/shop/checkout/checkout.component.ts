@@ -24,9 +24,6 @@ export class CheckoutComponent implements OnInit, OnDestroy {
 		address_line1: new FormControl('', [
 			Validators.required,
 		]),
-		address_apartment: new FormControl('', [
-			Validators.required,
-		]),
 		country: new FormControl('', [
 			Validators.required,
 		]),
@@ -48,6 +45,49 @@ export class CheckoutComponent implements OnInit, OnDestroy {
 		]),
 	  });
 
+	get first_name() {
+	return this.form.get("first_name")
+	};
+	get last_name() {
+		return this.form.get("last_name");
+	};
+	get address_line1() {
+		return this.form.get("address_line1");
+	};
+	get address_apartment() {
+		return this.form.get("address_apartment");
+	};
+	get country() {
+		return this.form.get("country");
+	};
+	get state() {
+		return this.form.get("state");
+	};
+	get city() {
+		return this.form.get("city");
+	};
+	get zip_code() {
+		return this.form.get("zip_code");
+	};
+	get phone() {
+		return this.form.get("phone");
+	};
+	get email() {
+		return this.form.get("email");
+	};
+
+	  validateAllFormFields(formGroup: FormGroup) {
+		Object.keys(formGroup.controls).forEach(field => {
+		  const control = formGroup.get(field);
+		  if (control instanceof FormControl) {
+			control.markAsTouched({ onlySelf: true });
+		  } else if (control instanceof FormGroup) {
+			this.validateAllFormFields(control);
+		  }
+		});
+	  }
+
+
 	form2 = new FormGroup(
 		{
 			coupon: new FormControl('', []),
@@ -58,6 +98,12 @@ export class CheckoutComponent implements OnInit, OnDestroy {
 	}
 
 	checkout() {
+		if (this.form.valid) {
+			console.log("Checkout successful")
+		}
+		else {
+			this.validateAllFormFields(this.form);
+		}
 
 	}
 	cartItems = [];

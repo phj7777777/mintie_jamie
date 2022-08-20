@@ -46,6 +46,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { ProfileModule } from './pages/profile/profile.module';
 import {AdminModule} from "./pages/admin/admin.module";
 import { environment } from 'src/environments/environment.prod';
+import { ContactService } from './contact.service';
 
 var config = {
   apiKey: environment['apiKey'],
@@ -106,7 +107,7 @@ var config = {
     CommonModule,
   ],
 
-  providers: [FirebaseService],
+  providers: [FirebaseService,ContactService],
   bootstrap: [AppComponent]
 })
 

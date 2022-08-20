@@ -11,7 +11,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProductCategoryBoxedPageComponent } from './product-category-boxed/product-category-boxed.component';
 import { ProductCategoryFluidPageComponent } from './product-category-fluid/product-category-fluid.component';
 import {TrackingComponent} from './tracking/tracking.component';
-
+import { ProfileComponent } from '../profile/profile.component';
 const routes: Routes = [
 	{
 		path: 'sidebar/:type',
@@ -54,7 +54,7 @@ const routes: Routes = [
 	},
 	{
 		path: 'dashboard',
-		component: DashboardComponent
+		component: ProfileComponent
 	},
 	{
 		path: 'category/boxed',

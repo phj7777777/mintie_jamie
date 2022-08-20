@@ -1,6 +1,6 @@
 <div class="main shop">
     <molla-page-header [title]="pageTitle" subtitle="Shop"></molla-page-header>
-    <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
+    <!-- <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
         <div class="container">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item">
@@ -15,19 +15,21 @@
                 </li>
             </ol>
         </div>
-    </nav>
+    </nav> -->
+    <br>
 
     <div class="page-content">
         <div class="container">
             <div class="row">
-                <div class="col-lg-9 skeleton-body sekl-shop-products" [class.loaded]="loaded">
+                <div class="col-lg-12 skeleton-body sekl-shop-products" [class.loaded]="loaded">
+
                     <div class="toolbox">
-                        <div class="toolbox-left">
+                        <!-- <div class="toolbox-left">
                             <div class="toolbox-info">
                                 Showing
                                 <span>{{ products.length }} of {{ totalCount }}</span> Products
                             </div>
-                        </div>
+                        </div> -->
 
                         <div class="toolbox-right">
                             <div class="toolbox-sort">
@@ -35,7 +37,7 @@
                                 <div class="select-custom">
                                     <select name="sortby" id="sortby" class="form-control"
                                         (change)="changeOrderBy($event)" [value]="orderBy">
-                                        <option value="default">Default</option>
+                                        <option value="default">ABC</option>
                                         <option value="featured">Most Popular</option>
                                         <option value="rating">Most Rated</option>
                                         <option value="new">Date</option>
@@ -100,7 +102,7 @@
                     </molla-pagination>
                 </div>
 
-                <aside class="col-lg-3 skel-shop-sidebar order-lg-first skeleton-body" [class.loaded]="firstLoad">
+                <!-- <aside class="col-lg-3 skel-shop-sidebar order-lg-first skeleton-body" [class.loaded]="firstLoad">
                     <div *ngIf="!firstLoad else sidebarLoaded">
                         <div class="skel-widget"></div>
                         <div class="skel-widget"></div>
@@ -117,7 +119,7 @@
 
                         <div class="sidebar-filter-overlay" (click)="hideSidebar()"></div>
                     </ng-template>
-                </aside>
+                </aside> -->
             </div>
         </div>
     </div>

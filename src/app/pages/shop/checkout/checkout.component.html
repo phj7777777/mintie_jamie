@@ -17,14 +17,14 @@
     <div class="page-content">
         <div class="checkout">
             <div class="container">
-                <div class="checkout-discount">
+                <!-- <div class="checkout-discount">
                     <form [formGroup]="form2" (ngSubmit)="coupun()" id="checkout-discount-form">
                         <input type="text" class="form-control" required id="checkout-discount-input" formControlName="coupon"
                             (click)="addOpacity($event)">
                         <label for="checkout-discount-input" class="text-truncate">Have a coupon? <span>Click here to
                                 enter your code</span></label>
                     </form>
-                </div>
+                </div> -->
                 <form [formGroup]="form" (ngSubmit)="checkout()">
                     <div class="row">
                         <div class="col-lg-9">
@@ -32,20 +32,27 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <label>First Name *</label>
-                                    <input type="text" class="form-control" name="firstName" formControlName="first_name" required >
+                                    <input type="text" class="form-control" ngModel name="firstName" formControlName="first_name" id="firstName" required >
+                                    <span *ngIf="first_name && first_name.invalid && first_name.touched" style="color: red;">
+                                        Please enter first name.
+                                      </span>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <label>Last Name *</label>
                                     <input type="text" class="form-control" name="lastName" formControlName="last_name" required>
+                                    <div *ngIf="last_name && last_name.invalid && last_name.touched" style="color: red;">
+                                        Please enter last name.
+                                      </div>
                                 </div>
                             </div>
 
-                            <label>Country *</label>
-                            <input type="text" class="form-control" name="country" formControlName="country" required>
-
                             <label>Street address *</label>
                             <input type="text" class="form-control" name="street1" placeholder="Address Line 1" formControlName="address_line1" required>
+                            <div *ngIf="address_line1 && address_line1.invalid && address_line1.touched" style="color: red;">
+                                Address line 1 is required.
+                              </div>
+
                             <input type="text" class="form-control" name="street2" placeholder="Apartment, suite, etc. (Optional)" formControlName="address_apartment"
                                 required>
 
@@ -53,30 +60,56 @@
                                 <div class="col-sm-6">
                                     <label>Town / City *</label>
                                     <input type="text" name="city" class="form-control" formControlName="city" required>
+                                    <div *ngIf="city && city.invalid && city.touched" style="color: red;">
+                                        Please enter city.
+                                      </div>
                                 </div>
 
                                 <div class="col-sm-6">
-                                    <label>State / County *</label>
+                                    <label>State *</label>
                                     <input type="text" name="state" class="form-control" formControlName="state" required>
+                                    <div *ngIf="state && state.invalid && state.touched" style="color: red;">
+                                        Please enter state.
+                                      </div>
                                 </div>
                             </div>
+
+                            <label>Country *</label>
+                            <input type="text" class="form-control" name="country" formControlName="country" required>
+                            <div *ngIf="country && country.invalid && country.touched" style="color: red;">
+                                Please enter country.
+                              </div>
 
                             <div class="row">
                                 <div class="col-sm-6">
                                     <label>Postcode / ZIP *</label>
                                     <input type="text" name="postcode" class="form-control" formControlName="zip_code" required>
+                                    <div *ngIf="zip_code && zip_code.invalid && zip_code.touched" style="color: red;">
+                                        Please enter postcode.
+                                      </div>
                                 </div>
 
                                 <div class="col-sm-6">
                                     <label>Phone *</label>
                                     <input type="tel" name="tel" class="form-control" formControlName="phone" required>
+                                    <div *ngIf="phone && phone.invalid && phone.touched" style="color: red;">
+                                        Please enter phone number.
+                                      </div>
                                 </div>
                             </div>
 
-                            <label>Email address *</label>
-                            <input type="email" name="email" class="form-control" formControlName="email" required>
+                            <div class="row">
+                                <div class="col-sm-12">
 
-                            <div class="custom-control custom-checkbox">
+                                <label>Email address *</label>
+                                <input type="email" name="email" class="form-control" formControlName="email" required>
+                                    <div *ngIf="email && email.invalid && email.touched" style="color: red;">
+                                Please enter email.
+                                </div>
+                              </div>
+                            </div>
+
+                            <!-- <div class="custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" id="checkout-create-acc">
                                 <label class="custom-control-label" for="checkout-create-acc">Create an account?</label>
                             </div>
@@ -157,7 +190,7 @@
                                         <input type="text" class="form-control" />
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
 
                             <label>Order notes (optional)</label>
                             <textarea class="form-control" cols="30" rows="4"
@@ -296,7 +329,7 @@
                                     </div>
                                 </molla-accordion>
 
-                                <button type="submit" class="btn btn-outline-primary-2 btn-order btn-block">
+                                <button type="submit" class="btn btn-outline-primary-2 btn-order btn-block" [disabled]="form.invalid">
                                     <span class="btn-text">Place Order</span>
                                     <span class="btn-hover-text">Proceed to Checkout</span>
                                 </button>
