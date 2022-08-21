@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
-
+import { FirebaseService } from 'src/app/services/firebase.service';
 import { CartService } from 'src/app/shared/services/cart.service';
 
 declare var $: any;
@@ -13,6 +13,8 @@ declare var $: any;
 })
 
 export class CheckoutComponent implements OnInit, OnDestroy {
+
+	userData: any;
 
 	form = new FormGroup({
 		first_name: new FormControl('', [
@@ -30,9 +32,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
 		state: new FormControl('', [
 			Validators.required,
 		]),
-		city: new FormControl('', [
-			Validators.required,
-		]),
+		address_apartment: new FormControl('', []),
 		zip_code: new FormControl('', [
 			Validators.required,
 		]),
@@ -63,9 +63,9 @@ export class CheckoutComponent implements OnInit, OnDestroy {
 	get state() {
 		return this.form.get("state");
 	};
-	get city() {
-		return this.form.get("city");
-	};
+	// get city() {
+	// 	return this.form.get("city");
+	// };
 	get zip_code() {
 		return this.form.get("zip_code");
 	};
@@ -110,10 +110,25 @@ export class CheckoutComponent implements OnInit, OnDestroy {
 
 	private subscr: Subscription;
 
-	constructor(public cartService: CartService) {
+	constructor(public cartService: CartService, public firebaseService: FirebaseService) {
 	}
 
 	ngOnInit(): void {
+
+		this.userData = this.firebaseService.userData;
+		this.form.setValue({
+		  first_name: this.firebaseService.userData.first_name ?? '',
+		  last_name: this.firebaseService.userData.last_name ?? '',
+		  address_line1: this.firebaseService.userData.address_line1 ?? '',
+		  country: this.firebaseService.userData.country ?? '',
+		  state: this.firebaseService.userData.state ?? '',
+		  zip_code: this.firebaseService.userData.zip_code ?? '',
+		//   city: this.firebaseService.userData.city ?? '',
+			email: this.firebaseService.userData.email ?? '',
+			phone: this.firebaseService.userData.phone ?? '',
+			address_apartment: this.firebaseService.userData.address_apartment ?? '',
+		});
+
 		this.subscr = this.cartService.cartStream.subscribe(items => {
 			this.cartItems = items;
 		});

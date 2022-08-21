@@ -32,7 +32,7 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <label>First Name *</label>
-                                    <input type="text" class="form-control" ngModel name="firstName" formControlName="first_name" id="firstName" required >
+                                    <input type="text" class="form-control" name="firstName" formControlName="first_name" id="firstName" required >
                                     <span *ngIf="first_name && first_name.invalid && first_name.touched" style="color: red;">
                                         Please enter first name.
                                       </span>
@@ -53,17 +53,17 @@
                                 Address line 1 is required.
                               </div>
 
-                            <input type="text" class="form-control" name="street2" placeholder="Apartment, suite, etc. (Optional)" formControlName="address_apartment"
+                            <input type="text" class="form-control" name="address_apartment" placeholder="Apartment, suite, etc. (Optional)" formControlName="address_apartment"
                                 required>
 
                             <div class="row">
-                                <div class="col-sm-6">
+                                <!-- <div class="col-sm-6">
                                     <label>Town / City *</label>
                                     <input type="text" name="city" class="form-control" formControlName="city" required>
                                     <div *ngIf="city && city.invalid && city.touched" style="color: red;">
                                         Please enter city.
                                       </div>
-                                </div>
+                                </div> -->
 
                                 <div class="col-sm-6">
                                     <label>State *</label>
