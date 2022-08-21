@@ -12,6 +12,7 @@ import {FormGroup, FormControl, Validators} from '@angular/forms';
 export class ProfileComponent implements OnInit {
 
   userData: any;
+  isUpdate = false;
 
   form = new FormGroup({
     first_name: new FormControl('', []),
@@ -49,8 +50,8 @@ export class ProfileComponent implements OnInit {
 	}
 
 
-  async update() {
-    if (this.userData) {
+  async update(submit = false) {
+
       const uid = this.userData.uid;
 
       // Initial form variable
@@ -96,10 +97,10 @@ export class ProfileComponent implements OnInit {
         tempUserData['zip_code'] = zipCode;
       }
 
-      const update = firstNameChange || lastNameChange || addressLine1Change || addressApartmentChange || countryChange || stateChange || zipCodeChange;
+      this.isUpdate = firstNameChange || lastNameChange || addressLine1Change || addressApartmentChange || countryChange || stateChange || zipCodeChange;
 
       // Pass in data field into tempUserData if form updated
-      if (update) {
+      if (this.isUpdate && submit) {
         this.firebaseService.updateData('users', uid,
           tempUserData
         );
@@ -110,7 +111,9 @@ export class ProfileComponent implements OnInit {
 
       }
 
-    }
+      console.log(this.isUpdate)
+
+
   }
 
   async logout() {

@@ -82,6 +82,10 @@ export class LoginModalComponent implements OnInit {
     if (this.form.valid) {
       const userInfo = await this.firebaseService.handleRegister(this.form.get('email').value, this.form.get('password').value)
       if (userInfo != null) {
+        await this.firebaseService.addData(userInfo.uid, {
+          email: this.form.get('email').value,
+          first_name: this.form.get('firstName').value,
+          last_name: this.form.get('lastName').value })
         await Swal.fire({
           icon: 'success',
           title: 'Register Successfully!',
@@ -90,11 +94,6 @@ export class LoginModalComponent implements OnInit {
           timer: 3000
         });
         await this.router.navigate(['/auth/home'])
-        await this.firebaseService.addData(userInfo.uid, {
-          email: this.form.get('email').value,
-          password: this.form.get('password').value,
-          first_name: this.form.get('firstName').value,
-          last_name: this.form.get('lastName').value })
       }
       else {
         this.validateAllFormFields(this.form);
