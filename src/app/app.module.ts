@@ -45,6 +45,9 @@ import { LayoutComponent } from './shared/layout/layout.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { ProfileModule } from './pages/profile/profile.module';
 import {AdminModule} from "./pages/admin/admin.module";
+import { NgxStripeModule } from 'ngx-stripe';
+import {environment} from '../environments/environment';
+
 
 @NgModule({
   declarations: [
@@ -53,6 +56,7 @@ import {AdminModule} from "./pages/admin/admin.module";
   ],
   imports: [
     BrowserModule,
+    NgxStripeModule.forRoot(environment.STRIPE_PUBLIC_KEY),
     FormsModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp( {

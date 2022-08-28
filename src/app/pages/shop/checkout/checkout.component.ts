@@ -3,8 +3,13 @@ import { Subscription } from 'rxjs';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
 
 import { CartService } from 'src/app/shared/services/cart.service';
+import {switchMap} from 'rxjs/operators';
+import {StripeService} from 'ngx-stripe';
+import {HttpClient} from '@angular/common/http';
+import {environment} from "../../../../environments/environment";
 
 declare var $: any;
+declare var Stripe;
 
 @Component({
 	selector: 'shop-checkout-page',
@@ -54,17 +59,15 @@ export class CheckoutComponent implements OnInit, OnDestroy {
 		}
 	)
 	coupun() {
-
 	}
 
-	checkout() {
-
-	}
 	cartItems = [];
 
 	private subscr: Subscription;
 
-	constructor(public cartService: CartService) {
+	constructor(public cartService: CartService,private http: HttpClient,
+              private stripeService: StripeService) {
+
 	}
 
 	ngOnInit(): void {
@@ -112,4 +115,20 @@ export class CheckoutComponent implements OnInit, OnDestroy {
 		event.preventDefault();
 		event.stopPropagation();
 	}
+
+  checkout(): void {
+
+    const stripe = Stripe(environment.STRIPE_PUBLIC_KEY);
+
+    this.http.post('http://localhost:8080/create-checkout-session', {carts: this.cartItems})
+      .subscribe(result => {
+        stripe.redirectToCheckout({
+          sessionId: result['id'],
+        }).then(function (result) {
+          alert(result.error.message);
+        });
+      });
+  }
+
+
 }

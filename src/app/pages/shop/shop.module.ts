@@ -4,7 +4,6 @@ import { RouterModule } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OwlModule } from 'angular-owl-carousel';
 import { NouisliderModule } from 'ng2-nouislider';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 import { ShopRoutingModule } from './shop-routing.module';
@@ -25,6 +24,8 @@ import { MarketPageComponent } from './market/market.component';
 import { ShopListOneComponent } from './shared/list/shop-list-one/shop-list-one.component';
 import { ShopListTwoComponent } from './shared/list/shop-list-two/shop-list-two.component';
 import { ShopListThreeComponent } from './shared/list/shop-list-three/shop-list-three.component';
+import { FormsModule }   from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule( {
 	declarations: [
@@ -48,13 +49,14 @@ import { ShopListThreeComponent } from './shared/list/shop-list-three/shop-list-
 		CommonModule,
 		SharedModule,
 		ShopRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
 		RouterModule,
 		NgbModule,
 		OwlModule,
 		NouisliderModule,
-		FormsModule,
-		ReactiveFormsModule,
 	]
+
 } )
 
 export class ShopModule { }
