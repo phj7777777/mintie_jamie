@@ -46,7 +46,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { ProfileModule } from './pages/profile/profile.module';
 import {AdminModule} from "./pages/admin/admin.module";
 import { NgxStripeModule } from 'ngx-stripe';
-import { environment } from 'src/environments/environment.prod';
+import { environment } from 'src/environments/environment';
 import { ContactService } from './contact.service';
 
 var config = {
