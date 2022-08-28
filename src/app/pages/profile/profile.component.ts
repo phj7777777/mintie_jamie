@@ -25,6 +25,7 @@ export class ProfileComponent implements OnInit {
   });
 
   constructor(private router: Router, public firebaseService: FirebaseService,private el: ElementRef, private renderer: Renderer2) {
+
   }
 
   ngOnInit(): void {
@@ -39,6 +40,9 @@ export class ProfileComponent implements OnInit {
       state: this.firebaseService.userData.state ?? '',
       zip_code: this.firebaseService.userData.zip_code ?? '',
     });
+
+    let nodes = this.el.nativeElement.querySelectorAll(".nav-dashboard .nav-link");
+    this.renderer.addClass(nodes[0], 'active');
 
   }
 

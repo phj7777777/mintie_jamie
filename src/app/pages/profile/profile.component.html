@@ -33,11 +33,11 @@
                         <ul class="nav nav-dashboard flex-column mb-3 mb-md-0" role="tablist" tabClick>
                             <li class="nav-item">
                                 <a class="nav-link" href="javascript:;" role="tab"
-                                    (click)="nav.select('tab-1')">Dashboard</a>
+                                    (click)="nav.select('tab-1'); viewTab( $event, 1,0 );">Dashboard</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="javascript:;" role="tab"
-                                    (click)="nav.select('tab-2')">Orders</a>
+                                    (click)="nav.select('tab-2'); viewTab( $event, 0, 1 );">Orders</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" (click)="logout()">Sign Out</a>

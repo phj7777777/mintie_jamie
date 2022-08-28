@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   demo: 'demo11',
-  SERVER_URL: 'http://localhost:1337'
+  SERVER_URL: 'http://localhost:1337',
+  STRIPE_PUBLIC_KEY: 'pk_test_51Khbb7LWcBaZPN5YoIm8aOIiPrs0EqCwSTqx4pw6Qh7VneAdz6mIN31AlsVu1fB1m6jaCOvvZ8uxRO5aetQgh1sK00PVQ9L461'
 };
 
 /*
