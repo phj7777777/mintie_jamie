@@ -53,6 +53,7 @@ export class LayoutComponent implements OnInit, OnDestroy {
 		});
 	}
 
+
 	ngOnInit(): void {
 	}
 

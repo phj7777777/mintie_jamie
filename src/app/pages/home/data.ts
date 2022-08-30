@@ -9,7 +9,7 @@ export const introSlider = {
 export const homeData = {
     "categories": [
         {
-            name: "Furniture",
+            name: "Testing",
             slug: "furniture",
             count: 8
         },

@@ -20,11 +20,14 @@ const routes: Routes = [
 				pathMatch: 'full',
 				component: IndexComponent,
 			},
-      {
-        path: 'auth',
-        loadChildren: () => import( './pages/auth/auth.module' ).then( m => m.AuthModule )
-      },
-
+			{
+				path: 'auth',
+				loadChildren: () => import( './pages/auth/auth.module' ).then( m => m.AuthModule )
+			},
+			{
+				path: 'admin',
+				loadChildren: () => import( './pages/admin/admin.module' ).then( m => m.AdminModule )
+			},
 			{
 				path: 'elements',
 				loadChildren: () => import( './pages/elements/elements.module' ).then( m => m.ElementsModule )
@@ -44,7 +47,11 @@ const routes: Routes = [
 			{
 				path: 'product',
 				loadChildren: () => import( './pages/product/product.module' ).then( m => m.ProductModule )
-			}
+			},
+			// {
+			// 	path: 'shared',
+			// 	loadChildren: () => import( './shared/shared.module' ).then( m => m.SharedModule )
+			// },
 		]
 	},
 	{

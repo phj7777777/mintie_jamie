@@ -6,7 +6,10 @@ import { ToastrModule } from 'ngx-toastr';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OwlModule } from 'angular-owl-carousel';
+import { CommonModule } from "@angular/common";
 
+import { AdminRoutingModule } from './pages/admin/admin-routing.module';
+import { TrackingComponent } from './pages/shop/tracking/tracking.component';
 // Auth
 
 import { AuthRoutingModule } from './pages/auth/auth-routing.module';
@@ -18,7 +21,6 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { initializeApp } from 'firebase/app';
 import { FirebaseService } from './services/firebase.service';
-
 
 // NGRX
 import { StoreModule } from '@ngrx/store';
@@ -40,9 +42,23 @@ import { cartReducer } from './core/reducers/cart.reducer';
 
 import { AppComponent } from './app.component';
 import { LayoutComponent } from './shared/layout/layout.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { ProfileModule } from './pages/profile/profile.module';
+import {AdminModule} from "./pages/admin/admin.module";
 import { NgxStripeModule } from 'ngx-stripe';
-import {environment} from '../environments/environment';
+import { environment } from 'src/environments/environment.prod';
+import { ContactService } from './contact.service';
 
+var config = {
+  apiKey: environment['apiKey'],
+  authDomain: environment['authDomain'],
+  projectId: environment['projectId'],
+  storageBucket: environment['storageBucket'],
+  messagingSenderId: environment['messagingSenderId'],
+  appId: environment['appId'],
+  measurementId: environment['measurementId'],
+
+}
 
 @NgModule({
   declarations: [
@@ -54,17 +70,20 @@ import {environment} from '../environments/environment';
     NgxStripeModule.forRoot(environment.STRIPE_PUBLIC_KEY),
     FormsModule,
     ReactiveFormsModule,
-    AngularFireModule.initializeApp( {
-      apiKey: "AIzaSyCDjvfxZwbOMjMv2dysbQEsm-Z2VYVfjH8",
-      authDomain: "mintiejamie-f0fe3.firebaseapp.com",
-      projectId: "mintiejamie-f0fe3",
-      storageBucket: "mintiejamie-f0fe3.appspot.com",
-      messagingSenderId: "108262154428",
-      appId: "1:108262154428:web:fa94295565045550d730b9",
-      measurementId: "G-RJBSR946WW"
-    }),
+    // AngularFireModule.initializeApp( {
+    //   apiKey: "AIzaSyCDjvfxZwbOMjMv2dysbQEsm-Z2VYVfjH8",
+    //   authDomain: "mintiejamie-f0fe3.firebaseapp.com",
+    //   projectId: "mintiejamie-f0fe3",
+    //   storageBucket: "mintiejamie-f0fe3.appspot.com",
+    //   messagingSenderId: "108262154428",
+    //   appId: "1:108262154428:web:fa94295565045550d730b9",
+    //   measurementId: "G-RJBSR946WW"
+    // }),
+
+    AngularFireModule.initializeApp(config),
     AppRoutingModule,
     AuthRoutingModule,
+    AdminRoutingModule,
     NgbModule,
     HttpClientModule,
     OwlModule,
@@ -72,6 +91,7 @@ import {environment} from '../environments/environment';
     PagesModule,
     SharedModule,
     HomeModule,
+    AdminModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       timeOut: 2000,
@@ -86,9 +106,10 @@ import {environment} from '../environments/environment';
     StoreRouterConnectingModule.forRoot({ stateKey: 'router' }),
     StoreDevtoolsModule.instrument(),
     AngularFirestoreModule,
+    CommonModule,
   ],
 
-  providers: [FirebaseService],
+  providers: [FirebaseService,ContactService],
   bootstrap: [AppComponent]
 })
 

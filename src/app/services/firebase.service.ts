@@ -1,16 +1,9 @@
 import {Injectable} from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/compat/auth';
-import {
-  addDoc,
-  Firestore,
-  collection,
-  getDocs,
-  doc
-} from '@angular/fire/firestore';
-import {setDoc} from 'firebase/firestore';
-import {AngularFirestoreModule} from '@angular/fire/compat/firestore';
 import {AngularFirestore} from '@angular/fire/compat/firestore';
 import Swal from 'sweetalert2';
+import {first} from 'rxjs/operators';
+import {CartService} from '../shared/services/cart.service';
 
 
 @Injectable({
@@ -18,12 +11,16 @@ import Swal from 'sweetalert2';
 })
 
 export class FirebaseService {
-  userData: any;
+  userData: any = {};
 
-  constructor(public firebaseAuth: AngularFireAuth, private firestore: AngularFirestore) {
-    this.firebaseAuth.authState.subscribe((user) => {
+  constructor(public firebaseAuth: AngularFireAuth, private firestore: AngularFirestore,  private cartService: CartService) {
+    this.firebaseAuth.authState.subscribe(async (user) => {
       if (user) {
-        this.userData = user;
+        const uid = user.uid;
+
+        this.userData = await this.getData('users', uid);
+        this.userData.uid = uid
+
       } else {
         this.userData = null;
       }
@@ -70,8 +67,9 @@ export class FirebaseService {
 
   }
 
-  async handleLogout(){
+  async handleLogout() {
     await this.firebaseAuth.signOut()
+    await this.cartService.clearStore()
   }
 
   async resetPassword(email) {
@@ -103,16 +101,40 @@ export class FirebaseService {
 
   }
 
-  addData(value: any) {
-    this.firestore.collection('users').add(value)
-      .then(() => {
-        alert('Data Sent');
+  addData(docId, value: any) {
+
+    this.firestore.collection('users').doc(docId).set(value)
+      .catch((err) => {
+        alert(err.message);
+      });
+  }
+
+  updateData(collection: any, doc: any, value: any) {
+    this.firestore.collection(collection).doc(doc).update(value)
+      .then(async () => {
+        await Swal.fire({
+          icon: 'success',
+          title: 'Success!',
+          text: 'Successfully updated!',
+          showConfirmButton: false,
+          timer: 1500
+        });
       })
       .catch((err) => {
         alert(err.message);
       });
-    console.log('hi');
 
   }
+
+  async getData(collection: any, doc: any) {
+    let result = await this.firestore.collection(collection).doc(doc).ref.get()
+    if(result){
+      return result.data()
+    }
+
+    return null;
+
+  }
+
 
 }

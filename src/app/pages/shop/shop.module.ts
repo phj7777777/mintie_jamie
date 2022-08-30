@@ -5,6 +5,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OwlModule } from 'angular-owl-carousel';
 import { NouisliderModule } from 'ng2-nouislider';
 
+
 import { ShopRoutingModule } from './shop-routing.module';
 import { SharedModule } from '../../shared/shared.module';
 
@@ -53,8 +54,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 		RouterModule,
 		NgbModule,
 		OwlModule,
-		NouisliderModule
+		NouisliderModule,
 	]
+
 } )
 
 export class ShopModule { }

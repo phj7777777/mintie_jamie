@@ -12,6 +12,8 @@ import {ProfileComponent} from '../profile/profile.component';
 import {AuthGuard} from '../../shared/guard/auth.guard';
 import {PaymentCancelComponent} from "./payment-cancel/payment-cancel.component";
 import {PaymentSuccessComponent} from "./payment-success/payment-success.component";
+import { AdminComponent } from '../admin/admin.component';
+
 
 const routes: Routes = [
     {
@@ -24,18 +26,19 @@ const routes: Routes = [
     component: ProfileComponent,
     canActivate: [AuthGuard]
   },
-    {
-        path: 'about',
-        component: AboutOneComponent
-    },
-    {
-        path: 'about-2',
-        component: AboutTwoPageComponent
-    },
-    {
-        path: '404',
-        component: PageNotFoundComponent
-    },
+  {
+    path: 'about',
+    component: AboutOneComponent
+  },
+  {
+    path: 'about-2',
+
+    component: AboutTwoPageComponent
+  },
+  {
+    path: '404',
+    component: PageNotFoundComponent
+  },
   {
     path: 'payment-cancel',
     component: PaymentCancelComponent
@@ -43,22 +46,23 @@ const routes: Routes = [
     path: 'payment-success',
     component: PaymentSuccessComponent
   },
-    {
-        path: 'login',
-        component: LoginPageComponent
-    },
-    {
-        path: 'faq',
-        component: FaqsPageComponent
-    },
-    {
-        path: 'contact',
-        component: ContactOnePageComponent
-    },
-    {
-        path: 'contact-2',
-        component: ContactTwoPageComponent
-    }
+  {
+    path: 'login',
+    component: LoginPageComponent,
+    canActivate: [!AuthGuard]
+  },
+  {
+    path: 'faq',
+    component: FaqsPageComponent
+  },
+  {
+    path: 'contact',
+    component: ContactOnePageComponent
+  },
+  {
+    path: 'contact-2',
+    component: ContactTwoPageComponent
+  }
 ];
 
 @NgModule({
@@ -68,3 +72,5 @@ const routes: Routes = [
 
 export class PagesRoutingModule {
 };
+
+

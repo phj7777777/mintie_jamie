@@ -20,6 +20,8 @@ import { ContactTwoPageComponent } from './contact-two/contact-two.component';
 import { ComingSoonPageComponent } from './coming-soon/coming-soon.component';
 import { PaymentCancelComponent } from './payment-cancel/payment-cancel.component';
 import { PaymentSuccessComponent } from './payment-success/payment-success.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+
 
 @NgModule( {
 	declarations: [
@@ -44,7 +46,10 @@ import { PaymentSuccessComponent } from './payment-success/payment-success.compo
 		OwlModule,
 		GoogleMapsModule,
 		HttpClientModule,
-		HttpClientJsonpModule
+		HttpClientJsonpModule,
+    FormsModule,
+    ReactiveFormsModule,
+
 	]
 } )
 
