@@ -74,7 +74,7 @@
                                 </div>
                             </div>
 
-                            <label>Country *</label>
+                            <label>City *</label>
                             <input type="text" class="form-control" name="country" formControlName="country" required>
                             <div *ngIf="country && country.invalid && country.touched" style="color: red;">
                                 Please enter country.
@@ -82,10 +82,10 @@
 
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <label>Postcode / ZIP *</label>
+                                    <label>ZIP *</label>
                                     <input type="text" name="postcode" class="form-control" formControlName="zip_code" required>
                                     <div *ngIf="zip_code && zip_code.invalid && zip_code.touched" style="color: red;">
-                                        Please enter postcode.
+                                        Please enter ZIP.
                                       </div>
                                 </div>
 
@@ -312,7 +312,7 @@
                                         <div class="card-header" id="heading-5">
                                             <h2 class="card-title">
                                                 <a class="toggle-button collapsed" role="button" data-toggle="collapse"
-                                                    href="#collapse-5" aria-expanded="false" aria-controls="collapse-5">
+                                                    href="#collapse-5" aria-expanded="false" aria-controls="collapse-5" checked>
                                                     Credit Card (Stripe)
                                                 </a>
                                             </h2>
