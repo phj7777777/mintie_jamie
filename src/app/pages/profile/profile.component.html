@@ -134,17 +134,22 @@
 
                                     </div>
                                     </div>
-
                                             </ng-template>
-
-
                                 </li>
 
                                 <li [ngbNavItem]="'tab-2'">
                                     <ng-template ngbNavContent>
-                                        <p>No order has been made yet. </p>
-                                        <a routerLink="/shop/sidebar/3cols" class="btn btn-outline-primary-2"><span>GO
-                                                SHOP</span><i class="icon-long-arrow-right"></i></a>
+                                        
+                                        <!-- When loaded, load orders data from user first, if product == nil, display no order -->
+                                        <div> 
+                                            <p>No order has been made yet. </p>
+                                            <a routerLink="/shop/sidebar/3cols" class="btn btn-outline-primary-2"><span>GO
+                                                    SHOP</span><i class="icon-long-arrow-right"></i></a>
+                                            </div>
+
+                                        <!-- If products return value -->
+
+
                                     </ng-template>
                                 </li>
                             </ul>

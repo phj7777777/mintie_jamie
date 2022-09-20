@@ -44,6 +44,9 @@ export class ProfileComponent implements OnInit {
     let nodes = this.el.nativeElement.querySelectorAll(".nav-dashboard .nav-link");
     this.renderer.addClass(nodes[0], 'active');
 
+    // Check if there are any orders in userData
+    
+
   }
 
   viewTab($event: Event, prevId: number, nextId: number) {

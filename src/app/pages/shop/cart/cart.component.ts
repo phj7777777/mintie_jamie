@@ -63,6 +63,8 @@ export class CartComponent implements OnInit, OnDestroy {
 					qty: event,
 					sum: (cur.sale_price ? cur.sale_price : cur.price) * event
 				});
+				this.cartService.updateCart(this.cartItems);
+				// Only updates automatically second click onwards
 			}
 			else acc.push(cur);
 

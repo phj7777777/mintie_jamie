@@ -29,10 +29,10 @@
 
     <div class="container page-content skeleton-body skel-shop-products position-relative bg-white" [class.loaded]="loaded" style="z-index: 100;">
         <div class="toolbox toolbox-filter">
-            <div class="toolbox-left">
+            <!-- <div class="toolbox-left">
                 <a href="javascript:;" class="filter-toggler" (click)="filterToggle( $event )">Filters</a>
                 <button class="button filter-toggler mobile-mode" (click)="showSidebar()">Filters</button>
-            </div>
+            </div> 
             <div class="toolbox-right">
                 <ul class="nav-filter product-filter" role="tablist" *ngIf="!params['category'] else noFilterBlock">
                     <li class="active"><a role="tab" href="javascript:;" (click)="filterProducts($event, 'all')">All</a></li>
@@ -48,7 +48,7 @@
                         </li>
                     </ul>
                 </ng-template>
-            </div>
+            </div>-->
         </div>
     
         <button class="sidebar-fixed-toggler" *ngIf="isToggle" (click)="toggleSidebar()"><i class="icon-cog"></i></button>
@@ -201,7 +201,7 @@
             </div>
         </ng-template>
     </div>
-    <div class="load-more-container text-center mt-0 mb-7">
+    <!-- <div class="load-more-container text-center mt-0 mb-7">
         <a
             href="javascript:;"
             class="btn btn-outline-dark-3 btn-load-more"
@@ -211,5 +211,5 @@
             <span>More products</span>
             <i class="icon-refresh" [class.load-more-rotating]="loadMoreLoading"></i>
         </a>
-    </div>
+    </div> -->
 </main>
