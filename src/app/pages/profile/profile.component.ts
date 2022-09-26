@@ -45,7 +45,7 @@ export class ProfileComponent implements OnInit {
     this.renderer.addClass(nodes[0], 'active');
 
     // Check if there are any orders in userData
-    
+    // let orders = this.firebaseService.getData("users")
 
   }
 

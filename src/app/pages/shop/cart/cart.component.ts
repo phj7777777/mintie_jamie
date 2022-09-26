@@ -53,10 +53,11 @@ export class CartComponent implements OnInit, OnDestroy {
 		this.shippingCost = value;
 	}
 
-	onChangeQty(event: number, product: any) {
+	async onChangeQty(event: number, product: any) {
 		document.querySelector('.btn-cart-update.disabled') && document.querySelector('.btn-cart-update.disabled').classList.remove('disabled');
 
-		this.cartItems = this.cartItems.reduce((acc, cur) => {
+		this.cartItems = await this.cartItems.reduce(async(acc, cur) => {
+			acc = await acc 
 			if (cur.name === product.name) {
 				acc.push({
 					...cur,
