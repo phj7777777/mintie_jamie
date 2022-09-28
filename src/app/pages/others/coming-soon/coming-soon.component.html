@@ -1,3 +1,5 @@
+<div class="modal-body">
+
 <div class="soon">
     <div class="container">
         <div class="row">
@@ -16,18 +18,27 @@
                         <p>We are currently working on an awesome new site. Stay tuned for more information.</p>
                         <p>Subscribe to our newsletter to stay updated on our progress.</p>
                         <br>
+                        <div class="form-group">
                         <form [formGroup]="form" (ngSubmit)="addEmail()" >
                             <div class="input-group mb-5">
-                                <input type="email" formControlName="email" class="form-control bg-transparent"
-                                    placeholder="Enter your Email Address" required>
+                                <input type="email" formControlName="email" ngModel class="form-control bg-transparent"
+                                    placeholder="Enter your Email Address" 
+                                    id="subscribeEmail" name="subEmail" required>
+
                                 <div class="input-group-append">
                                     <button class="btn btn-outline-primary-2" type="submit">
                                         <span>SUBSCRIBE</span>
                                         <i class="icon-long-arrow-right"></i>
                                     </button>
                                 </div>
+
+                            <div *ngIf="email && email.invalid && email.touched" style="color: red;"> 
+                                    <p>Please enter a valid email.</p>
+                                </div>
                             </div>
                         </form>
+                    </div>
+                        
                         <div class="social-icons justify-content-center mb-0">
                             <a class="social-icon" href="https://www.amazon.com/mintiejamie" target="_blank"><i class="icon-amazon"></i>
                             </a>
@@ -43,4 +54,5 @@
     </div>
     <div class="soon-bg bg-image" style="background-image: url(assets/images/backgrounds/soon-bg.jpg)"></div>
 
+</div>
 </div>

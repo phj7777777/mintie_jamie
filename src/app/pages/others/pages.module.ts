@@ -19,6 +19,7 @@ import { ContactOnePageComponent } from './contact-one/contact-one.component';
 import { ContactTwoPageComponent } from './contact-two/contact-two.component';
 import { ComingSoonPageComponent } from './coming-soon/coming-soon.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 @NgModule( {
@@ -43,9 +44,9 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 		GoogleMapsModule,
 		HttpClientModule,
 		HttpClientJsonpModule,
-    FormsModule,
-    ReactiveFormsModule,
-
+		FormsModule,
+		ReactiveFormsModule,
+		BrowserModule,
 	]
 } )
 
