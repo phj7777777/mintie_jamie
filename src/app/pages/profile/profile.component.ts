@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef, Renderer2 } from '@angular/core'
 import {Router} from '@angular/router';
 import {FirebaseService} from '../../services/firebase.service';
 import {FormGroup, FormControl, Validators} from '@angular/forms';
+import {environment} from "../../../environments/environment";
 
 
 @Component({
@@ -29,7 +30,6 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     this.userData = this.firebaseService.userData;
     this.form.setValue({
       first_name: this.firebaseService.userData.first_name ?? '',
@@ -43,7 +43,7 @@ export class ProfileComponent implements OnInit {
 
     let nodes = this.el.nativeElement.querySelectorAll(".nav-dashboard .nav-link");
     this.renderer.addClass(nodes[0], 'active');
-
+    this.userData = this.firebaseService.userData;
     // Check if there are any orders in userData
     // let orders = this.firebaseService.getData("users")
 
@@ -51,6 +51,14 @@ export class ProfileComponent implements OnInit {
 
   viewTab($event: Event, prevId: number, nextId: number) {
 		$event.preventDefault();
+
+
+    if(nextId == 0 && prevId == 1 && this.userData?.uid == environment.adminUid){
+      this.router.navigateByUrl('/auth/admin', {
+        state: {uid: this.userData.uid}
+      });
+    }
+
 		let nodes = this.el.nativeElement.querySelectorAll(".nav-dashboard .nav-link");
 		this.renderer.removeClass(nodes[prevId], 'active');
 		this.renderer.addClass(nodes[nextId], 'active');

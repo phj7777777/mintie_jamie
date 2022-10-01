@@ -4,12 +4,17 @@ import { ForgetPasswordComponent } from '../auth/forget-password/forget-password
 import { IndexComponent } from '../home/index/index.component';
 import { ProfileComponent } from '../../pages/profile/profile.component'
 import { LoginModalComponent } from 'src/app/shared/components/modals/login-modal/login-modal.component';
+import {AdminComponent} from "../admin/admin.component";
 
 const routes: Routes = [
     {
       path:'forgetPassword',
       component: ForgetPasswordComponent
     },
+  {
+    path: 'admin',
+    component: AdminComponent
+  },
     {
       path:'home',
       component: IndexComponent

@@ -1,4 +1,5 @@
 export const environment = {
+  adminUid: "DOXLLLE4zyQEnndmiB2WyHjKVwB2",
   production: false,
   demo: 'demo11',
   apiKey: "AIzaSyCDjvfxZwbOMjMv2dysbQEsm-Z2VYVfjH8",

@@ -4,6 +4,8 @@ import {Router} from '@angular/router';
 import { FirebaseService } from '../../services/firebase.service';
 import {AngularFirestore} from '@angular/fire/compat/firestore';
 import Swal from 'sweetalert2';
+import {AngularFireAuth} from "@angular/fire/compat/auth";
+import {environment} from "../../../environments/environment";
 
 
 
@@ -15,16 +17,28 @@ import Swal from 'sweetalert2';
 export class AdminComponent implements OnInit {
 
   orders: any[] = [];
+  uid:any;
 
-  // console.log(this.firebaseService)
-  constructor(private router: Router, private firestore: AngularFirestore, public firebaseService: FirebaseService) {
+  constructor(public firebaseAuth: AngularFireAuth, private router: Router, private firestore: AngularFirestore, public firebaseService: FirebaseService) {
+
+    try{
+      this.uid = this.router.getCurrentNavigation().extras.state.uid;
+      if(this.uid != environment.adminUid){
+        this.router.navigate(['/pages/404']);
+      }
+    }catch (e){
+      this.router.navigate(['/pages/404']);
+    }
+
 
   }
 
   mobile = false
   public getScreenWidth: any;
 
+
   async ngOnInit(): Promise<void> {
+
 
     this.getScreenWidth = window.innerWidth;
     // console.log(this.getScreenWidth)
@@ -62,6 +76,7 @@ export class AdminComponent implements OnInit {
 
 
   async updateStatus(event, previousValue, value, id) {
+
     event.preventDefault();
     Swal.fire({
       title: 'Confirm to update order #' + id + ' status?',
