@@ -1,5 +1,6 @@
 export const environment = {
   production: true,
+  email: "evelee.lse@gmail.com",
   adminUid: "DOXLLLE4zyQEnndmiB2WyHjKVwB2",
   apiKey: "AIzaSyDaFPJaMz96kvx5hzDZm8z7RjCts8d_A8Q",
   authDomain: "mintiejamie-dev.firebaseapp.com",
