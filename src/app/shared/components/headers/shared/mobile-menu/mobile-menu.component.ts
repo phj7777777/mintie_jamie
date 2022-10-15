@@ -19,6 +19,8 @@ export class MobileMenuComponent implements OnInit, OnDestroy {
 
 	current = '/';
 
+  isLoggedIn = false
+
 	private subscr: Subscription;
 
 	// constructor(private router: Router) {
@@ -29,9 +31,12 @@ export class MobileMenuComponent implements OnInit, OnDestroy {
 	// 	});
 	// }
 	constructor(private router: Router, public firebaseService: FirebaseService) {
+
+
+
 		this.subscr = this.router.events.subscribe(event => {
 			if (event instanceof NavigationStart) {
-				this.current = event.url;
+        this.hideMobileMenu();
 			} else if (event instanceof NavigationEnd) {
 				this.current = event.url;
 			}
@@ -40,10 +45,12 @@ export class MobileMenuComponent implements OnInit, OnDestroy {
 
 
 	ngOnInit(): void {
+
 	}
 
 	ngOnDestroy(): void {
 		this.subscr.unsubscribe();
+
 	}
 
 	submenuToggle(e) {
@@ -71,8 +78,16 @@ export class MobileMenuComponent implements OnInit, OnDestroy {
 	}
 
 	submitSearchForm(e: any) {
-		e.preventDefault();
-		this.searchTerm = e.currentTarget.querySelector('.form-control').value;
-		this.router.navigate(['/shop/sidebar/list'], { queryParams: { searchTerm: this.searchTerm } });
+
+    const val = e.currentTarget.querySelector('.form-control').value;
+
+    if (val.length >= 2){
+      e.preventDefault();
+
+      this.searchTerm = e.currentTarget.querySelector('.form-control').value;
+      this.router.navigate(['/shop/sidebar/list'], { queryParams: { searchTerm: this.searchTerm } });
+    }
+    e.currentTarget.querySelector('.form-control').value = null
+
 	}
 }

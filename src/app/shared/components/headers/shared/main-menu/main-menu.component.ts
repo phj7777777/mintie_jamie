@@ -25,6 +25,7 @@ export class MainMenuComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnInit(): void {
+    console.log(this.firebaseService.userData?.uid)
 	}
 
 	ngOnDestroy(): void {

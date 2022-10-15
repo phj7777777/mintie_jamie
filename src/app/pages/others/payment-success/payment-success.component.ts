@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {CartService} from "../../../shared/services/cart.service";
 
 @Component({
   selector: 'molla-payment-success',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaymentSuccessComponent implements OnInit {
 
-  constructor() { }
+  constructor(private cartService: CartService,) { }
 
   ngOnInit(): void {
+    this.cartService.clearStore()
   }
 
 }

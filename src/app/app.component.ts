@@ -11,6 +11,7 @@ import { UtilsService } from './shared/services/utils.service';
 
 import { RefreshStoreAction } from 'src/app/core/actions/actions';
 import { environment } from 'src/environments/environment';
+import {FirebaseService} from "./services/firebase.service";
 
 declare var $: any;
 
@@ -28,11 +29,13 @@ export class AppComponent {
 		public viewPort: ViewportScroller,
 		public storeService: StoreService,
 		public utilsService: UtilsService,
+    public firebaseService: FirebaseService,
 		public modalService: NgbModal
 	) {
 		const navigationEnd = this.router.events.pipe(
 			filter(event => event instanceof NavigationEnd)
 		);
+
 
 		navigationEnd.pipe(first()).subscribe(() => {
 			document.querySelector('body')?.classList.add('loaded');
@@ -45,6 +48,7 @@ export class AppComponent {
 		});
 
 		navigationEnd.subscribe((event: any) => {
+      document.querySelector('body')?.classList.add('loaded');
 			if (!event.url.includes('/shop/sidebar') && !event.url.includes('/shop/nosidebar') && !event.url.includes('/shop/market') && !event.url.includes('/blog') && event.url !== '/' && !event.url.startsWith('/?')) {
 				this.viewPort.scrollToPosition([0, 0]);
 			}

@@ -26,11 +26,16 @@ export class ProfileComponent implements OnInit {
   });
 
   constructor(private router: Router, public firebaseService: FirebaseService,private el: ElementRef, private renderer: Renderer2) {
+    this.userData = this.firebaseService.userData;
 
+    if(this.userData?.uid == null){
+      this.router.navigate(['/auth/login']);
+    }
   }
 
   ngOnInit(): void {
-    this.userData = this.firebaseService.userData;
+
+
     this.form.setValue({
       first_name: this.firebaseService.userData.first_name ?? '',
       last_name: this.firebaseService.userData.last_name ?? '',
@@ -126,14 +131,12 @@ export class ProfileComponent implements OnInit {
 
       }
 
-      console.log(this.isUpdate)
-
-
   }
 
   async logout() {
     await this.firebaseService.handleLogout();
     await this.router.navigate(['/auth/home']);
+
   }
 
   // orders code starts here
@@ -163,11 +166,11 @@ export class ProfileComponent implements OnInit {
   //   else {
   //     front.style.visibility = "hidden";
   //     back.style.display = 'block';
-      
+
   //   }
   // }
-  
-  isShown: boolean = false 
+
+  isShown: boolean = false
 
   moreDetails() {
     console.log("Click");

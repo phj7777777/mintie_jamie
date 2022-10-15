@@ -19,9 +19,7 @@
             </a>
             <a href="javascript:;" class="btn-product-icon btn-quickview" title="Quick view"
                 (click)="quickView($event)"><span>Quick view</span></a>
-            <a href="javascript:;" class="btn-product-icon btn-compare" title="Compare"
-                (click)="addToCompare($event)"><span>Compare</span></a>
-        </div>
+               </div>
         <div class="product-action" *ngIf="product.stock && product.stock !== 0">
             <a [routerLink]="['/product/default/'+ product.slug]" class="btn-product btn-cart btn-select"
                 *ngIf="product.variants.length > 0 else cartBlock">

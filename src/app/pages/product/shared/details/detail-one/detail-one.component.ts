@@ -7,6 +7,7 @@ import { CartService } from 'src/app/shared/services/cart.service';
 import { WishlistService } from 'src/app/shared/services/wishlist.service';
 import { CompareService } from 'src/app/shared/services/compare.service';
 import { environment } from 'src/environments/environment';
+import {ToastrService} from "ngx-toastr";
 
 declare var $: any;
 
@@ -42,6 +43,7 @@ export class DetailOneComponent implements OnInit {
 		public wishlistService: WishlistService,
 		public compareService: CompareService,
 		public router: Router,
+    private toastrService: ToastrService,
 		public el: ElementRef) {
 	}
 
@@ -252,4 +254,9 @@ export class DetailOneComponent implements OnInit {
 			stickyBar.classList.add('d-none');
 		}
 	}
+
+  copy(){
+    navigator.clipboard.writeText(window.location.href);
+    this.toastrService.success('Copied!');
+  }
 }

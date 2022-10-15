@@ -113,17 +113,18 @@ export class CheckoutComponent implements OnInit, OnDestroy {
 	ngOnInit(): void {
 
 		this.userData = this.firebaseService.userData;
+
 		this.form.setValue({
-		  first_name: this.firebaseService.userData.first_name ?? '',
-		  last_name: this.firebaseService.userData.last_name ?? '',
-		  address_line1: this.firebaseService.userData.address_line1 ?? '',
-		  country: this.firebaseService.userData.country ?? '',
-		  state: this.firebaseService.userData.state ?? '',
-		  zip_code: this.firebaseService.userData.zip_code ?? '',
+		  first_name: this.firebaseService.userData?.first_name ?? '',
+		  last_name: this.firebaseService.userData?.last_name ?? '',
+		  address_line1: this.firebaseService.userData?.address_line1 ?? '',
+		  country: this.firebaseService.userData?.country ?? '',
+		  state: this.firebaseService.userData?.state ?? '',
+		  zip_code: this.firebaseService.userData?.zip_code ?? '',
 		//   city: this.firebaseService.userData.city ?? '',
-			email: this.firebaseService.userData.email ?? '',
-			phone: this.firebaseService.userData.phone ?? '',
-			address_apartment: this.firebaseService.userData.address_apartment ?? '',
+			email: this.firebaseService.userData?.email ?? '',
+			phone: this.firebaseService.userData?.phone ?? '',
+			address_apartment: this.firebaseService.userData?.address_apartment ?? '',
 		});
 
 		this.subscr = this.cartService.cartStream.subscribe(items => {
@@ -134,7 +135,12 @@ export class CheckoutComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnDestroy(): void {
-		this.subscr.unsubscribe();
+    try{
+      this.subscr.unsubscribe();
+    }catch (e) {
+
+    }
+
 		document.querySelector('body').removeEventListener("click", () => this.clearOpacity())
 	}
 
@@ -174,6 +180,8 @@ export class CheckoutComponent implements OnInit, OnDestroy {
   checkout(): void {
 
     const stripe = Stripe(environment.STRIPE_PUBLIC_KEY);
+
+    this.validateAllFormFields(this.form)
 
     this.http.post(environment.STRIPE_SERVER_URL + 'create-checkout-session', {carts: this.cartItems})
       .subscribe(result => {

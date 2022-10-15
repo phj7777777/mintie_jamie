@@ -4,6 +4,7 @@ import {AngularFirestore} from '@angular/fire/compat/firestore';
 import Swal from 'sweetalert2';
 import {first} from 'rxjs/operators';
 import {CartService} from '../shared/services/cart.service';
+import {Observable} from "rxjs";
 
 
 @Injectable({
@@ -14,6 +15,7 @@ export class FirebaseService {
   userData: any = {};
 
   constructor(public firebaseAuth: AngularFireAuth, private firestore: AngularFirestore,  private cartService: CartService) {
+    console.log("start subscribe")
     this.firebaseAuth.authState.subscribe(async (user) => {
       if (user) {
         const uid = user.uid;
@@ -32,6 +34,7 @@ export class FirebaseService {
   get isLoggedIn(): boolean {
     return this.userData != null && this.userData != undefined;
   }
+
 
   // Auth Logic starts here
   async handleRegister(email, password) {
