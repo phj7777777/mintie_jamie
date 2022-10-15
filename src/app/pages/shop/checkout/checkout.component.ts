@@ -173,6 +173,8 @@ export class CheckoutComponent implements OnInit, OnDestroy {
 
   checkout(): void {
 
+	this.validateAllFormFields(this.form)
+
     const stripe = Stripe(environment.STRIPE_PUBLIC_KEY);
 
     this.http.post(environment.STRIPE_SERVER_URL + 'create-checkout-session', {carts: this.cartItems})
@@ -183,6 +185,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
           alert(result.error.message);
         });
       });
+	
   }
 
 
