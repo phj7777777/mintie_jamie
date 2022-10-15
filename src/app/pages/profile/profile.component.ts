@@ -130,24 +130,24 @@ export class ProfileComponent implements OnInit {
     }
   ]
 
-  // moreDetails() {
-  //   console.log("Click");
-  //   var front = document.getElementById("front");
-  //   var back = document.getElementById("back");
+  moreDetails() {
+    console.log("Click");
+    var front = document.getElementById("front");
+    var back = document.getElementById("back");
 
-  //   back.style.display = 'block';
-  //   front.style.visibility = "hidden";
+    back.style.display = 'block';
+    front.style.visibility = "hidden";
 
-  //   if (back.style.display = 'block') {
-  //     back.style.display = 'hidden';
-  //     front.style.display = 'block';
-  //   }
-  //   else {
-  //     front.style.visibility = "hidden";
-  //     back.style.display = 'block';
+    if (back.style.display = 'block') {
+      back.style.display = 'hidden';
+      front.style.display = 'block';
+    }
+    else {
+      front.style.visibility = "hidden";
+      back.style.display = 'block';
 
-  //   }
-  // }
+    }
+  }
 
   isShown: boolean = false
 
