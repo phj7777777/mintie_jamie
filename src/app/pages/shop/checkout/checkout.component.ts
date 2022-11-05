@@ -7,6 +7,7 @@ import {switchMap} from 'rxjs/operators';
 import {StripeService} from 'ngx-stripe';
 import {HttpClient} from '@angular/common/http';
 import {environment} from "../../../../environments/environment";
+import {user} from "@angular/fire/auth";
 
 declare var $: any;
 declare var Stripe;
@@ -181,11 +182,15 @@ export class CheckoutComponent implements OnInit, OnDestroy {
 
 	this.validateAllFormFields(this.form)
 
+
     const stripe = Stripe(environment.STRIPE_PUBLIC_KEY);
 
     this.validateAllFormFields(this.form)
 
-    this.http.post(environment.STRIPE_SERVER_URL + 'create-checkout-session', {carts: this.cartItems})
+
+
+
+    this.http.post(environment.STRIPE_SERVER_URL + 'create-checkout-session', {carts: this.cartItems, user_info: this.getUserInfo()})
       .subscribe(result => {
         stripe.redirectToCheckout({
           sessionId: result['id'],
@@ -193,8 +198,23 @@ export class CheckoutComponent implements OnInit, OnDestroy {
           alert(result.error.message);
         });
       });
-	
+
   }
 
+
+  getUserInfo(){
+    return {
+      first_name: this.first_name,
+      last_name: this.last_name,
+      address_line1: this.address_line1,
+      country: this.country,
+      state: this.state,
+      zip_code: this.zip_code,
+      phone: this.phone,
+      email: this.email,
+      address_apartment: this.address_apartment
+    }
+
+  }
 
 }
