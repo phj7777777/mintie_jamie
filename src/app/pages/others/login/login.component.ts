@@ -15,9 +15,8 @@ export class LoginPageComponent implements OnInit {
 
 	constructor(private router: Router, public firebaseService: FirebaseService) {
     this.userData = this.firebaseService.userData;
-    console.log(this.userData)
 
-    if(this.userData?.uid != null){
+    if(this.userData?.uid != null ){
       this.router.navigate(['/auth/profile']);
     }
 

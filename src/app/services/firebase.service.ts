@@ -14,14 +14,20 @@ import {Observable} from "rxjs";
 export class FirebaseService {
   userData: any = {};
 
+
   constructor(public firebaseAuth: AngularFireAuth, private firestore: AngularFirestore,  private cartService: CartService) {
-    console.log("start subscribe")
+
+    this.userData.uid = sessionStorage.getItem('uid');
+
     this.firebaseAuth.authState.subscribe(async (user) => {
+      console.log(user)
       if (user) {
         const uid = user.uid;
-
         this.userData = await this.getData('users', uid);
         this.userData.uid = uid
+        // Save data to sessionStorage
+        sessionStorage.setItem('userData', this.userData);
+        sessionStorage.setItem('uid', uid);
 
       } else {
         this.userData = null;
@@ -32,7 +38,7 @@ export class FirebaseService {
 
   // Returns true when user is logged in and email is verified
   get isLoggedIn(): boolean {
-    return this.userData != null && this.userData != undefined;
+    return this.userData?.uid != null;
   }
 
 
@@ -134,9 +140,26 @@ export class FirebaseService {
     if(result){
       return result.data()
     }
+    return null;
+  }
+
+  async getDataByUid(collection: any, uid: any) {
+
+
+    let snapshot = await this.firestore.collection(collection).ref.where('uid', '==', 'abc').get();
+    let result = []
+
+
+    if(snapshot){
+      snapshot.forEach(doc => {
+        result.push(doc.data())
+      });
+
+      console.log(result)
+      return result;
+    }
 
     return null;
-
   }
 
 
