@@ -14,16 +14,29 @@ interface member {
 export const customSay: Testmonial[] = [
     {
         photo: "assets/images/testimonials/user-1.jpg",
-        comment: "“ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti. ”",
-        name: "Jenson Gregory",
+        comment: "“ Great quality. Sturdy and easy to put together. Used these as a “pet carrier” for a penguin adoption party. These were big enough to hold a 3.4” penguin, 2 bags of “penguin food” and a little penguin workbook along with some snowflakes for penguin bedding. Had briefly thought about using a hole punch to make some “air holes” in keeping with the pet carrier theme but since these were of thicker quality figured it would be harder then it was worth. I would definitely buy this brand again to use for a craft activity or for handing out treats. ”",
+        name: "Pammycakes",
+        type: "Customer"
+    },
+    {
+        photo: "assets/images/testimonials/user-3.jpg",
+        comment: "“ Good quality! Perfect size, using them as favor boxes for my daughter’s birthday party, theme is princess Belle so added a red rose. I like that they are sturdy and do not look cheap! ”",
+        name: "Marcelo",
         type: "Customer"
     },
     {
         photo: "assets/images/testimonials/user-2.jpg",
-        comment: "“ Impedit, ratione sequi, sunt incidunt magnam et. Delectus obcaecati optio eius error libero perferendis nesciunt atque dolores magni recusandae! Doloremque quidem error eum quis similique doloribus natus qui ut ipsum.Velit quos ipsa exercitationem, vel unde obcaecati impedit eveniet non. ”",
-        name: "Victoria Ventura",
+        comment: "“ Easy to put together! I was able to decorate with stickers and match the theme of the party! Even got a thank you card from the seller made it feel personal so thank you for that! ”",
+        name: "Emily",
+        type: "Customer"
+    },
+    {
+        photo: "assets/images/testimonials/user-4.jpg",
+        comment: "“ We used these for my wedding. My daughter was in charge of the kids table and we made a goodie box for the kids. My 11 year old could assemble them and fill with the items well. they looked so cute. We also used them for the hotel guest box. We added a body wash, bottled water, asprin, chocolates and custom soap in each one. ”",
+        name: "The Kily Guy",
         type: "Customer"
     }
+
 ]
 
 export const team: member[]  = [
