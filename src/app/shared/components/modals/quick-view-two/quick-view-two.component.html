@@ -102,7 +102,7 @@
                     </div>
 
                     <div class="variation-price" style="display: none;">
-                        <div class="product-price">
+                        <div class="product-price">``
                             ${{ selectedVariant.price ? selectedVariant.price.toFixed( 2 ) : 0 }}
                         </div>
                     </div>
@@ -135,14 +135,14 @@
                         </div>
 
                         <div class="social-icons social-icons-sm">
-                            <span class="social-label">Share:</span>
-                            <a href="javascript:;" class="social-icon" title="Facebook"><i
-                                    class="icon-facebook-f"></i></a>
-                            <a href="javascript:;" class="social-icon" title="Twitter"><i class="icon-twitter"></i></a>
-                            <a href="javascript:;" class="social-icon" title="Instagram"><i
-                                    class="icon-instagram"></i></a>
-                            <a href="javascript:;" class="social-icon" title="Pinterest"><i
-                                    class="icon-pinterest"></i></a>
+                            <span class="social-label">Copy Url:</span>
+                          <a (click)="copy()" class="social-icon" title="Copy"><i
+                                    class="icon-bookmark-o"></i></a>
+<!--                            <a href="javascript:;" class="social-icon" title="Twitter"><i class="icon-twitter"></i></a>-->
+<!--                            <a href="javascript:;" class="social-icon" title="Instagram"><i-->
+<!--                                    class="icon-instagram"></i></a>-->
+<!--                            <a href="javascript:;" class="social-icon" title="Pinterest"><i-->
+<!--                                    class="icon-pinterest"></i></a>-->
                         </div>
                     </div>
                 </div>

@@ -25,6 +25,7 @@ export class MainMenuComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnInit(): void {
+
 	}
 
 	ngOnDestroy(): void {

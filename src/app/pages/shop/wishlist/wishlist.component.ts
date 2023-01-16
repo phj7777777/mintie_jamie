@@ -4,6 +4,7 @@ import { Subscription } from 'rxjs';
 import { WishlistService } from 'src/app/shared/services/wishlist.service';
 
 import { environment } from 'src/environments/environment';
+import {ToastrService} from "ngx-toastr";
 
 @Component({
 	selector: 'shop-wishlist-page',
@@ -18,7 +19,7 @@ export class WishlistComponent implements OnInit, OnDestroy {
 
 	private subscr: Subscription;
 
-	constructor(public wishlistService: WishlistService) {
+	constructor(public wishlistService: WishlistService,    private toastrService: ToastrService,) {
 	}
 
 	ngOnInit(): void {
@@ -53,4 +54,9 @@ export class WishlistComponent implements OnInit, OnDestroy {
 	ngOnDestroy(): void {
 		this.subscr.unsubscribe();
 	}
+
+  copy(){
+    navigator.clipboard.writeText(window.location.href);
+    this.toastrService.success('Copied!');
+  }
 }

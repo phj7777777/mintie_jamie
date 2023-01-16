@@ -19,9 +19,7 @@
             </a>
             <a href="javascript:;" class="btn-product-icon btn-quickview" title="Quick view"
                 (click)="quickView($event)"><span>Quick view</span></a>
-            <a href="javascript:;" class="btn-product-icon btn-compare" title="Compare"
-                (click)="addToCompare($event)"><span>Compare</span></a>
-        </div>
+                </div>
     </figure>
 
     <div class="product-body">
@@ -71,7 +69,7 @@
                 <div class="ratings-val" [style.width]="product.ratings * 20 + '%'"></div>
                 <span class="tooltip-text">{{ product.ratings.toFixed(2) }}</span>
             </div>
-            <span class="ratings-text">( {{ product.review }} Reviews )</span>
+
         </div>
 
         <div class="product-nav product-nav-dots" *ngIf="product.variants.length > 0">

@@ -26,11 +26,16 @@ export class ProfileComponent implements OnInit {
   });
 
   constructor(private router: Router, public firebaseService: FirebaseService,private el: ElementRef, private renderer: Renderer2) {
+    this.userData = this.firebaseService.userData;
 
+    if(this.userData?.uid == null){
+      this.router.navigate(['/auth/login']);
+    }
   }
 
   ngOnInit(): void {
-    this.userData = this.firebaseService.userData;
+
+
     this.form.setValue({
       first_name: this.firebaseService.userData.first_name ?? '',
       last_name: this.firebaseService.userData.last_name ?? '',
@@ -126,14 +131,65 @@ export class ProfileComponent implements OnInit {
 
       }
 
-      console.log(this.isUpdate)
-
-
   }
 
   async logout() {
     await this.firebaseService.handleLogout();
     await this.router.navigate(['/auth/home']);
+
+  }
+
+  // orders code starts here
+  noOrders = false;
+
+  orders: any[] = [
+    {
+      "id": 1,
+      "date": "xx",
+      "total_price": 123,
+      "tracking": "A001",
+    }
+  ]
+
+  // moreDetails() {
+  //   console.log("Click");
+  //   var front = document.getElementById("front");
+  //   var back = document.getElementById("back");
+
+  //   back.style.display = 'block';
+  //   front.style.visibility = "hidden";
+
+  //   if (back.style.display = 'block') {
+  //     back.style.display = 'hidden';
+  //     front.style.display = 'block';
+  //   }
+  //   else {
+  //     front.style.visibility = "hidden";
+  //     back.style.display = 'block';
+
+  //   }
+  // }
+
+  isShown: boolean = false
+
+  moreDetails() {
+    console.log("Click");
+    // this.isShown = ! this.isShown
+    // this.isShown = true;
+
+    console.log(this.isShown)
+
+    // if (this.isShown = ! this.isShown) {
+    //   console.log(">>")
+    // }
+    if (this.isShown = true){
+      console.log("is Shown is true")
+      // this.isShown = false;
+    }
+    else {
+      console.log("is Shown is false")
+      // this.isShown = true;
+    }
   }
 
 

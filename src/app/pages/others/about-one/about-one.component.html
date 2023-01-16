@@ -122,6 +122,7 @@
 
       <h2 class="title text-center mb-4">Meet Our Team</h2>
 
+<<<<<<< HEAD
       <owl-carousel [options]="teamOption">
         <div class="member member-anim text-center" *ngFor="let member of team">
           <figure class="member-media">
@@ -151,6 +152,36 @@
                   <a href="javascript:;" class="social-icon" title="Instagram"
                     ><i class="icon-instagram"></i
                   ></a>
+=======
+            <hr class="mt-4 mb-6">
+
+            <h2 class="title text-center mb-4">Meet Our Team</h2>
+
+            <owl-carousel [options]="teamOption">
+                <div class="member member-anim text-center" *ngFor="let member of team">
+                    <figure class="member-media">
+                        <molla-image [src]="member.photo" width="376" height="500" alt="member photo"></molla-image>
+
+                        <figcaption class="member-overlay">
+                            <div class="member-overlay-content">
+                                <h3 class="member-title">{{ member.name }}<span>{{ member.title }}</span></h3>
+                                <p>Sed pretium, ligula sollicitudin viverra, tortor libero sodales leo, eget blandit
+                                    nunc.</p>
+                                <div class="social-icons social-icons-simple">
+                                    <a href="javascript:;" class="social-icon" title="Copy"><i
+                                            class="icon-bookmark-o"></i></a>
+<!--                                    <a href="javascript:;" class="social-icon" title="Twitter"><i-->
+<!--                                            class="icon-twitter"></i></a>-->
+<!--                                    <a href="javascript:;" class="social-icon" title="Instagram"><i-->
+<!--                                            class="icon-instagram"></i></a>-->
+                                </div>
+                            </div>
+                        </figcaption>
+                    </figure>
+                    <div class="member-content">
+                        <h3 class="member-title">{{ member.name }}<span>{{ member.title }}</span></h3>
+                    </div>
+>>>>>>> 26d6447b7d5228b1e90a0c2807b5aaf71cff602e
                 </div>
               </div>
             </figcaption>
@@ -191,5 +222,8 @@
         </owl-carousel>
       </div>
     </div>
+<<<<<<< HEAD
   </div>
+=======
+>>>>>>> 26d6447b7d5228b1e90a0c2807b5aaf71cff602e
 </div>

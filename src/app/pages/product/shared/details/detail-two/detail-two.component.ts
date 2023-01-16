@@ -7,6 +7,7 @@ import { CartService } from 'src/app/shared/services/cart.service';
 import { WishlistService } from 'src/app/shared/services/wishlist.service';
 import { CompareService } from 'src/app/shared/services/compare.service';
 import { environment } from 'src/environments/environment';
+import {ToastrService} from "ngx-toastr";
 
 declare var $: any;
 
@@ -40,6 +41,7 @@ export class DetailTwoComponent implements OnInit {
 		public cartService: CartService,
 		public wishlistService: WishlistService,
 		public compareService: CompareService,
+    private toastrService: ToastrService,
 		public router: Router,
 		public el: ElementRef) {
 	}
@@ -229,4 +231,9 @@ export class DetailTwoComponent implements OnInit {
 		};
 		this.refreshSelectableGroup();
 	}
+
+  copy(){
+    navigator.clipboard.writeText(window.location.href);
+    this.toastrService.success('Copied!');
+  }
 }

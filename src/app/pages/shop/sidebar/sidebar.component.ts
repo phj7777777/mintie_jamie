@@ -13,7 +13,7 @@ import { UtilsService } from 'src/app/shared/services/utils.service';
 export class SidebarPageComponent implements OnInit {
 	products = [];
 	perPage = 12;
-	type = 'list';
+	type = '3cols';
 	totalCount = 0;
 	orderBy = 'default';
 	pageTitle = 'List';
@@ -27,16 +27,16 @@ export class SidebarPageComponent implements OnInit {
 			this.type = params['type'];
 
 			if (this.type == 'list') {
-				this.pageTitle = 'List';
+				this.pageTitle = 'Enjoy shopping with Mintie Jamie~';
 			} else if (this.type == '2cols') {
-				this.pageTitle = 'Grid 2 Columns';
+				this.pageTitle = 'Enjoy shopping with Mintie Jamie~';
 			} else if (this.type == '3cols') {
-				this.pageTitle = 'Grid 3 Columns';
+				this.pageTitle = 'Enjoy shopping with Mintie Jamie~';
 			} else if (this.type == '4cols') {
-				this.pageTitle = 'Grid 4 Columns';
+				this.pageTitle = 'Enjoy shopping with Mintie Jamie~';
 			}
 		});
-		
+
 		this.activeRoute.queryParams.subscribe(params => {
 			this.loaded = false;
 

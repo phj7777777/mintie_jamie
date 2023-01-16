@@ -1,4 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import {Router} from "@angular/router";
+import {FirebaseService} from "../../../services/firebase.service";
 
 @Component({
 	selector: 'pages-login',
@@ -9,7 +11,14 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 export class LoginPageComponent implements OnInit {
 
-	constructor() {
+  userData: any;
+
+	constructor(private router: Router, public firebaseService: FirebaseService) {
+    this.userData = this.firebaseService.userData;
+
+    if(this.userData?.uid != null ){
+      this.router.navigate(['/auth/profile']);
+    }
 
 	}
 
