@@ -13,14 +13,14 @@
       <a href="javascript:;" class="sf-with-ul">More</a>
 
       <ul>
-        <li [class.active]="current.includes('/admin/tracking')">
+        <!-- <li [class.active]="current.includes('/admin/tracking')">
           <a routerLink="/shop/tracking" >Track Order</a>
-        </li>
+        </li> -->
         <li [class.active]="current.includes('pages/about')">
-          <a routerLink="/pages/about">About</a>
+          <a routerLink="/pages/about">About Us</a>
         </li>
         <li [class.active]="current.includes('pages/contact')">
-          <a routerLink="/pages/contact">Contact</a>
+          <a routerLink="/pages/contact">Contact Us</a>
         </li>
         <li [class.active]="current.includes('pages/faq')">
           <a routerLink="/pages/faq">FAQs</a>
@@ -31,12 +31,12 @@
 
 
     <!-- auth guard -->
-    <li *ngIf="!this.firebaseService.isLoggedIn"[class.active]="current.includes('login')">
+    <!-- <li *ngIf="!this.firebaseService.isLoggedIn"[class.active]="current.includes('login')">
       <a routerLink="/auth/login" class="sf-without-ul">SIGN IN | REGISTER</a>
     </li>
 
     <li *ngIf="this.firebaseService.isLoggedIn" [class.active]="current.includes('profile')">
       <a routerLink="/auth/profile" class="sf-without-ul">Dashboard</a>
-    </li>
+    </li> -->
   </ul>
 </nav>

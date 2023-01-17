@@ -32,26 +32,26 @@
             <span class="mmenu-btn" (click)="submenuToggle($event)"></span>
           </a>
           <ul>
-            <li [class.active]="current.includes('/admin/tracking')">
+            <!-- <li [class.active]="current.includes('/admin/tracking')">
               <a  (click)="hideMobileMenu()" routerLink="/shop/tracking" >Track Order</a>
+            </li> -->
+            <li>
+              <a  (click)="hideMobileMenu()" routerLink="/pages/about">About Us</a>
             </li>
             <li>
-              <a  (click)="hideMobileMenu()" routerLink="/pages/about">About</a>
-            </li>
-            <li>
-              <a  (click)="hideMobileMenu()" routerLink="/pages/contact">Contact</a>
+              <a  (click)="hideMobileMenu()" routerLink="/pages/contact">Contact Us</a>
             </li>
             <li><a routerLink="/pages/faq">FAQs</a></li>
           </ul>
         </li>
 
-        <li *ngIf="!this.firebaseService.isLoggedIn" >
+        <!-- <li *ngIf="!this.firebaseService.isLoggedIn" >
           <a (click)="hideMobileMenu()" routerLink="/auth/login">Profile</a>
         </li>
 
         <li *ngIf="this.firebaseService.isLoggedIn">
           <a (click)="hideMobileMenu()" routerLink="/auth/profile">Profile</a>
-        </li>
+        </li> -->
       </ul>
     </nav>
 

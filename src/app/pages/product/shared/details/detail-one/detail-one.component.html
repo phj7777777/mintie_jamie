@@ -84,7 +84,7 @@
 
     <div class="product-details-footer">
         <div class="product-cat w-100 text-truncate">
-            <span>Category:</span>
+            <!-- <span>Category:</span> -->
             <span *ngFor="let cat of product.category; let i =index">
                 <a [routerLink]="['/shop/sidebar/list']"
                     [queryParams]="{category: cat.slug}">{{ cat.name }}</a>{{ i < product.category.length - 1 ? ',' : '' }}</span>
