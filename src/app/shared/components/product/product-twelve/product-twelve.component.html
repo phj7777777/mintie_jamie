@@ -14,10 +14,6 @@
         </a>
 
         <div class="product-action-vertical">
-            <a href="javascript:;" class="btn-product-icon btn-wishlist btn-expandable"
-                [class.added-to-wishlist]="isInWishlist()" (click)="addToWishlist($event)">
-                <span>{{ isInWishlist() ? 'go' : 'add' }} to Wishlist</span>
-            </a>
             <a href="javascript:;" class="btn-product-icon btn-quickview" title="Quick view"
                 (click)="quickView($event)"><span>Quick view</span></a>
         </div>
