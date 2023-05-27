@@ -18,6 +18,15 @@ export class DefaultPageComponent implements OnInit {
 	next: Product;
 	related = [];
 	loaded = false;
+  isMobile: boolean;
+
+  isotopeOption = {
+    itemSelector: '.product-item',
+    layoutMode: 'fitRows',
+    masonry: {
+      columnWidth: '.grid-sizer'
+    }
+  }
 
 	constructor(
 		public apiService: ApiService,
@@ -47,5 +56,6 @@ export class DefaultPageComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-	}
+    this.isMobile = window.innerWidth < 768;
+  }
 }

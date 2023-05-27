@@ -1,0 +1,13 @@
+.like_container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.item {
+  flex-basis: 25%; /* Set the width to one-third of the container */
+  /* Additional styles for the items */
+
+  padding: 10px;
+
+}

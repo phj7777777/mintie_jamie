@@ -1,30 +1,46 @@
 <main class="main">
-    <!-- <molla-breadcrumb current="Default" [prev]="prev" [next]="next">
-    </molla-breadcrumb> -->
-<br>
-    <div class="page-content default-page">
-        <div class="container skeleton-body">
-            <div class="product-details-top">
-                <div class="row skel-pro-single" [class.loaded]="loaded">
-                    <div class="col-md-6">
-                        <div class="skel-product-gallery"></div>
-                        <product-gallery-default [product]="product" *ngIf="loaded"></product-gallery-default>
-                    </div>
+  <!-- <molla-breadcrumb current="Default" [prev]="prev" [next]="next">
+  </molla-breadcrumb> -->
+  <br>
+  <div class="page-content default-page">
+    <div class="container skeleton-body">
+      <div class="product-details-top">
+        <div class="row skel-pro-single" [class.loaded]="loaded">
+          <div class="col-md-6">
+            <div class="skel-product-gallery"></div>
+            <product-gallery-default [product]="product" *ngIf="loaded"></product-gallery-default>
+          </div>
 
-                    <div class="col-md-6">
-                        <div class="entry-summary row">
-                            <div class="col-md-12">
-                                <div class="entry-summary1 mt-2 mt-md-0"></div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="entry-summary2"></div>
-                            </div>
-                        </div>
-                        <product-detail-one [product]="product" *ngIf="loaded"></product-detail-one>
-                    </div>
-                </div>
+          <div class="col-md-6">
+            <div class="entry-summary row">
+              <div class="col-md-12">
+                <div class="entry-summary1 mt-2 mt-md-0"></div>
+              </div>
+              <div class="col-md-12">
+                <div class="entry-summary2"></div>
+              </div>
             </div>
-            <related-products-one [products]="products" [loaded]="loaded"></related-products-one>
+            <product-detail-one [product]="product" *ngIf="loaded"></product-detail-one>
+
+          </div>
         </div>
+      </div>
+
+      <related-products-one [products]="products" [loaded]="loaded"></related-products-one>
+<!--      <div *ngIf="!isMobile">-->
+<!--        <div class="like_container">-->
+<!--          <h2 class="title text-center mb-4">You May Also Like</h2>-->
+
+<!--          <div class="item" *ngFor="let product of products">-->
+<!--            <molla-product-twelve [product]="product"></molla-product-twelve>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div *ngIf="isMobile">-->
+<!--        <related-products-one [products]="related" [loaded]="loaded"></related-products-one>-->
+<!--      </div>-->
+
+
     </div>
+  </div>
 </main>

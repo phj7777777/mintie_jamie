@@ -221,7 +221,7 @@
 		position: relative;
 		& + li {
 			margin-left: 2.1rem;
-			
+
 			&:before {
 				content: '';
 				display: inline-block;
@@ -251,8 +251,8 @@
 	width: 5rem;
 	height: 5rem;
 	position: fixed;
-	right: 50px;
-	bottom: 128px;
+	right: 32px;
+	bottom: 32px;
 	z-index: 11;
 	color: #999;
 	display: none;
@@ -298,7 +298,7 @@
 		.container-fluid {
 			flex-direction: row;
 		}
-		
+
 		.social-icons {
 			margin-left: auto;
 			margin-right: 0;

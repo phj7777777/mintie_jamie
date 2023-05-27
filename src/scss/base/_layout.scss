@@ -27,8 +27,8 @@
 .container {
 	width: 1188px;
 	max-width: 100%;
-	padding-left: 10px;
-	padding-right: 10px;
+	padding-left: 18px;
+	padding-right: 18px;
 }
 
 .container-fluid {
@@ -126,16 +126,16 @@
 	}
 
 	.no-gutters {
-		
+
 		.col-xl-2-5col {
 		    -ms-flex: 0 0 calc(40% + 8px);
-			flex-basis: calc(40% + 8px); 
+			flex-basis: calc(40% + 8px);
 		    max-width: calc(40% + 8px);
 		}
 
 		.col-xl-3-5col {
 		    -ms-flex: 0 0 calc(60% - 8px);
-			flex-basis: calc(60% - 8px); 
+			flex-basis: calc(60% - 8px);
 		    max-width: calc(60% - 8px);
 		}
 	}
@@ -281,7 +281,7 @@
 		&:not(.owl-loaded).owl-carousel {
 			display: flex;
 			overflow: hidden;
-			
+
 			>* {
 				&.brand {
 					flex: 0 0 calc( 100% / #{$i} );
@@ -311,17 +311,17 @@
 			&:not(.owl-loaded).owl-carousel {
 				display: flex;
 				overflow: hidden;
-				
+
 				>* {
 					&.brand {
 						flex: 0 0 calc( 100% / #{$i} );
-						max-width: calc( 100% / #{$i} );					
+						max-width: calc( 100% / #{$i} );
 					}
-	
+
 					&:not(.brand) {
 						flex: 0 0 calc( 100% / #{$i} - 20px * ( #{$i} - 1 ) / #{$i} );
 						max-width: calc( 100% / #{$i} - 20px * ( #{$i} - 1 ) / #{$i} );
-	
+
 						&:not(:last-child) {
 							margin-right: 20px;
 						}
@@ -342,11 +342,11 @@
 			&:not(.owl-loaded).owl-carousel {
 				display: flex;
 				overflow: hidden;
-				
+
 				>* {
 					&.brand {
 						flex: 0 0 calc( 100% / #{$i} );
-						max-width: calc( 100% / #{$i} );					
+						max-width: calc( 100% / #{$i} );
 					}
 
 					&:not(.brand) {
@@ -363,7 +363,7 @@
 			&.owl-loaded.owl-carousel {
 				display: block;
 			}
-		} 
+		}
 	}
 }
 
@@ -373,11 +373,11 @@
 			&:not(.owl-loaded).owl-carousel {
 				display: flex;
 				overflow: hidden;
-				
+
 				>* {
 					&.brand {
 						flex: 0 0 calc( 100% / #{$i} );
-						max-width: calc( 100% / #{$i} );					
+						max-width: calc( 100% / #{$i} );
 					}
 
 					&:not(.brand) {
@@ -404,11 +404,11 @@
 			&:not(.owl-loaded).owl-carousel {
 				display: flex;
 				overflow: hidden;
-				
+
 				>* {
 					&.brand {
 						flex: 0 0 calc( 100% / #{$i} );
-						max-width: calc( 100% / #{$i} );					
+						max-width: calc( 100% / #{$i} );
 					}
 
 					&:not(.brand) {
@@ -435,11 +435,11 @@
 			&:not(.owl-loaded).owl-carousel {
 				display: flex;
 				overflow: hidden;
-				
+
 				>* {
 					&.brand {
 						flex: 0 0 calc( 100% / #{$i} );
-						max-width: calc( 100% / #{$i} );					
+						max-width: calc( 100% / #{$i} );
 					}
 
 					&:not(.brand) {
@@ -466,11 +466,11 @@
 			&:not(.owl-loaded).owl-carousel {
 				display: flex;
 				overflow: hidden;
-				
+
 				>* {
 					&.brand {
 						flex: 0 0 calc( 100% / #{$i} );
-						max-width: calc( 100% / #{$i} );					
+						max-width: calc( 100% / #{$i} );
 					}
 
 					&:not(.brand) {
@@ -497,11 +497,11 @@
 			&:not(.owl-loaded).owl-carousel {
 				display: flex;
 				overflow: hidden;
-				
+
 				>* {
 					&.brand {
 						flex: 0 0 calc( 100% / #{$i} );
-						max-width: calc( 100% / #{$i} );					
+						max-width: calc( 100% / #{$i} );
 					}
 
 					&:not(.brand) {

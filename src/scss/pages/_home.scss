@@ -9,6 +9,8 @@
 	width: 100%;
 }
 
+
+
 .intro-slider-container, .intro-slide .slide-image {
 	position: relative;
 	background-color: #ccc;
@@ -22,6 +24,7 @@
 
 .intro-content {
     position: absolute;
+    padding-left: 140px;
     left: 20px;
     top: 50%;
     z-index: 10;
@@ -307,7 +310,7 @@ molla-quick-view, .container.quickView-container {
 		letter-spacing: .01em;
 		padding-left: 2rem;
 		position: relative;
-		
+
 		&:before,
 		&:after {
 			left: -.5rem;
@@ -411,7 +414,7 @@ molla-quick-view, .container.quickView-container {
 	}
 }
 
-// body 
+// body
 @media (-ms-high-contrast: active), (-ms-high-contrast: none) {
 	body {
 		overflow-y: scroll !important;
@@ -443,7 +446,7 @@ molla-quick-view, .container.quickView-container {
 }
 
 @media screen and (max-width: 900px) {
-		
+
 	.fullscreen-container {
 		margin-left: -.6rem;
 		margin-right: -.6rem;
@@ -462,16 +465,16 @@ molla-quick-view, .container.quickView-container {
 		.product-gallery-item {
 			flex: auto;
 		}
-	
+
 		.product-gallery-item {
-			&:before, 
+			&:before,
 			&:after {
 				left: 0;
 				right: 0;
 			}
 		}
 	}
-	
+
 	.quickView-container {
 		&.quickView-two {
 			.product-gallery-item {
@@ -489,7 +492,7 @@ molla-quick-view, .container.quickView-container {
 			top: 0;
 			left: auto;
 		}
-	
+
 		.quickview-desc {
 			overflow-y: auto;
 			overflow-x: hidden;
@@ -498,12 +501,12 @@ molla-quick-view, .container.quickView-container {
 				width: 5px;
 				height: 20px;
 			}
-		
+
 			&::-webkit-scrollbar-thumb {
 				background: #ebebeb;
 				border-radius: 10px;
 			}
-		
+
 			&::-webkit-scrollbar-track {
 				background: #fff;
 				border-image: 10px;
@@ -512,7 +515,7 @@ molla-quick-view, .container.quickView-container {
 			}
 		}
 	}
-	
+
 	.newsletter-popup-container .lazy-load-image-background.lazy-load-image-loaded {
 		display: block !important;
 	}
@@ -524,7 +527,7 @@ molla-quick-view, .container.quickView-container {
 			width: auto;
 		}
 	}
-	
+
 	.quickView-modal .modal-content {
 		max-width: 60rem;
 		margin: 0 auto;
@@ -539,7 +542,7 @@ molla-quick-view, .container.quickView-container {
 			margin-top: 3rem;
 		}
 	}
-	
+
 	.quickView-container {
 		height: 96vh;
 	}
@@ -552,12 +555,12 @@ molla-quick-view, .container.quickView-container {
 			width: 5px;
 			height: 20px;
 		}
-	
+
 		&::-webkit-scrollbar-thumb {
 			background: #ebebeb;
 			border-radius: 10px;
 		}
-	
+
 		&::-webkit-scrollbar-track {
 			background: #fff;
 			border-image: 10px;
