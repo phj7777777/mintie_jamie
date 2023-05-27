@@ -50,8 +50,6 @@ export class GalleryDefaultComponent implements OnInit {
 	ngOnInit(): void {
 		this.paddingTop = Math.floor((parseFloat(this.product.pictures[0].height.toString()) / parseFloat(this.product.pictures[0].width.toString()) * 1000)) / 10 + '%';
 
-    console.log(this.product.pictures)
-
 	}
 
 	changeImage($event: Event, index = 0) {

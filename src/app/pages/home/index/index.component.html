@@ -32,7 +32,7 @@
             <!-- <div class="toolbox-left">
                 <a href="javascript:;" class="filter-toggler" (click)="filterToggle( $event )">Filters</a>
                 <button class="button filter-toggler mobile-mode" (click)="showSidebar()">Filters</button>
-            </div> 
+            </div>
             <div class="toolbox-right">
                 <ul class="nav-filter product-filter" role="tablist" *ngIf="!params['category'] else noFilterBlock">
                     <li class="active"><a role="tab" href="javascript:;" (click)="filterProducts($event, 'all')">All</a></li>
@@ -50,8 +50,7 @@
                 </ng-template>
             </div>-->
         </div>
-    
-        <button class="sidebar-fixed-toggler" *ngIf="isToggle" (click)="toggleSidebar()"><i class="icon-cog"></i></button>
+
 
         <div class="sidebar-filter-overlay" *ngIf="isToggle" (click)="hideSidebar()"></div>
 
@@ -83,13 +82,13 @@
                             </div>
                         </div>
                     </div>
-    
+
                     <div class="col-12 col-lg-3">
                         <div class="widget mb-0">
                             <h3 class="widget-title">
                                 Sort by:
                             </h3>
-    
+
                             <div class="filter-items">
                                 <div class="filter-item">
                                     <div class="custom-control custom-checkbox">
@@ -135,13 +134,13 @@
                             </div>
                         </div>
                     </div>
-    
+
                     <div class="col-12 col-lg-3">
                         <div class="widget mb-0">
                             <h3 class="widget-title">
                                 Colour:
                             </h3>
-    
+
                             <div class="filter-colors filter-colors-vertical">
                                 <a [routerLink]="" [queryParams]="{color: getUrlForAttrs('color', item.color_name), page: 1}"
                                     queryParamsHandling="merge" [style.background-color]="item.color"
@@ -152,13 +151,13 @@
                             </div>
                         </div>
                     </div>
-    
+
                     <div class="col-12 col-lg-3">
                         <div class="widget mb-0">
                             <h3 class="widget-title">
                                 Price:
                             </h3>
-    
+
                             <div class="filter-price">
                                 <div class="filter-price-text d-flex justify-content-between">
                                     <span>

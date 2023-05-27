@@ -262,14 +262,14 @@ export class DetailOneComponent implements OnInit {
 	}
 
 	scrollHandler() {
-		let stickyBar = this.el.nativeElement.querySelector('.sticky-bar');
-		if (stickyBar.classList.contains('d-none') && this.el.nativeElement.getBoundingClientRect().bottom < 0) {
-			stickyBar.classList.remove('d-none');
-			return;
-		}
-		if (!stickyBar.classList.contains('d-none') && this.el.nativeElement.getBoundingClientRect().bottom > 0) {
-			stickyBar.classList.add('d-none');
-		}
+		// let stickyBar = this.el.nativeElement.querySelector('.sticky-bar');
+		// if (stickyBar.classList.contains('d-none') && this.el.nativeElement.getBoundingClientRect().bottom < 0) {
+		// 	stickyBar.classList.remove('d-none');
+		// 	return;
+		// }
+		// if (!stickyBar.classList.contains('d-none') && this.el.nativeElement.getBoundingClientRect().bottom > 0) {
+		// 	stickyBar.classList.add('d-none');
+		// }
 	}
 
   copy(){
