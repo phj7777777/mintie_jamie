@@ -47,5 +47,7 @@ export class RelatedProductsOneComponent implements OnInit {
 	constructor () { }
 
 	ngOnInit (): void {
+
+
 	}
 }

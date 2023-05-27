@@ -13,6 +13,7 @@ import { ApiService } from 'src/app/shared/services/api.service';
 export class DefaultPageComponent implements OnInit {
 
 	product: Product;
+  products: Product[];
 	prev: Product;
 	next: Product;
 	related = [];
@@ -25,6 +26,7 @@ export class DefaultPageComponent implements OnInit {
 	) {
 		activeRoute.params.subscribe(params => {
 			this.loaded = false;
+
 			this.apiService.getSingleProduct(params['slug']).subscribe(result => {
 				if (result === null) {
 					this.router.navigate(['/pages/404']);
@@ -36,6 +38,11 @@ export class DefaultPageComponent implements OnInit {
 				this.related = result.relatedProducts;
 				this.loaded = true;
 			});
+
+      this.apiService.fetchElementData().subscribe(items => {
+        this.products = items;
+        this.loaded = true;
+      })
 		});
 	}
 

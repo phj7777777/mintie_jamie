@@ -9,23 +9,14 @@
     </li>
 
 
-    <li [class.active]="current.includes('/pages')">
-      <a href="javascript:;" class="sf-with-ul">More</a>
-
-      <ul>
-        <!-- <li [class.active]="current.includes('/admin/tracking')">
-          <a routerLink="/shop/tracking" >Track Order</a>
-        </li> -->
-        <li [class.active]="current.includes('pages/about')">
-          <a routerLink="/pages/about">About Us</a>
-        </li>
-        <li [class.active]="current.includes('pages/contact')">
-          <a routerLink="/pages/contact">Contact Us</a>
-        </li>
-        <li [class.active]="current.includes('pages/faq')">
-          <a routerLink="/pages/faq">FAQs</a>
-        </li>
-      </ul>
+    <li [class.active]="current.includes('pages/about')">
+      <a routerLink="/pages/about">About Us</a>
+    </li>
+    <li [class.active]="current.includes('pages/contact')">
+      <a routerLink="/pages/contact">Contact Us</a>
+    </li>
+    <li [class.active]="current.includes('pages/faq')">
+      <a routerLink="/pages/faq">FAQs</a>
     </li>
 
 

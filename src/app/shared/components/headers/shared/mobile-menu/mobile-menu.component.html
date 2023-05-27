@@ -25,25 +25,12 @@
         </li>
 
         <li>
-          <!-- <a routerLink="/pages/about"> -->
-          <!-- <a href="javascript:;"> -->
-          <a href="" (click)="submenuToggle($event)">
-            More
-            <span class="mmenu-btn" (click)="submenuToggle($event)"></span>
-          </a>
-          <ul>
-            <!-- <li [class.active]="current.includes('/admin/tracking')">
-              <a  (click)="hideMobileMenu()" routerLink="/shop/tracking" >Track Order</a>
-            </li> -->
-            <li>
-              <a  (click)="hideMobileMenu()" routerLink="/pages/about">About Us</a>
-            </li>
-            <li>
-              <a  (click)="hideMobileMenu()" routerLink="/pages/contact">Contact Us</a>
-            </li>
-            <li><a routerLink="/pages/faq">FAQs</a></li>
-          </ul>
+          <a  (click)="hideMobileMenu()" routerLink="/pages/about">About Us</a>
         </li>
+        <li>
+          <a  (click)="hideMobileMenu()" routerLink="/pages/contact">Contact Us</a>
+        </li>
+        <li><a routerLink="/pages/faq">FAQs</a></li>
 
         <!-- <li *ngIf="!this.firebaseService.isLoggedIn" >
           <a (click)="hideMobileMenu()" routerLink="/auth/login">Profile</a>

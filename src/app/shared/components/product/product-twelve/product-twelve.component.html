@@ -44,7 +44,7 @@
                 </ng-template>
             </ng-template>
         </ng-template>
-        
+
         <div class="product-nav product-nav-dots" *ngIf="product.variants.length > 0">
             <div class="row no-gutters">
                 <a href="javascript:;" [style.backgroundColor]="item.color" *ngFor="let item of product.variants">
@@ -59,7 +59,7 @@
             </a>
             <ng-template #cartBlock>
                 <button class="btn-product btn-cart" (click)="addToCart($event)">
-                    <span>add to cart</span>
+                    <span><span>Buy at Amazon</span></span>
                 </button>
             </ng-template>
         </div>

@@ -70,7 +70,7 @@
       </molla-quantity-input>
       <a href="javascript:;" class="btn-product btn-cart"
          [class.btn-disabled]="!cartService.canAddToCart( product, qty ) || ( product.variants.length > 0 && !( selectedVariant.color && selectedVariant.size != '' ) )"
-         (click)="addCart( $event )"><span>add to cart</span></a>
+         (click)="addCart( $event )"><span><span>Buy at Amazon</span></span></a>
     </div>
 
     <div class="details-action-wrapper">
