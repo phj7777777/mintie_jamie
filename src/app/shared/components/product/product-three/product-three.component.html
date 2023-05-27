@@ -29,7 +29,7 @@
             </a>
             <ng-template #cartBlock>
                 <button class="btn-product btn-cart" (click)="addToCart($event)">
-                    <span>add to cart</span>
+                    <span><span>Buy at Amazon</span></span>
                 </button>
             </ng-template>
             <a href="javascript:;" class="btn-product btn-quickview" title="Quick view"
@@ -75,7 +75,7 @@
                 <div class="ratings-val" [style.width]="product.ratings * 20 + '%'"></div>
                 <span class="tooltip-text">{{ product.ratings.toFixed(2) }}</span>
             </div>
-            <span class="ratings-text">( {{ product.review }} Reviews )</span>
+
         </div>
 
         <div class="product-nav product-nav-dots" *ngIf="product.variants.length > 0">

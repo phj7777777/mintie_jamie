@@ -74,7 +74,7 @@
                                 </div>
                             </div>
 
-                            <label>Country *</label>
+                            <label>City *</label>
                             <input type="text" class="form-control" name="country" formControlName="country" required>
                             <div *ngIf="country && country.invalid && country.touched" style="color: red;">
                                 Please enter country.
@@ -82,10 +82,10 @@
 
                             <div class="row">
                                 <div class="col-sm-6">
-                                    <label>Postcode / ZIP *</label>
+                                    <label>ZIP *</label>
                                     <input type="text" name="postcode" class="form-control" formControlName="zip_code" required>
                                     <div *ngIf="zip_code && zip_code.invalid && zip_code.touched" style="color: red;">
-                                        Please enter postcode.
+                                        Please enter ZIP.
                                       </div>
                                 </div>
 
@@ -311,21 +311,14 @@
                                     <div class="card">
                                         <div class="card-header" id="heading-5">
                                             <h2 class="card-title">
-                                                <a class="toggle-button collapsed" role="button" data-toggle="collapse"
-                                                    href="#collapse-5" aria-expanded="false" aria-controls="collapse-5">
+                                                <a class="toggle-button" role="button" data-toggle="collapse"
+                                                     aria-expanded="true" aria-controls="collapse-5">
                                                     Credit Card (Stripe)
                                                 </a>
+
                                             </h2>
                                         </div>
-                                        <div id="collapse-5" class="collapse" aria-labelledby="heading-5"
-                                            data-parent="#accordion-payment">
-                                            <div class="card-body">
-                                                <img src="assets/images/payments-summary.png" alt="payments cards">
-                                                Donec nec justo eget felis facilisis fermentum.Lorem
-                                                ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque
-                                                volutpat mattis eros. Lorem ipsum dolor sit ame.
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </molla-accordion>
 

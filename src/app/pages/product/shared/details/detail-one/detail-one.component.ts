@@ -7,6 +7,8 @@ import { CartService } from 'src/app/shared/services/cart.service';
 import { WishlistService } from 'src/app/shared/services/wishlist.service';
 import { CompareService } from 'src/app/shared/services/compare.service';
 import { environment } from 'src/environments/environment';
+import {ToastrService} from "ngx-toastr";
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 declare var $: any;
 
@@ -32,17 +34,21 @@ export class DetailOneComponent implements OnInit {
 	};
 	maxPrice = 0;
 	minPrice = 99999;
+  selectedPrice = 0;
 	qty = 1;
 	qty2 = 1;
-
+  htmlString: SafeHtml;
 	SERVER_URL = environment.SERVER_URL;
 
 	constructor(
+    private sanitizer: DomSanitizer,
 		public cartService: CartService,
 		public wishlistService: WishlistService,
 		public compareService: CompareService,
 		public router: Router,
+    private toastrService: ToastrService,
 		public el: ElementRef) {
+
 	}
 
 	ngOnInit(): void {
@@ -71,6 +77,13 @@ export class DetailOneComponent implements OnInit {
 
 		this.minPrice = min;
 		this.maxPrice = max;
+
+    if(this.product.variants.length >0){
+      this.selectedPrice = this.product.variants[0].price
+    }
+
+    const rawString = this.product.short_desc;
+    this.htmlString = this.sanitizer.bypassSecurityTrustHtml(String(rawString));
 
 		this.refreshSelectableGroup();
 	}
@@ -213,14 +226,20 @@ export class DetailOneComponent implements OnInit {
 	}
 
 	selectSize(event: Event) {
+
 		if (this.selectedVariant.size == 'null') {
 			this.selectedVariant = { ...this.selectedVariant, size: "" };
 		}
 		if ($(event.target).val() == "") {
 			this.selectedVariant = { ...this.selectedVariant, size: "" };
 		} else {
-			this.selectedVariant = { ...this.selectedVariant, size: $(event.target).val() };
-		}
+			var price =parseFloat( $(event.target).val());
+      this.selectedPrice = price;
+
+    }
+
+    console.log(this.selectedPrice)
+
 		this.refreshSelectableGroup();
 	}
 
@@ -243,13 +262,18 @@ export class DetailOneComponent implements OnInit {
 	}
 
 	scrollHandler() {
-		let stickyBar = this.el.nativeElement.querySelector('.sticky-bar');
-		if (stickyBar.classList.contains('d-none') && this.el.nativeElement.getBoundingClientRect().bottom < 0) {
-			stickyBar.classList.remove('d-none');
-			return;
-		}
-		if (!stickyBar.classList.contains('d-none') && this.el.nativeElement.getBoundingClientRect().bottom > 0) {
-			stickyBar.classList.add('d-none');
-		}
+		// let stickyBar = this.el.nativeElement.querySelector('.sticky-bar');
+		// if (stickyBar.classList.contains('d-none') && this.el.nativeElement.getBoundingClientRect().bottom < 0) {
+		// 	stickyBar.classList.remove('d-none');
+		// 	return;
+		// }
+		// if (!stickyBar.classList.contains('d-none') && this.el.nativeElement.getBoundingClientRect().bottom > 0) {
+		// 	stickyBar.classList.add('d-none');
+		// }
 	}
+
+  copy(){
+    navigator.clipboard.writeText(window.location.href);
+    this.toastrService.success('Copied!');
+  }
 }

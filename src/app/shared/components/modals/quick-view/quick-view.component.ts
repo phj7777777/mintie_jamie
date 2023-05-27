@@ -11,6 +11,7 @@ import { CompareService } from 'src/app/shared/services/compare.service';
 import { UtilsService } from 'src/app/shared/services/utils.service';
 import { WishlistService } from 'src/app/shared/services/wishlist.service';
 import { sliderOpt } from 'src/app/shared/data';
+import {ToastrService} from "ngx-toastr";
 
 declare var $: any;
 
@@ -61,6 +62,7 @@ export class QuickViewComponent implements OnInit {
 		public compareService: CompareService,
 		public utilsService: UtilsService,
 		public router: Router,
+    private toastrService: ToastrService,
 		public el: ElementRef) {
 	}
 
@@ -287,4 +289,9 @@ export class QuickViewComponent implements OnInit {
 		this.singleSlider.to(i);
 		$event.preventDefault();
 	}
+
+  copy(){
+    navigator.clipboard.writeText(window.location.href);
+    this.toastrService.success('Copied!');
+  }
 }

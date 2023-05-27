@@ -22,16 +22,12 @@ import { ContactService } from 'src/app/contact.service';
 
 export class ContactOnePageComponent implements OnInit {
 	apiLoaded: Observable<boolean>;
-  
+
 	constructor(httpClient: HttpClient, private builder: FormBuilder, private contact:
 		ContactService) {
-		this.apiLoaded = httpClient.jsonp('https://maps.googleapis.com/maps/api/js?key=AIzaSyBzlLYISGjL_ovJwAehh6ydhB56fCCpPQw', 'callback')
-		.pipe(
-			map(() => true),
-			catchError(() => of(false)),
-		);
+
 	}
-	
+
 	form = new FormGroup({
 		name: new FormControl( "", [
 			Validators.required
@@ -68,29 +64,28 @@ export class ContactOnePageComponent implements OnInit {
 	async contactUs(FormData) {
 		if (this.form.valid) {
 			this.contact.PostMessage(FormData)
-			// .subscribe( response => {
-			// 	location.href = 'https://mailthis.to/confirm'
-			// 	console.log(response)
-			// }, error => {
-			// 	console.warn(error.responseText)
-			// 	console.log( { error })
-			// })
+			.subscribe( async response => {
+        await Swal.fire({
+          icon: 'success',
+          title: 'Enquiry Sent Successfully!',
+          text: 'Thank you! We will contact you shortly :)',
+          showConfirmButton: false,
+          timer: 3000
+        });
+        this.form.reset();
+        console.log(response)
+      }, error => {
+				console.warn(error.responseText)
+				console.log( { error })
+			})
 
-			await Swal.fire({
-				icon: 'success',
-				title: 'Enquiry Sent Successfully!',
-				text: 'Thank you! We will contact you shortly :)',
-				showConfirmButton: false,
-				timer: 3000
-			  });
-			  this.form.reset();
 		}
-		
+
 		else {
 			this.validateAllFormFields(this.form);
 		}
 	}
-	
+
 	validateAllFormFields(formGroup: FormGroup) {
 		Object.keys(formGroup.controls).forEach(field => {
 		  const control = formGroup.get(field);

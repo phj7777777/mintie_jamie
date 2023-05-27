@@ -1,22 +1,22 @@
 <main class="main home-page">
     <div class="intro-slider-container mb-4">
         <owl-carousel carouselClasses="intro-slider owl-simple owl-nav-inside owl-nav-inside" [options]="introSlider">
-            <div class="intro-slide" style="background-image: url(assets/images/home/sliders/slide-4.jpg);">
+            <div class="intro-slide" style="background-image: url(assets/images/home/sliders/slide-1.jpg);">
                 <div class="container intro-content" contentAnim aniName="fadeInUpShorter">
                     <h3 class="intro-subtitle text-primary">TOP PICKS</h3>
-                    <h1 class="intro-title">Good Stuff <br>Is Here!</h1>
+                    <h1 class="intro-title">Hey there! <br></h1>
 
-                    <a routerLink="/shop/sidebar/list" class="btn btn-outline-primary-2">
+                    <a routerLink= "/shop/sidebar/3cols" class="btn btn-outline-primary-2">
                         <span>DISCOVER MORE</span>
                         <i class="icon-long-arrow-right"></i>
                     </a>
                 </div>
             </div>
 
-            <div class="intro-slide" style="background-image: url(assets/images/home/sliders/slide-2.jpg);">
+            <div class="intro-slide" style="background-image: url(assets/images/home/sliders/slide-4.jpg);">
                 <div class="container intro-content" contentAnim aniName="fadeInUpShorter">
-                    <h3 class="intro-subtitle text-primary">all at 10% off</h3>
-                    <h1 class="intro-title text-white">The Most Beautiful <br>Novelties In Our Shop</h1>
+                    <h3 class="intro-subtitle text-primary">MADE WITH LOVE</h3>
+                    <h1 class="intro-title text-black">Exclusive Motif Design <br>Only Our Shop</h1>
 
                     <a routerLink="/shop/sidebar/list" class="btn btn-outline-primary-2 min-width-sm">
                         <span>SHOP NOW</span>
@@ -29,7 +29,7 @@
 
     <div class="container page-content skeleton-body skel-shop-products position-relative bg-white" [class.loaded]="loaded" style="z-index: 100;">
         <div class="toolbox toolbox-filter">
-            <div class="toolbox-left">
+            <!-- <div class="toolbox-left">
                 <a href="javascript:;" class="filter-toggler" (click)="filterToggle( $event )">Filters</a>
                 <button class="button filter-toggler mobile-mode" (click)="showSidebar()">Filters</button>
             </div>
@@ -48,10 +48,9 @@
                         </li>
                     </ul>
                 </ng-template>
-            </div>
+            </div>-->
         </div>
-    
-        <button class="sidebar-fixed-toggler" *ngIf="isToggle" (click)="toggleSidebar()"><i class="icon-cog"></i></button>
+
 
         <div class="sidebar-filter-overlay" *ngIf="isToggle" (click)="hideSidebar()"></div>
 
@@ -83,13 +82,13 @@
                             </div>
                         </div>
                     </div>
-    
+
                     <div class="col-12 col-lg-3">
                         <div class="widget mb-0">
                             <h3 class="widget-title">
                                 Sort by:
                             </h3>
-    
+
                             <div class="filter-items">
                                 <div class="filter-item">
                                     <div class="custom-control custom-checkbox">
@@ -135,13 +134,13 @@
                             </div>
                         </div>
                     </div>
-    
+
                     <div class="col-12 col-lg-3">
                         <div class="widget mb-0">
                             <h3 class="widget-title">
                                 Colour:
                             </h3>
-    
+
                             <div class="filter-colors filter-colors-vertical">
                                 <a [routerLink]="" [queryParams]="{color: getUrlForAttrs('color', item.color_name), page: 1}"
                                     queryParamsHandling="merge" [style.background-color]="item.color"
@@ -152,13 +151,13 @@
                             </div>
                         </div>
                     </div>
-    
+
                     <div class="col-12 col-lg-3">
                         <div class="widget mb-0">
                             <h3 class="widget-title">
                                 Price:
                             </h3>
-    
+
                             <div class="filter-price">
                                 <div class="filter-price-text d-flex justify-content-between">
                                     <span>
@@ -201,7 +200,7 @@
             </div>
         </ng-template>
     </div>
-    <div class="load-more-container text-center mt-0 mb-7">
+    <!-- <div class="load-more-container text-center mt-0 mb-7">
         <a
             href="javascript:;"
             class="btn btn-outline-dark-3 btn-load-more"
@@ -211,5 +210,5 @@
             <span>More products</span>
             <i class="icon-refresh" [class.load-more-rotating]="loadMoreLoading"></i>
         </a>
-    </div>
+    </div> -->
 </main>

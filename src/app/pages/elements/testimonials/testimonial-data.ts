@@ -19,7 +19,7 @@ interface TestmonialSlider {
 const item1: Testmonial[] = [
     {
         comment: "“ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti. ”",
-        name: "Jenson Gregory",
+        name: "Jenson Gregory1",
         type: "Customer"
     },
     {
@@ -38,7 +38,7 @@ const item2: Testmonial[] = [
     {
         photo: "assets/images/testimonials/user-1.jpg",
         comment: "“  Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi tortor eu nibh. Nullam mollis.  ”",
-        name: "Jenson Gregory",
+        name: "Jenson Gregory2",
         type: "Customer"
     },
     {
@@ -58,7 +58,7 @@ const item2: Testmonial[] = [
 const item3: Testmonial[] = [
     {
         comment: "“ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus quet vel, dapibus id, mattis vel, nisi tortor eu nibh. Nullam mollis. ”",
-        name: "Jenson Gregory",
+        name: "Jenson Gregory3",
         type: "Customer"
     },
     {
@@ -81,8 +81,8 @@ const item3: Testmonial[] = [
 const item4: Testmonial[] = [
     {
         photo: "assets/images/testimonials/user-1.jpg",
-        comment: "“ Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet vel, dapibus id, mattis vel, nisi. Sed pretium, ligula sollicitudin laoreet viverra, tortor libero sodales leo, eget blandit nunc tortor eu nibh. Nullam mollis. Ut justo. Suspendisse potenti. ”",
-        name: "Jenson Gregory",
+        comment: "“ Great quality. Sturdy and easy to put together. Used these as a “pet carrier” for a penguin adoption party. These were big enough to hold a 3.4” penguin, 2 bags of “penguin food” and a little penguin workbook along with some snowflakes for penguin bedding. Had briefly thought about using a hole punch to make some “air holes” in keeping with the pet carrier theme but since these were of thicker quality figured it would be harder then it was worth. I would definitely buy this brand again to use for a craft activity or for handing out treats. ”",
+        name: "Pammycakes",
         type: "Customer"
     },
     {

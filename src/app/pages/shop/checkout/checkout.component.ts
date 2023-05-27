@@ -7,6 +7,7 @@ import {switchMap} from 'rxjs/operators';
 import {StripeService} from 'ngx-stripe';
 import {HttpClient} from '@angular/common/http';
 import {environment} from "../../../../environments/environment";
+import {user} from "@angular/fire/auth";
 
 declare var $: any;
 declare var Stripe;
@@ -113,17 +114,18 @@ export class CheckoutComponent implements OnInit, OnDestroy {
 	ngOnInit(): void {
 
 		this.userData = this.firebaseService.userData;
+
 		this.form.setValue({
-		  first_name: this.firebaseService.userData.first_name ?? '',
-		  last_name: this.firebaseService.userData.last_name ?? '',
-		  address_line1: this.firebaseService.userData.address_line1 ?? '',
-		  country: this.firebaseService.userData.country ?? '',
-		  state: this.firebaseService.userData.state ?? '',
-		  zip_code: this.firebaseService.userData.zip_code ?? '',
+		  first_name: this.firebaseService.userData?.first_name ?? '',
+		  last_name: this.firebaseService.userData?.last_name ?? '',
+		  address_line1: this.firebaseService.userData?.address_line1 ?? '',
+		  country: this.firebaseService.userData?.country ?? '',
+		  state: this.firebaseService.userData?.state ?? '',
+		  zip_code: this.firebaseService.userData?.zip_code ?? '',
 		//   city: this.firebaseService.userData.city ?? '',
-			email: this.firebaseService.userData.email ?? '',
-			phone: this.firebaseService.userData.phone ?? '',
-			address_apartment: this.firebaseService.userData.address_apartment ?? '',
+			email: this.firebaseService.userData?.email ?? '',
+			phone: this.firebaseService.userData?.phone ?? '',
+			address_apartment: this.firebaseService.userData?.address_apartment ?? '',
 		});
 
 		this.subscr = this.cartService.cartStream.subscribe(items => {
@@ -134,7 +136,12 @@ export class CheckoutComponent implements OnInit, OnDestroy {
 	}
 
 	ngOnDestroy(): void {
-		this.subscr.unsubscribe();
+    try{
+      this.subscr.unsubscribe();
+    }catch (e) {
+
+    }
+
 		document.querySelector('body').removeEventListener("click", () => this.clearOpacity())
 	}
 
@@ -173,9 +180,17 @@ export class CheckoutComponent implements OnInit, OnDestroy {
 
   checkout(): void {
 
+	this.validateAllFormFields(this.form)
+
+
     const stripe = Stripe(environment.STRIPE_PUBLIC_KEY);
 
-    this.http.post(environment.STRIPE_SERVER_URL + 'create-checkout-session', {carts: this.cartItems})
+    this.validateAllFormFields(this.form)
+
+
+
+
+    this.http.post(environment.STRIPE_SERVER_URL + 'create-checkout-session', {carts: this.cartItems, user_info: this.getUserInfo()})
       .subscribe(result => {
         stripe.redirectToCheckout({
           sessionId: result['id'],
@@ -183,7 +198,23 @@ export class CheckoutComponent implements OnInit, OnDestroy {
           alert(result.error.message);
         });
       });
+
   }
 
+
+  getUserInfo(){
+    return {
+      first_name: this.first_name,
+      last_name: this.last_name,
+      address_line1: this.address_line1,
+      country: this.country,
+      state: this.state,
+      zip_code: this.zip_code,
+      phone: this.phone,
+      email: this.email,
+      address_apartment: this.address_apartment
+    }
+
+  }
 
 }

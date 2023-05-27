@@ -23,6 +23,7 @@ export class LoginModalComponent implements OnInit {
 
   title = 'test';
   isSignedIn = false
+  userData:any;
 
   form = new FormGroup({
     email: new FormControl( "", [
@@ -74,7 +75,12 @@ export class LoginModalComponent implements OnInit {
     return this.form.get("lastName")
   };
 
-  constructor(private firebaseService: FirebaseService, private router:Router) { }
+  constructor(private firebaseService: FirebaseService, private router:Router) {
+    this.userData = this.firebaseService.userData;
+    if(this.userData?.uid != null){
+      this.router.navigate(['/auth/profile']);
+    }
+  }
 
   ngOnInit(): void {}
 

@@ -1,18 +1,4 @@
 <main class="main">
-    <!-- <nav class="breadcrumb-nav border-0 mb-0">
-        <div class="container">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item">
-                    <a routerLink="/">Home</a>
-                </li>
-                <li class="breadcrumb-item">
-                    <a href="javascript:;">Pages</a>
-                </li>
-                <li class="breadcrumb-item active">Contact Us</li>
-            </ol>
-        </div>
-    </nav> -->
-
     <div class="container">
         <div class="page-header page-header-big text-center"
             style="background-image: url('assets/images/contact-header-bg.jpg')">
@@ -23,53 +9,10 @@
     <div class="page-content pb-0">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 mb-2 mb-lg-0">
-                    <h2 class="title mb-1">Contact Information</h2>
-                    <p class="mb-3">Vestibulum volutpat, lacus a ultrices sagittis, mi neque euismod dui, eu pulvinar
-                        nunc sapien ornare nisl. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.</p>
-                    <div class="row">
-                        <div class="col-sm-7">
-                            <div class="contact-info">
-                                <h3>The Office</h3>
 
-                                <ul class="contact-list">
-                                    <li>
-                                        <i class="icon-map-marker"></i>
-                                        70 Washington Square South New York, NY 10012, United States
-                                    </li>
-                                    <li>
-                                        <i class="icon-phone"></i>
-                                        <a href="tel:#">+92 423 567</a>
-                                    </li>
-                                    <li>
-                                        <i class="icon-envelope"></i>
-                                        <a href="mailto:#">info@Molla.com</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-5">
-                            <div class="contact-info">
-                                <h3>The Office</h3>
-
-                                <ul class="contact-list">
-                                    <li>
-                                        <i class="icon-clock-o"></i>
-                                        <span class="text-dark">Monday-Saturday</span> <br>11am-7pm ET
-                                    </li>
-                                    <li>
-                                        <i class="icon-calendar"></i>
-                                        <span class="text-dark">Sunday</span> <br>11am-6pm ET
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <div class="col-lg-6">
-                    <h2 class="title mb-1">Got Any Questions?</h2>
-                    <p class="mb-2">Use the form below to get in touch with the sales team</p>
+                    <h2 class="title mb-1">Get In Touch With Us</h2>
+                    <p class="mb-2">We welcome your feedback, suggestions and enquiries. Kindly fill in the following contact form and we will be in touch with you soon. Thank you!</p>
 
                     <form [formGroup]="form" (ngSubmit)="contactUs(form.value)" class="contact-form mb-3">
                         <div class="row">
@@ -129,11 +72,62 @@
                         </button>
                     </form>
                 </div>
+                
+                <div class="col-lg-6 mb-2 mb-lg-0">
+                    <h2 class="title mb-1">Contact Information</h2>
+                    <p class="mb-3">Feel free to drop us an email directly or drop your enquiry at the side! :P</p>
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <div class="contact-info">
+                                <h3>Email</h3>
+
+                                <ul class="contact-list">
+                                    <!-- <li>
+                                        <i class="icon-map-marker"></i>
+                                        70 Washington Square South New York, NY 10012, United States
+                                    </li>
+                                    <li>
+                                        <i class="icon-phone"></i>
+                                        <a href="tel:#">+92 423 567</a>
+                                    </li> -->
+                                    <li>
+                                        <i class="icon-envelope"></i>
+                                        <a href="mailto:#">roomfor3@gmail.com</a>
+                                    </li>
+
+                                    <h3>Shop</h3>
+                                               
+                                    <li>
+                                        <i class="icon-amazon"></i>
+                                        <a href="https://www.amazon.com/mintiejamie" target="_blank">MintieJamie</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- <div class="col-sm-5">
+                            <div class="contact-info">
+                                <h3>The Office</h3>
+
+                                <ul class="contact-list">
+                                    <li>
+                                        <i class="icon-clock-o"></i>
+                                        <span class="text-dark">Monday-Saturday</span> <br>11am-7pm ET
+                                    </li>
+                                    <li>
+                                        <i class="icon-calendar"></i>
+                                        <span class="text-dark">Sunday</span> <br>11am-6pm ET
+                                    </li>
+                                </ul>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
             </div>
 
-            <hr class="mt-4 mb-5">
+            <!-- <hr class="mt-4 mb-5"> -->
 
-            <div class="stores mb-4 mb-lg-5">
+            <!-- <div class="stores mb-4 mb-lg-5">
                 <h2 class="title text-center mb-3">Our Stores</h2>
 
                 <div class="row text-center">
@@ -193,13 +187,13 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
 
-        <div id="map">
+        <!-- <div id="map">
             <div *ngIf="apiLoaded | async">
                 <google-map></google-map>
             </div>
-        </div>
+        </div> -->
     </div>
 </main>

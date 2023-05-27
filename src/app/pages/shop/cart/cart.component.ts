@@ -39,8 +39,13 @@ export class CartComponent implements OnInit, OnDestroy {
 	}
 
 	updateCart(event: any) {
-		event.preventDefault();
-		event.target.parentElement.querySelector('.icon-refresh').classList.add('load-more-rotating');
+
+    try{
+      event.preventDefault();
+      event.target.parentElement.querySelector('.icon-refresh').classList.add('load-more-rotating');
+    }catch (e){
+
+    }
 
 		setTimeout(() => {
 			this.cartService.updateCart(this.cartItems);
@@ -53,16 +58,19 @@ export class CartComponent implements OnInit, OnDestroy {
 		this.shippingCost = value;
 	}
 
-	onChangeQty(event: number, product: any) {
+	async onChangeQty(event: number, product: any) {
 		document.querySelector('.btn-cart-update.disabled') && document.querySelector('.btn-cart-update.disabled').classList.remove('disabled');
-
-		this.cartItems = this.cartItems.reduce((acc, cur) => {
+    this.updateCart(event)
+		this.cartItems = await this.cartItems.reduce(async(acc, cur) => {
+			acc = await acc
 			if (cur.name === product.name) {
 				acc.push({
 					...cur,
 					qty: event,
 					sum: (cur.sale_price ? cur.sale_price : cur.price) * event
 				});
+				this.cartService.updateCart(this.cartItems);
+				// Only updates automatically second click onwards
 			}
 			else acc.push(cur);
 

@@ -42,11 +42,16 @@ export class CartService {
 
 	// Product Add to Cart
 	addToCart(product: Product, qty = 1) {
+
+    if(product.url){
+      window.open(product.url);
+    }
+
 		if (this.canAddToCart(product, qty)) {
 			this.store.dispatch(new AddToCartAction({ product, qty }));
-			this.toastrService.success('Product added to Cart.');
+			//this.toastrService.success('Product added to Cart.');
 		} else {
-			this.toastrService.error('Sorry, you can\'t add that amount to the cart.');
+			//this.toastrService.error('Sorry, you can\'t add that amount to the cart.');
 		}
 	}
 

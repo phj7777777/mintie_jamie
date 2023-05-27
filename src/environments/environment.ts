@@ -1,4 +1,6 @@
 export const environment = {
+  adminUid: "DOXLLLE4zyQEnndmiB2WyHjKVwB2",
+  email: "evelee.lse@gmail.com",
   production: false,
   demo: 'demo11',
   apiKey: "AIzaSyCDjvfxZwbOMjMv2dysbQEsm-Z2VYVfjH8",
