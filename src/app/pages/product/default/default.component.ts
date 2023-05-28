@@ -48,10 +48,7 @@ export class DefaultPageComponent implements OnInit {
 				this.loaded = true;
 			});
 
-      this.apiService.fetchElementData().subscribe(items => {
-        this.products = items;
-        this.loaded = true;
-      })
+
 		});
 	}
 
